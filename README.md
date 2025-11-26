@@ -3,8 +3,8 @@
 
 ## Spis tresci
 
-- [Zrodla](#zrodla)
-- [Opis projektu](#opis-projektu)
+- [Linki](#Linki)
+- [Info ogolne](#Info-ogolne)
 - [Struktura bazy](#struktura-bazy)
 - [Przyklady dokumentow](#przyklady-dokumentow)
   - [Produkty](#produkty)
@@ -14,6 +14,7 @@
 ---
 
 ## To co udalo mi sie poszukac z gotowcow - nic w sumie z tego nie uzylem
+## Linki
 
 - https://github.com/Tony641/MongoDB-Ecommerce-Database?tab=readme-ov-file#
 - https://github.com/ozlerhakan/mongodb-json-files
