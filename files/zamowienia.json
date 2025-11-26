@@ -1,0 +1,18 @@
+[
+  {
+    "klientEmail": "jan.kowalski@example.com",
+    "produkty": [
+      { "produktNazwa": "Laptop Dell XPS 13", "ilosc": 1 },
+      { "produktNazwa": "Smartfon Samsung Galaxy S23", "ilosc": 2 }
+    ],
+    "status": "w realizacji",
+    "dataZamowienia": "2025-11-25T12:00:00Z",
+    "wartoscZamowienia": 13900,
+    "adresDostawy": {
+      "miasto": "Warszawa",
+      "ulica": "Marszałkowska 10",
+      "kod": "00-001"
+    },
+    "metodaPlatnosci": "karta"
+  }
+]
