@@ -32,11 +32,11 @@ baza - sklep (nawet np taka nazwa po prstu sklep)
 
 mialaby 3 kolekcje
 
-1) produkty z polami: _id, zdjecie(najlepiej dac imageUrl niz trzymac cale zdjecie w bazie), nazwa, producent, kategoria, cena, ilosc, specyfikacja(teoretyczeni to samo co opis tylko wypunktowane by moglo byc), opis, data dodania do bazy (gdybysmy robili w apce logowanie i tam konta z podzialem na klienta i admina i wtedy admin moze np dodac produkt przez apke albo zmeinic ilosc; innego przydatnego zastosowania nie widze w dacie dodania)
+1) Products: _id, imageUrl(najlepiej dac url do zdj niz trzymac cale zdjecie w bazie), name, manufacturer, category, price, stock, specs(teoretyczeni to samo co opis tylko wypunktowane by moglo byc), description, createdAt (gdybysmy robili w apce logowanie i tam konta z podzialem na klienta i admina i wtedy admin moze np dodac produkt przez apke albo zmeinic ilosc; innego przydatnego zastosowania nie widze w dacie dodania)
 
-2) osoby: _id, imie, nazwisko, email, typ konta (klient, admin), haslo, telefon, data zalozenia konta (zeby przychodzil jakis rabat czy cos w dzien urodzin)
+2) Users: _id, firstName, lastName, email, role (klient, admin), password, phoneNumber, createdAt (zeby przychodzil jakis rabat czy cos w dzien urodzin)
 
-3) zamowienia (po zrobieniu zamowienia w apce leci do bazy i sie wyswietla na np profilu osoby): _id, emailklienta/ id klienta (w sensie kto zrobil zamowinie), produkty (same _id produktu by byly wpisane), status, data zamowienia, wartosc zamowienia, adres dostway, metoda platnosci
+3) Orders (po zrobieniu zamowienia w apce leci do bazy i sie wyswietla na np profilu osoby): _id, customerId (w sensie kto zrobil zamowinie), items (same _id produktu by byly wpisane: productId, stock), status, createdAt, totalAmount, address, paymentMethod
 
 ## Przyklady dokumentow
 
@@ -49,35 +49,35 @@ Ponizej przykladowe dane dla trzech kolekcji: `produkty`, `osoby`, `zamowienia`.
   {
     "_id": { "$oid": "656f1a2b3c4d5e6f7a8b9c01" },
     "imageUrl": "https://cdn.sklep.pl/images/dell-xps13.jpg",
-    "nazwa": "Laptop Dell XPS 13",
-    "producent": "Dell",
-    "kategoria": "Laptopy",
-    "cena": 5500,
-    "ilosc": 10,
-    "specyfikacja": {
+    "name": "Laptop Dell XPS 13",
+    "manufacturer": "Dell",
+    "category": "Laptopy",
+    "price": 5500,
+    "stock": 10,
+    "specs": {
       "RAM": "16GB",
       "SSD": "512GB",
       "CPU": "Intel i7",
       "Ekran": "13.3 cala"
     },
-    "opis": "Ultrabook premium z ekranem InfinityEdge i lekką obudową.",
-    "dataDodania": "2025-11-20T10:00:00Z"
+    "description": "Ultrabook premium z ekranem InfinityEdge i lekką obudową.",
+    "createdAt": "2025-11-20T10:00:00Z"
   },
   {
     "_id": { "$oid": "656f1a2b3c4d5e6f7a8b9c02" },
     "imageUrl": "https://cdn.sklep.pl/images/ps5.jpg",
-    "nazwa": "Konsola PlayStation 5",
-    "producent": "Sony",
-    "kategoria": "Konsole",
-    "cena": 2900,
-    "ilosc": 5,
-    "specyfikacja": {
+    "name": "Konsola PlayStation 5",
+    "manufacturer": "Sony",
+    "category": "Konsole",
+    "price": 2900,
+    "stock": 5,
+    "specs": {
       "Dysk": "1TB SSD",
       "GPU": "RDNA 2",
       "RAM": "16GB GDDR6"
     },
-    "opis": "Nowa generacja konsoli z obsługą ray tracingu i szybkim dyskiem SSD.",
-    "dataDodania": "2025-11-22T15:30:00Z"
+    "description": "Nowa generacja konsoli z obsługą ray tracingu i szybkim dyskiem SSD.",
+    "createdAt": "2025-11-22T15:30:00Z"
   }
 ]
 
@@ -89,23 +89,23 @@ Ponizej przykladowe dane dla trzech kolekcji: `produkty`, `osoby`, `zamowienia`.
 [
   {
     "_id": { "$oid": "656f1a2b3c4d5e6f7a8b9c10" }, // tu jakies losowe _id ktore by sie samo utworzylo przy dodawaniu do bazy
-    "imie": "Jan",
-    "nazwisko": "Kowalski",
+    "firstName": "Jan",
+    "lastName": "Kowalski",
     "email": "jan.kowalski@example.com",
-    "typKonta": "klient",
-    "haslo": "hashed_password_123",
-    "telefon": "+48 600 700 800",
-    "dataZalozenia": "2025-10-01T09:00:00Z"
+    "role": "klient",
+    "password": "hashed_password_123",
+    "phoneNumber": "+48 600 700 800",
+    "createdAt": "2025-10-01T09:00:00Z"
   },
   {
     "_id": { "$oid": "656f1a2b3c4d5e6f7a8b9c11" }, // tu jakies losowe _id ktore by sie samo utworzylo przy dodawaniu do bazy
-    "imie": "Anna",
-    "nazwisko": "Nowak",
+    "firstName": "Anna",
+    "lastName": "Nowak",
     "email": "anna.nowak@example.com",
-    "typKonta": "admin",
-    "haslo": "hashed_password_456",
-    "telefon": "+48 601 701 801",
-    "dataZalozenia": "2025-09-15T12:30:00Z"
+    "role": "admin",
+    "password": "hashed_password_456",
+    "phoneNumber": "+48 601 701 801",
+    "createdAt": "2025-09-15T12:30:00Z"
   }
 ]
 
@@ -117,20 +117,20 @@ Ponizej przykladowe dane dla trzech kolekcji: `produkty`, `osoby`, `zamowienia`.
 [
   {
     "_id": { "$oid": "656f1a2b3c4d5e6f7a8b9c20" }, // tu jakies losowe _id ktore by sie samo utworzylo przy dodawaniu do bazy
-    "klientEmail": "jan.kowalski@example.com", // albo to zmienic na klientId i trzymac tam _id z kolekcji osoby
-    "produkty": [
-      { "produktNazwa": "Laptop Dell XPS 13", "ilosc": 1 },
-      { "produktNazwa": "Smartfon Samsung Galaxy S23", "ilosc": 2 }
+    "customerId": "jan.kowalski@example.com", // albo to zmienic na klientId i trzymac tam _id z kolekcji osoby
+    "items": [
+      { "productName": "Laptop Dell XPS 13", "stock": 1 },
+      { "productName": "Smartfon Samsung Galaxy S23", "stock": 2 }
     ],
     "status": "w realizacji",
-    "dataZamowienia": "2025-11-25T12:00:00Z",
-    "wartoscZamowienia": 13900,
-    "adresDostawy": {
-      "miasto": "Warszawa",
-      "ulica": "Marszałkowska 10",
-      "kod": "00-001"
+    "createdAt": "2025-11-25T12:00:00Z",
+    "totalAmount": 13900,
+    "deliveryAddress": {
+      "city": "Warszawa",
+      "street": "Marszałkowska 10",
+      "postalCode": "00-001"
     },
-    "metodaPlatnosci": "karta"
+    "paymentMethod": "card"
   }
 ]
 
