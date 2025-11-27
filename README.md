@@ -36,7 +36,7 @@ mialaby 3 kolekcje
 
 2) Users: _id, firstName, lastName, email, role (klient, admin), password, phoneNumber, createdAt (zeby przychodzil jakis rabat czy cos w dzien urodzin)
 
-3) Orders (po zrobieniu zamowienia w apce leci do bazy i sie wyswietla na np profilu osoby): _id, customerId (w sensie kto zrobil zamowinie), items (same _id produktu by byly wpisane: productId, stock), status, createdAt, totalAmount, address, paymentMethod
+3) Orders (po zrobieniu zamowienia w apce leci do bazy i sie wyswietla na np profilu osoby): _id, customerId (w sensie kto zrobil zamowinie), items (same _id produktu by byly wpisane: productId, quantity), status, createdAt, totalAmount, address, paymentMethod
 
 ## Przyklady dokumentow
 
