@@ -454,5 +454,127 @@
     "description": "Pocket-sized camera with built-in gimbal.",
     "createdAt": "2025-06-25T12:00:00Z"
   }
+,
+  {
+    "name": "Google Pixel 8",
+    "manufacturer": "Google",
+    "category": "Smartphones",
+    "price": 3800,
+    "stock": 18,
+    "imageUrl": "https://cdn.sklep.pl/images/pixel8.jpg",
+    "specs": { "RAM": "8GB", "Storage": "128GB", "Screen": "6.2 in OLED" },
+    "description": "Google's latest Pixel with clean Android experience and excellent camera.",
+    "createdAt": "2025-10-05T10:00:00Z"
+  },
+  {
+    "name": "Microsoft Surface Laptop 5",
+    "manufacturer": "Microsoft",
+    "category": "Laptops",
+    "price": 7100,
+    "stock": 7,
+    "imageUrl": "https://cdn.sklep.pl/images/surface-laptop5.jpg",
+    "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Intel i7" },
+    "description": "Thin and light laptop optimized for productivity and battery life.",
+    "createdAt": "2025-09-01T09:00:00Z"
+  },
+  {
+    "name": "Bose QuietComfort Earbuds II",
+    "manufacturer": "Bose",
+    "category": "Audio",
+    "price": 1200,
+    "stock": 24,
+    "imageUrl": "https://cdn.sklep.pl/images/bose-qc2.jpg",
+    "specs": { "ANC": true, "Battery": "6h" },
+    "description": "Comfortable true wireless earbuds with excellent noise cancellation.",
+    "createdAt": "2025-08-15T11:00:00Z"
+  },
+  {
+    "name": "Anker PowerCore 26800",
+    "manufacturer": "Anker",
+    "category": "Accessories",
+    "price": 250,
+    "stock": 40,
+    "imageUrl": "https://cdn.sklep.pl/images/anker-26800.jpg",
+    "specs": { "Capacity": "26800mAh", "Ports": "USB-A, USB-C" },
+    "description": "High-capacity power bank for long travel and charging multiple devices.",
+    "createdAt": "2025-07-20T10:00:00Z"
+  },
+  {
+    "name": "Wacom Intuos Pro",
+    "manufacturer": "Wacom",
+    "category": "Accessories",
+    "price": 900,
+    "stock": 11,
+    "imageUrl": "https://cdn.sklep.pl/images/wacom-intuos-pro.jpg",
+    "specs": { "ActiveArea": "13.2 x 8.5 in", "PressureLevels": 8192 },
+    "description": "Professional drawing tablet for digital artists.",
+    "createdAt": "2025-05-30T09:30:00Z"
+  },
+  {
+    "name": "Seagate IronWolf 4TB",
+    "manufacturer": "Seagate",
+    "category": "Components",
+    "price": 500,
+    "stock": 26,
+    "imageUrl": "https://cdn.sklep.pl/images/ironwolf4tb.jpg",
+    "specs": { "Type": "HDD", "RPM": "7200" },
+    "description": "Reliable NAS-grade hard drive for home servers and storage arrays.",
+    "createdAt": "2025-04-12T10:00:00Z"
+  },
+  {
+    "name": "Elgato Stream Deck XL",
+    "manufacturer": "Elgato",
+    "category": "Accessories",
+    "price": 1300,
+    "stock": 9,
+    "imageUrl": "https://cdn.sklep.pl/images/streamdeck-xl.jpg",
+    "specs": { "Buttons": 32, "Connectivity": "USB-C" },
+    "description": "Customizable control deck for streamers and content creators.",
+    "createdAt": "2025-02-18T10:00:00Z"
+  },
+  {
+    "name": "Ring Video Doorbell 4",
+    "manufacturer": "Ring",
+    "category": "SmartHome",
+    "price": 800,
+    "stock": 14,
+    "imageUrl": "https://cdn.sklep.pl/images/ring-doorbell4.jpg",
+    "specs": { "Resolution": "1536p", "Battery": "Rechargeable" },
+    "description": "Smart doorbell with enhanced motion detection and HDR video.",
+    "createdAt": "2025-03-22T11:00:00Z"
+  },
+  {
+    "name": "Thermaltake Toughpower GF1 850W",
+    "manufacturer": "Thermaltake",
+    "category": "Components",
+    "price": 700,
+    "stock": 13,
+    "imageUrl": "https://cdn.sklep.pl/images/toughpower-850.jpg",
+    "specs": { "Power": "850W", "Certification": "80+ Gold" },
+    "description": "Reliable full-modular power supply for high-end builds.",
+    "createdAt": "2025-01-10T09:00:00Z"
+  },
+  {
+    "name": "BenQ PD3220U",
+    "manufacturer": "BenQ",
+    "category": "Monitors",
+    "price": 4200,
+    "stock": 6,
+    "imageUrl": "https://cdn.sklep.pl/images/benq-pd3220u.jpg",
+    "specs": { "Resolution": "4K", "Size": "32 in", "Color": "sRGB/Display P3" },
+    "description": "Designer monitor with accurate colors and large workspace.",
+    "createdAt": "2025-06-01T08:00:00Z"
+  },
+  {
+    "name": "HyperX Cloud II Wireless",
+    "manufacturer": "HyperX",
+    "category": "Audio",
+    "price": 900,
+    "stock": 20,
+    "imageUrl": "https://cdn.sklep.pl/images/hyperx-cloud2w.jpg",
+    "specs": { "Battery": "30h", "Connectivity": "Wireless" },
+    "description": "Comfortable wireless gaming headset with good microphone quality.",
+    "createdAt": "2025-09-30T10:30:00Z"
+  }
 ]
 
