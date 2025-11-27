@@ -1,0 +1,18 @@
+[
+  {
+    "customerId": "",
+    "items": [
+      { "productId": wpisac ID, "stock": 1 },
+      { "productId": wpisac  ID, "stock": 2 }
+    ],
+    "status": "w realizacji",
+    "createdAt": "2025-11-25T12:00:00Z",
+    "totalAmount": 13900,
+    "address": {
+      "city": "Warszawa",
+      "street": "Marszałkowska 10",
+      "postalCode": "00-001"
+    },
+    "paymentMethod": "karta"
+  }
+]
