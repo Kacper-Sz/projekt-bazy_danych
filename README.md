@@ -29,11 +29,12 @@ Myslalem zeby zobic sklep elektorniczny/z czesciami do kompa i wszytkie przykald
 
 ## Struktura repozytorium
 
+```
 naszeRepozytorium/
 │
-├─ mongodb/                     # wszystko co związane z MongoDB
-│   ├─ docker-compose.yml       
-│   ├─ initdb/                  
+├─ mongodb/ # wszystko co związane z MongoDB
+│   ├─ docker-compose.yml
+│   ├─ initdb/
 │   │   └─ initCollections.js 
 │   └─ dump/
 │
@@ -42,7 +43,7 @@ naszeRepozytorium/
 │
 └─ app/     
     └─ (aplikacja z GUI)
-
+```
 
 ## Struktura bazy
 
