@@ -1,0 +1,17 @@
+services:
+  mongo:
+    image: mongo:latest
+    container_name: projectShop
+    restart: unless-stopped
+    ports:
+      - "1500:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+      MONGO_INITDB_DATABASE: shop
+    volumes:
+      - mongo-data:/data/db
+      - ./initdb:/docker-entrypoint-initdb.d:ro
+
+volumes:
+  mongo-data:

@@ -1,0 +1,14 @@
+docker compose up -d -> utworzenie kontenera z bazą danych
+
+docker compose start -> uruchomienie kontenera, jeśli już istnieje
+docker start projectShop -> uruchomienie kontenera, jeśli już istnieje (opcja 2)
+
+docker exec -it projectShop bash -> wejście do bazy danych cz.1
+mongosh -u root -p password --authenticationDatabase admin -> wejście do bazy danych cz.2
+
+docker exec -it projectShop mongodump --db shop --username root --password password --authenticationDatabase admin --out /dump -> robienie dumpa, pliki trafiają do folderu /dump/
+
+mongorestore --host localhost --port 1500 --username root --password password --authenticationDatabase admin ./dump/shop -> załadowanie dumpa shop z folderu /dump/
+
+w środku znajdują się już baza danych shop z kolekcjami orders, users, products
+jest utworzony użytkownik o pełnych uprawnieniach o nazwie root i haśle password

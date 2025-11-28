@@ -5,6 +5,7 @@
 
 - [Linki](#Linki)
 - [Info ogolne](#Info-ogolne)
+- [Struktura repozytorium](#struktura-repozytorium)
 - [Struktura bazy](#struktura-bazy)
 - [Przyklady dokumentow](#przyklady-dokumentow)
   - [Produkty](#produkty)
@@ -25,6 +26,23 @@
 ## Info ogolne
 
 Myslalem zeby zobic sklep elektorniczny/z czesciami do kompa i wszytkie przykaldy i pola robilem pod taka tematyke.
+
+## Struktura repozytorium
+
+naszeRepozytorium/
+│
+├─ mongodb/                     # wszystko co związane z MongoDB
+│   ├─ docker-compose.yml       
+│   ├─ initdb/                  
+│   │   └─ initCollections.js 
+│   └─ dump/
+│
+├─ dll/      
+│   └─ (biblioteka z obsługą bazy danych)
+│
+└─ app/     
+    └─ (aplikacja z GUI)
+
 
 ## Struktura bazy
 
