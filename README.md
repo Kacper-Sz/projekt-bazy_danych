@@ -32,7 +32,7 @@ Myslalem zeby zobic sklep elektorniczny/z czesciami do kompa i wszytkie przykald
 ```
 naszeRepozytorium/
 │
-├─ mongodb/ # wszystko co związane z MongoDB
+├─ database/ # wszystko co związane z MongoDB
 │   ├─ docker-compose.yml
 │   ├─ initdb/
 │   │   └─ initCollections.js 

@@ -1,0 +1,39 @@
+[
+  {
+    "firstName": "Jan",
+    "lastName": "Kowalski",
+    "email": "jan.kowalski@example.com",
+    "role": "customer",
+    "password": "hashed_password_123",
+    "phoneNumber": "+48 600 700 800",
+    "createdAt": "2025-10-01T09:00:00Z"
+  },
+  {
+    "firstName": "Anna",
+    "lastName": "Nowak",
+    "email": "anna.nowak@example.com",
+    "role": "customer",
+    "password": "hashed_password_456",
+    "phoneNumber": "+48 601 701 801",
+    "createdAt": "2025-09-15T12:30:00Z"
+  },
+  {
+    "firstName": "Piotr",
+    "lastName": "Wiśniewski",
+    "email": "piotr.wisniewski@example.com",
+    "role": "admin",
+    "password": "hashed_password_789",
+    "phoneNumber": "+48 602 702 802",
+    "createdAt": "2025-08-20T14:00:00Z"
+  },
+  {
+    "firstName": "Katarzyna",
+    "lastName": "Zielińska",
+    "email": "katarzyna.zielinska@example.com",
+    "role": "admin",
+    "password": "hashed_password_987",
+    "phoneNumber": "+48 603 703 803",
+    "createdAt": "2025-07-10T11:00:00Z"
+  }
+]
+
