@@ -25,4 +25,4 @@ jest utworzony użytkownik o pełnych uprawnieniach o nazwie root i haśle passw
 
 wrzucic pliki json do projekt-bazy_danych\database\initdb
 
-mongoimport   --username root   --password password   --authenticationDatabase admin   --db sklep   --collection products   --file /docker-entrypoint-initdb.d/Products.json   --jsonArray
+mongoimport   --username root   --password password   --authenticationDatabase admin   --db NAZWA BAZY   --collection NAZWA KOLEKCJI   --file /docker-entrypoint-initdb.d/PLIK.json   --jsonArray
