@@ -12,3 +12,9 @@ mongorestore --host localhost --port 1500 --username root --password password --
 
 w środku znajdują się już baza danych shop z kolekcjami orders, users, products
 jest utworzony użytkownik o pełnych uprawnieniach o nazwie root i haśle password
+
+
+
+----- 
+
+mongoimport   --username root   --password password   --authenticationDatabase admin   --db sklep   --collection products   --file /docker-entrypoint-initdb.d/Products.json   --jsonArray
