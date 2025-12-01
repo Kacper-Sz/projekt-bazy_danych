@@ -1,0 +1,580 @@
+[
+  {
+    "name": "Dell XPS 13 Laptop",
+    "manufacturer": "Dell",
+    "category": "Laptops",
+    "price": 5500,
+    "stock": 10,
+    "imageUrl": "https://cdn.sklep.pl/images/dell-xps13.jpg",
+    "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Intel i7", "Screen": "13.3 in" },
+    "description": "Premium ultrabook with an InfinityEdge display and lightweight chassis.",
+    "createdAt": "2025-11-20T10:00:00Z"
+  },
+  {
+    "name": "Samsung Galaxy S23",
+    "manufacturer": "Samsung",
+    "category": "Smartphones",
+    "price": 4200,
+    "stock": 15,
+    "imageUrl": "https://cdn.sklep.pl/images/s23.jpg",
+    "specs": { "RAM": "8GB", "Storage": "256GB", "Screen": "6.1 in" },
+    "description": "Flagship smartphone with an AMOLED display.",
+    "createdAt": "2025-11-22T15:30:00Z"
+  },
+  {
+    "name": "PlayStation 5",
+    "manufacturer": "Sony",
+    "category": "Consoles",
+    "price": 2900,
+    "stock": 5,
+    "imageUrl": "https://cdn.sklep.pl/images/ps5.jpg",
+    "specs": { "Storage": "1TB SSD", "GPU": "RDNA 2", "RAM": "16GB GDDR6" },
+    "description": "Next-generation console with ray tracing support and fast SSD storage.",
+    "createdAt": "2025-11-23T12:00:00Z"
+  },
+
+  {
+    "name": "MacBook Air M2",
+    "manufacturer": "Apple",
+    "category": "Laptops",
+    "price": 6200,
+    "stock": 8,
+    "imageUrl": "https://cdn.sklep.pl/images/macbook-air-m2.jpg",
+    "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Apple M2" },
+    "description": "Lightweight laptop powered by the Apple M2 chip.",
+    "createdAt": "2025-10-11T10:00:00Z"
+  },
+  {
+    "name": "LG UltraGear 27GP850",
+    "manufacturer": "LG",
+    "category": "Monitors",
+    "price": 1800,
+    "stock": 12,
+    "imageUrl": "https://cdn.sklep.pl/images/lg-27gp850.jpg",
+    "specs": { "Resolution": "QHD", "RefreshRate": "165Hz", "Panel": "IPS" },
+    "description": "Gaming monitor with a fast refresh rate.",
+    "createdAt": "2025-08-15T10:00:00Z"
+  },
+  {
+    "name": "iPhone 15",
+    "manufacturer": "Apple",
+    "category": "Smartphones",
+    "price": 5200,
+    "stock": 20,
+    "imageUrl": "https://cdn.sklep.pl/images/iphone15.jpg",
+    "specs": { "RAM": "6GB", "Storage": "256GB", "Screen": "6.1 in OLED" },
+    "description": "New iPhone model with an improved camera.",
+    "createdAt": "2025-09-20T10:00:00Z"
+  },
+
+  {
+    "name": "Samsung Odyssey G7",
+    "manufacturer": "Samsung",
+    "category": "Monitors",
+    "price": 3000,
+    "stock": 6,
+    "imageUrl": "https://cdn.sklep.pl/images/odyssey-g7.jpg",
+    "specs": { "Resolution": "QHD", "RefreshRate": "240Hz", "Curvature": "1000R" },
+    "description": "Advanced gaming monitor with high refresh rate and curved panel.",
+    "createdAt": "2025-07-10T10:00:00Z"
+  },
+  {
+    "name": "AMD Ryzen 9 7950X",
+    "manufacturer": "AMD",
+    "category": "Components",
+    "price": 3600,
+    "stock": 14,
+    "imageUrl": "https://cdn.sklep.pl/images/ryzen7950x.jpg",
+    "specs": { "Cores": "16", "ClockSpeed": "5.7GHz", "Socket": "AM5" },
+    "description": "High-end AMD processor for professional workloads.",
+    "createdAt": "2025-06-05T10:00:00Z"
+  },
+  {
+    "name": "NVIDIA RTX 4080",
+    "manufacturer": "NVIDIA",
+    "category": "Components",
+    "price": 7200,
+    "stock": 5,
+    "imageUrl": "https://cdn.sklep.pl/images/rtx4080.jpg",
+    "specs": { "VRAM": "16GB GDDR6X", "TDP": "320W" },
+    "description": "High-performance next-generation graphics card.",
+    "createdAt": "2025-08-01T10:00:00Z"
+  },
+  {
+    "name": "iPad Pro 12.9",
+    "manufacturer": "Apple",
+    "category": "Tablets",
+    "price": 6200,
+    "stock": 9,
+    "imageUrl": "https://cdn.sklep.pl/images/ipadpro12.jpg",
+    "specs": { "Screen": "12.9 in MiniLED", "Storage": "512GB", "CPU": "Apple M2" },
+    "description": "Professional tablet for creative work.",
+    "createdAt": "2025-07-18T10:00:00Z"
+  },
+
+  {
+    "name": "GoPro Hero 12",
+    "manufacturer": "GoPro",
+    "category": "Cameras",
+    "price": 2100,
+    "stock": 10,
+    "imageUrl": "https://cdn.sklep.pl/images/gopro12.jpg",
+    "specs": { "Resolution": "5.3K", "Stabilization": "HyperSmooth", "WaterResistance": "10m" },
+    "description": "Action camera with advanced stabilization.",
+    "createdAt": "2025-07-12T10:00:00Z"
+  },
+  {
+    "name": "Canon EOS R7",
+    "manufacturer": "Canon",
+    "category": "Cameras",
+    "price": 5200,
+    "stock": 7,
+    "imageUrl": "https://cdn.sklep.pl/images/eosr7.jpg",
+    "specs": { "Sensor": "APS-C", "Resolution": "32.5MP", "AF": "Dual Pixel CMOS AF II" },
+    "description": "Mirrorless camera for photography and video.",
+    "createdAt": "2025-06-30T10:00:00Z"
+  },
+  {
+    "name": "Logitech G502 X",
+    "manufacturer": "Logitech",
+    "category": "Mice",
+    "price": 350,
+    "stock": 25,
+    "imageUrl": "https://cdn.sklep.pl/images/g502x.jpg",
+    "specs": { "Sensor": "25K DPI", "Weight": "89g", "Type": "Wired" },
+    "description": "Popular FPS gaming mouse.",
+    "createdAt": "2025-10-01T10:00:00Z"
+  },
+
+  {
+    "name": "Lenovo Legion 7",
+    "manufacturer": "Lenovo",
+    "category": "Laptops",
+    "price": 8900,
+    "stock": 6,
+    "imageUrl": "https://cdn.sklep.pl/images/legion7.jpg",
+    "specs": { "RAM": "32GB", "GPU": "RTX 4080", "CPU": "Ryzen 9" },
+    "description": "High-end gaming laptop.",
+    "createdAt": "2025-09-12T09:00:00Z"
+  },
+  {
+    "name": "Intel Core i9-14900K",
+    "manufacturer": "Intel",
+    "category": "Components",
+    "price": 3300,
+    "stock": 12,
+    "imageUrl": "https://cdn.sklep.pl/images/i9-14900k.jpg",
+    "specs": { "Cores": "24", "ClockSpeed": "6.0GHz", "Socket": "LGA1700" },
+    "description": "Top-tier Intel processor for gaming.",
+    "createdAt": "2025-09-01T11:00:00Z"
+  },
+  {
+    "name": "ASUS ROG STRIX Z790-E",
+    "manufacturer": "ASUS",
+    "category": "Components",
+    "price": 2100,
+    "stock": 11,
+    "imageUrl": "https://cdn.sklep.pl/images/z790e.jpg",
+    "specs": { "Socket": "LGA1700", "FormFactor": "ATX", "Memory": "DDR5" },
+    "description": "High-quality motherboard for gamers.",
+    "createdAt": "2025-05-14T12:00:00Z"
+  },
+
+  {
+    "name": "ASUS ProArt PA279CV",
+    "manufacturer": "ASUS",
+    "category": "Monitors",
+    "price": 2300,
+    "stock": 8,
+    "imageUrl": "https://cdn.sklep.pl/images/proart-pa279cv.jpg",
+    "specs": { "Resolution": "4K", "Panel": "IPS", "Calibration": "ΔE < 2" },
+    "description": "Monitor for professionals with accurate color calibration.",
+    "createdAt": "2025-05-07T10:00:00Z"
+  },
+
+  {
+    "name": "Sony WH-1000XM5",
+    "manufacturer": "Sony",
+    "category": "Audio",
+    "price": 1500,
+    "stock": 18,
+    "imageUrl": "https://cdn.sklep.pl/images/xm5.jpg",
+    "specs": { "ANC": "Active Noise Cancellation", "Connectivity": "Bluetooth 5.2" },
+    "description": "Top-tier headphones with ANC.",
+    "createdAt": "2025-11-25T12:00:00Z"
+  },
+  {
+    "name": "Samsung HW-Q930C",
+    "manufacturer": "Samsung",
+    "category": "Audio",
+    "price": 2800,
+    "stock": 7,
+    "imageUrl": "https://cdn.sklep.pl/images/hw-q930c.jpg",
+    "specs": { "Channels": "9.1.4", "Dolby": "Atmos" },
+    "description": "High-end soundbar with Dolby Atmos.",
+    "createdAt": "2025-09-17T14:00:00Z"
+  },
+  {
+    "name": "JBL Charge 6",
+    "manufacturer": "JBL",
+    "category": "Audio",
+    "price": 650,
+    "stock": 22,
+    "imageUrl": "https://cdn.sklep.pl/images/charge6.jpg",
+    "specs": { "Battery": "30h", "WaterResistance": "IP67" },
+    "description": "Portable speaker with strong bass.",
+    "createdAt": "2025-08-09T12:30:00Z"
+  },
+
+  {
+    "name": "AMD Radeon RX 7900 XTX",
+    "manufacturer": "AMD",
+    "category": "Components",
+    "price": 5400,
+    "stock": 6,
+    "imageUrl": "https://cdn.sklep.pl/images/7900xtx.jpg",
+    "specs": { "VRAM": "24GB GDDR6", "TDP": "355W" },
+    "description": "AMD's most powerful graphics card.",
+    "createdAt": "2025-06-21T10:00:00Z"
+  },
+  {
+    "name": "Corsair RM850x",
+    "manufacturer": "Corsair",
+    "category": "Components",
+    "price": 550,
+    "stock": 15,
+    "imageUrl": "https://cdn.sklep.pl/images/rm850x.jpg",
+    "specs": { "Power": "850W", "Certification": "80+ Gold" },
+    "description": "Efficient modular power supply.",
+    "createdAt": "2025-08-12T13:00:00Z"
+  },
+
+  {
+    "name": "Apple Watch Series 10",
+    "manufacturer": "Apple",
+    "category": "Smartwatches",
+    "price": 2200,
+    "stock": 14,
+    "imageUrl": "https://cdn.sklep.pl/images/applewatch10.jpg",
+    "specs": { "Screen": "Always-On OLED", "GPS": true },
+    "description": "New generation Apple Watch.",
+    "createdAt": "2025-07-07T09:00:00Z"
+  },
+  {
+    "name": "Samsung Galaxy Watch 7",
+    "manufacturer": "Samsung",
+    "category": "Smartwatches",
+    "price": 1600,
+    "stock": 19,
+    "imageUrl": "https://cdn.sklep.pl/images/galaxywatch7.jpg",
+    "specs": { "Screen": "AMOLED", "GPS": true },
+    "description": "Advanced smartwatch with WearOS.",
+    "createdAt": "2025-06-01T12:00:00Z"
+  },
+
+  {
+    "name": "HP LaserJet Pro M404dn",
+    "manufacturer": "HP",
+    "category": "Printers",
+    "price": 1100,
+    "stock": 9,
+    "imageUrl": "https://cdn.sklep.pl/images/m404.jpg",
+    "specs": { "Type": "Laser", "Speed": "38 ppm" },
+    "description": "Efficient office laser printer.",
+    "createdAt": "2025-10-21T10:00:00Z"
+  },
+
+  {
+    "name": "TP-Link Archer AX73",
+    "manufacturer": "TP-Link",
+    "category": "Networking",
+    "price": 550,
+    "stock": 17,
+    "imageUrl": "https://cdn.sklep.pl/images/ax73.jpg",
+    "specs": { "WiFi": "6", "Throughput": "5400 Mb/s" },
+    "description": "Fast home router.",
+    "createdAt": "2025-11-02T10:00:00Z"
+  },
+
+  {
+    "name": "Kindle Paperwhite 2025",
+    "manufacturer": "Amazon",
+    "category": "E-readers",
+    "price": 750,
+    "stock": 13,
+    "imageUrl": "https://cdn.sklep.pl/images/kindle2025.jpg",
+    "specs": { "Screen": "6.8 in E-Ink", "Storage": "16GB" },
+    "description": "Latest e-book reader.",
+    "createdAt": "2025-09-10T09:00:00Z"
+  },
+
+  {
+    "name": "Sony A7 IV",
+    "manufacturer": "Sony",
+    "category": "Cameras",
+    "price": 11000,
+    "stock": 4,
+    "imageUrl": "https://cdn.sklep.pl/images/sonya7iv.jpg",
+    "specs": { "Resolution": "33MP", "4K": "60fps" },
+    "description": "Professional camera for video work.",
+    "createdAt": "2025-04-20T11:00:00Z"
+  },
+
+  {
+    "name": "Nikon Z6 II",
+    "manufacturer": "Nikon",
+    "category": "Cameras",
+    "price": 9000,
+    "stock": 5,
+    "imageUrl": "https://cdn.sklep.pl/images/z6ii.jpg",
+    "specs": { "Sensor": "24MP", "4K": "60fps" },
+    "description": "Versatile mirrorless camera.",
+    "createdAt": "2025-03-18T10:30:00Z"
+  },
+
+  {
+    "name": "Razer DeathAdder V3",
+    "manufacturer": "Razer",
+    "category": "Mice",
+    "price": 420,
+    "stock": 21,
+    "imageUrl": "https://cdn.sklep.pl/images/deathadderv3.jpg",
+    "specs": { "Sensor": "30K DPI", "Type": "Wired" },
+    "description": "Iconic gaming mouse.",
+    "createdAt": "2025-09-12T12:00:00Z"
+  },
+  {
+    "name": "SteelSeries Aerox 3",
+    "manufacturer": "SteelSeries",
+    "category": "Mice",
+    "price": 280,
+    "stock": 30,
+    "imageUrl": "https://cdn.sklep.pl/images/aerox3.jpg",
+    "specs": { "Weight": "59g", "Sensor": "TrueMove" },
+    "description": "Ultra-lightweight gaming mouse.",
+    "createdAt": "2025-09-10T14:00:00Z"
+  },
+
+  {
+    "name": "Dell UltraSharp U2723QE",
+    "manufacturer": "Dell",
+    "category": "Monitors",
+    "price": 3500,
+    "stock": 7,
+    "imageUrl": "https://cdn.sklep.pl/images/u2723qe.jpg",
+    "specs": {
+      "Resolution": "4K",
+      "Panel": "IPS Black",
+      "Ports": "USB-C 90W"
+    },
+    "description": "Professional 27-inch monitor with IPS Black panel and USB-C hub.",
+    "createdAt": "2025-06-15T10:45:00Z"
+  },
+
+  {
+    "name": "HP Omen 17",
+    "manufacturer": "HP",
+    "category": "Laptops",
+    "price": 7800,
+    "stock": 5,
+    "imageUrl": "https://cdn.sklep.pl/images/omen17.jpg",
+    "specs": { "RAM": "32GB", "GPU": "RTX 4070", "Screen": "17 in 165Hz" },
+    "description": "Gaming laptop with a large high-refresh display.",
+    "createdAt": "2025-08-22T10:00:00Z"
+  },
+
+  {
+    "name": "Xbox Series X",
+    "manufacturer": "Microsoft",
+    "category": "Consoles",
+    "price": 2600,
+    "stock": 11,
+    "imageUrl": "https://cdn.sklep.pl/images/xboxseriesx.jpg",
+    "specs": { "Storage": "1TB", "4K": "Yes" },
+    "description": "Most powerful Xbox console.",
+    "createdAt": "2025-07-05T10:00:00Z"
+  },
+
+  {
+    "name": "SanDisk Extreme 1TB",
+    "manufacturer": "SanDisk",
+    "category": "Components",
+    "price": 950,
+    "stock": 20,
+    "imageUrl": "https://cdn.sklep.pl/images/sandisk1tb.jpg",
+    "specs": { "Type": "microSD", "Speed": "160MB/s" },
+    "description": "Fast memory card for cameras.",
+    "createdAt": "2025-10-02T10:00:00Z"
+  },
+
+  {
+    "name": "Apple AirPods Pro 3",
+    "manufacturer": "Apple",
+    "category": "Audio",
+    "price": 1450,
+    "stock": 16,
+    "imageUrl": "https://cdn.sklep.pl/images/airpodspro3.jpg",
+    "specs": { "ANC": true, "Charging": "MagSafe" },
+    "description": "Premium earbuds for iPhone.",
+    "createdAt": "2025-10-10T09:00:00Z"
+  },
+
+  {
+    "name": "Sony SRS-XB43",
+    "manufacturer": "Sony",
+    "category": "Audio",
+    "price": 700,
+    "stock": 18,
+    "imageUrl": "https://cdn.sklep.pl/images/xb43.jpg",
+    "specs": { "Battery": "24h", "WaterResistance": "IP67" },
+    "description": "Powerful portable speaker.",
+    "createdAt": "2025-04-14T10:00:00Z"
+  },
+
+  {
+    "name": "Sony FE 24-70mm GM II",
+    "manufacturer": "Sony",
+    "category": "Cameras",
+    "price": 10500,
+    "stock": 3,
+    "imageUrl": "https://cdn.sklep.pl/images/2470gm2.jpg",
+    "specs": { "Type": "Zoom", "Aperture": "f/2.8" },
+    "description": "Professional full-frame zoom lens.",
+    "createdAt": "2025-04-08T10:00:00Z"
+  },
+
+  {
+    "name": "DJI Osmo Pocket 4",
+    "manufacturer": "DJI",
+    "category": "Cameras",
+    "price": 2500,
+    "stock": 9,
+    "imageUrl": "https://cdn.sklep.pl/images/osmopocket4.jpg",
+    "specs": { "Stabilization": "3-axis", "4K": "120fps" },
+    "description": "Pocket-sized camera with built-in gimbal.",
+    "createdAt": "2025-06-25T12:00:00Z"
+  }
+,
+  {
+    "name": "Google Pixel 8",
+    "manufacturer": "Google",
+    "category": "Smartphones",
+    "price": 3800,
+    "stock": 18,
+    "imageUrl": "https://cdn.sklep.pl/images/pixel8.jpg",
+    "specs": { "RAM": "8GB", "Storage": "128GB", "Screen": "6.2 in OLED" },
+    "description": "Google's latest Pixel with clean Android experience and excellent camera.",
+    "createdAt": "2025-10-05T10:00:00Z"
+  },
+  {
+    "name": "Microsoft Surface Laptop 5",
+    "manufacturer": "Microsoft",
+    "category": "Laptops",
+    "price": 7100,
+    "stock": 7,
+    "imageUrl": "https://cdn.sklep.pl/images/surface-laptop5.jpg",
+    "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Intel i7" },
+    "description": "Thin and light laptop optimized for productivity and battery life.",
+    "createdAt": "2025-09-01T09:00:00Z"
+  },
+  {
+    "name": "Bose QuietComfort Earbuds II",
+    "manufacturer": "Bose",
+    "category": "Audio",
+    "price": 1200,
+    "stock": 24,
+    "imageUrl": "https://cdn.sklep.pl/images/bose-qc2.jpg",
+    "specs": { "ANC": true, "Battery": "6h" },
+    "description": "Comfortable true wireless earbuds with excellent noise cancellation.",
+    "createdAt": "2025-08-15T11:00:00Z"
+  },
+  {
+    "name": "Anker PowerCore 26800",
+    "manufacturer": "Anker",
+    "category": "Accessories",
+    "price": 250,
+    "stock": 40,
+    "imageUrl": "https://cdn.sklep.pl/images/anker-26800.jpg",
+    "specs": { "Capacity": "26800mAh", "Ports": "USB-A, USB-C" },
+    "description": "High-capacity power bank for long travel and charging multiple devices.",
+    "createdAt": "2025-07-20T10:00:00Z"
+  },
+  {
+    "name": "Wacom Intuos Pro",
+    "manufacturer": "Wacom",
+    "category": "Accessories",
+    "price": 900,
+    "stock": 11,
+    "imageUrl": "https://cdn.sklep.pl/images/wacom-intuos-pro.jpg",
+    "specs": { "ActiveArea": "13.2 x 8.5 in", "PressureLevels": 8192 },
+    "description": "Professional drawing tablet for digital artists.",
+    "createdAt": "2025-05-30T09:30:00Z"
+  },
+  {
+    "name": "Seagate IronWolf 4TB",
+    "manufacturer": "Seagate",
+    "category": "Components",
+    "price": 500,
+    "stock": 26,
+    "imageUrl": "https://cdn.sklep.pl/images/ironwolf4tb.jpg",
+    "specs": { "Type": "HDD", "RPM": "7200" },
+    "description": "Reliable NAS-grade hard drive for home servers and storage arrays.",
+    "createdAt": "2025-04-12T10:00:00Z"
+  },
+  {
+    "name": "Elgato Stream Deck XL",
+    "manufacturer": "Elgato",
+    "category": "Accessories",
+    "price": 1300,
+    "stock": 9,
+    "imageUrl": "https://cdn.sklep.pl/images/streamdeck-xl.jpg",
+    "specs": { "Buttons": 32, "Connectivity": "USB-C" },
+    "description": "Customizable control deck for streamers and content creators.",
+    "createdAt": "2025-02-18T10:00:00Z"
+  },
+  {
+    "name": "Ring Video Doorbell 4",
+    "manufacturer": "Ring",
+    "category": "SmartHome",
+    "price": 800,
+    "stock": 14,
+    "imageUrl": "https://cdn.sklep.pl/images/ring-doorbell4.jpg",
+    "specs": { "Resolution": "1536p", "Battery": "Rechargeable" },
+    "description": "Smart doorbell with enhanced motion detection and HDR video.",
+    "createdAt": "2025-03-22T11:00:00Z"
+  },
+  {
+    "name": "Thermaltake Toughpower GF1 850W",
+    "manufacturer": "Thermaltake",
+    "category": "Components",
+    "price": 700,
+    "stock": 13,
+    "imageUrl": "https://cdn.sklep.pl/images/toughpower-850.jpg",
+    "specs": { "Power": "850W", "Certification": "80+ Gold" },
+    "description": "Reliable full-modular power supply for high-end builds.",
+    "createdAt": "2025-01-10T09:00:00Z"
+  },
+  {
+    "name": "BenQ PD3220U",
+    "manufacturer": "BenQ",
+    "category": "Monitors",
+    "price": 4200,
+    "stock": 6,
+    "imageUrl": "https://cdn.sklep.pl/images/benq-pd3220u.jpg",
+    "specs": { "Resolution": "4K", "Size": "32 in", "Color": "sRGB/Display P3" },
+    "description": "Designer monitor with accurate colors and large workspace.",
+    "createdAt": "2025-06-01T08:00:00Z"
+  },
+  {
+    "name": "HyperX Cloud II Wireless",
+    "manufacturer": "HyperX",
+    "category": "Audio",
+    "price": 900,
+    "stock": 20,
+    "imageUrl": "https://cdn.sklep.pl/images/hyperx-cloud2w.jpg",
+    "specs": { "Battery": "30h", "Connectivity": "Wireless" },
+    "description": "Comfortable wireless gaming headset with good microphone quality.",
+    "createdAt": "2025-09-30T10:30:00Z"
+  }
+]
+
