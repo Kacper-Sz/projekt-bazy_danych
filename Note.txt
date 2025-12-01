@@ -8,6 +8,10 @@ mongosh -u root -p password --authenticationDatabase admin -> wejście do bazy d
 
 docker exec -it projectShop mongodump --db shop --username root --password password --authenticationDatabase admin --out /dump -> robienie dumpa, pliki trafiają do folderu /dump/
 
+po zrobieniu dumpa musimy zrobic 
+docker cp projectShop:/dump "D:\studia\trzeci rok\semestr I\bazy_danych\projekt-bazy_danych" (TYLKO PODAJ TU SWOJA SCIEZKE DO FOLDERU Z GITHUBEM)
+zeby przekopiowac wszsytkie pliki z kontenera dockera do plikow w windows i od razu wrzucic je na githuba
+
 mongorestore --host localhost --port 1500 --username root --password password --authenticationDatabase admin ./dump/shop -> załadowanie dumpa shop z folderu /dump/
 
 w środku znajdują się już baza danych shop z kolekcjami orders, users, products
