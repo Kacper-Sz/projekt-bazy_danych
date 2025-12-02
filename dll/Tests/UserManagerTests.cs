@@ -283,7 +283,7 @@ namespace Tests
         }
         #endregion
 
-        #region Good
+        #region InvalidEmailFormat
         [Fact]
         public async Task Test14RegisterUserAsync()
         {
@@ -291,9 +291,130 @@ namespace Tests
             {
                 FirstName = "Roman",
                 LastName = "Kwiatkowski",
-                Email = "Roman.Kwiatkowski@example.com",
+                Email = "Roman.Kwiatkowski@example",
                 Role = "Customer",
-                Password = "Password12345",
+                Password = "$Password12345",
+                PhoneNumber = "+48123456789",
+                CreatedAt = DateTime.UtcNow,
+            };
+            var result = await userManager.RegisterUserAsync(user);
+            Assert.Equal(UserRejestrationEnum.INVALID_EMAIL_FORMAT, result);
+        }
+
+        [Fact]
+        public async Task Test15RegisterUserAsync()
+        {
+            User user = new User
+            {
+                FirstName = "Roman",
+                LastName = "Kwiatkowski",
+                Email = "Roman.Kwiatkowski@example.c",
+                Role = "Customer",
+                Password = "$Password12345",
+                PhoneNumber = "+48123456789",
+                CreatedAt = DateTime.UtcNow,
+            };
+            var result = await userManager.RegisterUserAsync(user);
+            Assert.Equal(UserRejestrationEnum.INVALID_EMAIL_FORMAT, result);
+        }
+
+        [Fact]
+        public async Task Test16RegisterUserAsync()
+        {
+            User user = new User
+            {
+                FirstName = "Roman",
+                LastName = "Kwiatkowski",
+                Email = "Roman.Kwiatkowski@example.comcomcom",
+                Role = "Customer",
+                Password = "$Password12345",
+                PhoneNumber = "+48123456789",
+                CreatedAt = DateTime.UtcNow,
+            };
+            var result = await userManager.RegisterUserAsync(user);
+            Assert.Equal(UserRejestrationEnum.INVALID_EMAIL_FORMAT, result);
+        }
+
+        [Fact]
+        public async Task Test17RegisterUserAsync()
+        {
+            User user = new User
+            {
+                FirstName = "Roman",
+                LastName = "Kwiatkowski",
+                Email = "Roman.Kwiatkowskiexample.com",
+                Role = "Customer",
+                Password = "$Password12345",
+                PhoneNumber = "+48123456789",
+                CreatedAt = DateTime.UtcNow,
+            };
+            var result = await userManager.RegisterUserAsync(user);
+            Assert.Equal(UserRejestrationEnum.INVALID_EMAIL_FORMAT, result);
+        }
+
+        [Fact]
+        public async Task Test18RegisterUserAsync()
+        {
+            User user = new User
+            {
+                FirstName = "Roman",
+                LastName = "Kwiatkowski",
+                Email = "@example.com",
+                Role = "Customer",
+                Password = "$Password12345",
+                PhoneNumber = "+48123456789",
+                CreatedAt = DateTime.UtcNow,
+            };
+            var result = await userManager.RegisterUserAsync(user);
+            Assert.Equal(UserRejestrationEnum.INVALID_EMAIL_FORMAT, result);
+        }
+
+        [Fact]
+        public async Task Test19RegisterUserAsync()
+        {
+            User user = new User
+            {
+                FirstName = "Roman",
+                LastName = "Kwiatkowski",
+                Email = "Roman.Kwiatkowski@@example.com",
+                Role = "Customer",
+                Password = "$Password12345",
+                PhoneNumber = "+48123456789",
+                CreatedAt = DateTime.UtcNow,
+            };
+            var result = await userManager.RegisterUserAsync(user);
+            Assert.Equal(UserRejestrationEnum.INVALID_EMAIL_FORMAT, result);
+        }
+
+        [Fact]
+        public async Task Test20RegisterUserAsync()
+        {
+            User user = new User
+            {
+                FirstName = "Roman",
+                LastName = "Kwiatkowski",
+                Email = "Roman.Kwiatkowski@example..com",
+                Role = "Customer",
+                Password = "$Password12345",
+                PhoneNumber = "+48123456789",
+                CreatedAt = DateTime.UtcNow,
+            };
+            var result = await userManager.RegisterUserAsync(user);
+            Assert.Equal(UserRejestrationEnum.INVALID_EMAIL_FORMAT, result);
+        }
+        #endregion
+
+        #region Good
+        [Fact]
+        public async Task Test21RegisterUserAsync()
+        {
+            User user = new User
+            {
+                FirstName = "Roman",
+                LastName = "Kwiatkowski",
+                Email = "kwiatkowski.roman@example.com",
+                Role = "Customer",
+                Password = "$Password12345",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
