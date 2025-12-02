@@ -36,6 +36,9 @@ naszeRepozytorium/
 │   ├─ docker-compose.yml
 │   ├─ initdb/
 │   │   └─ initCollections.js 
+│   │   └─ Orders.json
+│   │   └─ Orders.json
+│   │   └─ Products.json 
 │   └─ dump/
 │
 ├─ dll/      

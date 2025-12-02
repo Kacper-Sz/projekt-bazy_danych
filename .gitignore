@@ -1,0 +1,130 @@
+# Visual Studio
+
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+
+bin/
+obj/
+Debug/
+Release/
+x64/
+x86/
+
+# NuGet
+
+*.nupkg
+packages/
+
+# NuGet v3
+
+*.nuget.props
+*.nuget.targets
+
+# Rider IDE
+
+.idea/
+
+# Visual Studio Code
+
+.vscode/
+
+# ASP.NET temporary files
+
+wwwroot/
+
+# Resharper
+
+_ReSharper*/
+*.DotSettings.user
+
+# DotCover
+
+*.dotCover
+
+# Test results
+
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# xUnit
+
+*.xunit.xml
+
+# MAUI / Xamarin / Mobile
+
+*.apk
+*.aab
+*.app
+*.appx
+*.xcodeproj
+*.xcworkspace
+*.ipa
+*.symbols
+*.pdb
+*.log
+
+# Rider & JetBrains
+
+*.sln.iml
+
+# Others
+
+*.log
+*.vsix
+*.db
+*.sdf
+*.cache
+*.local
+*.DS_Store
+*.tmp
+*.temp
+
+# Rider / JetBrains IDE caches
+
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# User-specific files
+
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Local history
+
+.history/
+
+# Mac
+
+*.DS_Store
+
+# Windows thumbnail cache
+
+Thumbs.db
+ehthumbs.db
+
+# Linux
+
+*.directory
+
+# JetBrains Rider
+
+.idea/
+*.sln.iml
+
+# dotCover
+
+*.dotCover
+~*.dotCover
