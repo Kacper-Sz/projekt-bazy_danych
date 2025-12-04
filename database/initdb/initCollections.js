@@ -4,13 +4,31 @@ db.createCollection('users');
 db.createCollection('orders');
 db.createCollection('products');
 
+const fs = require('fs');
+
 function readJSON(path) {
-    return JSON.parse(cat(path));
+    return JSON.parse(fs.readFileSync(path, 'utf8'));
 }
 
-const products = JSON.parse(require('fs').readFileSync('/docker-entrypoint-initdb.d/Products.json', 'utf8'));
-const users    = JSON.parse(require('fs').readFileSync('/docker-entrypoint-initdb.d/Users.json', 'utf8'));
-const orders   = JSON.parse(require('fs').readFileSync('/docker-entrypoint-initdb.d/Orders.json', 'utf8'));
+const products = readJSON('/docker-entrypoint-initdb.d/Products.json');
+const users    = readJSON('/docker-entrypoint-initdb.d/Users.json');
+const orders   = readJSON('/docker-entrypoint-initdb.d/Orders.json');
+
+users.forEach(u => {
+    u._id = ObjectId(u._id);
+    u.createdAt = new Date(u.createdAt);
+});
+
+products.forEach(p => {
+    p._id = ObjectId(p._id);
+});
+
+orders.forEach(o => {
+    o._id = ObjectId(o._id);
+    o.customerId = ObjectId(o.customerId);
+    o.createdAt = new Date(o.createdAt);
+    o.items.forEach(i => i.productId = ObjectId(i.productId));
+});
 
 db.products.insertMany(products);
 db.users.insertMany(users);

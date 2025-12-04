@@ -11,14 +11,11 @@ namespace Tests
 {
     public class UserManagerTests
     {
-        const string connectionString = "mongodb://root:password@localhost:1500/?authSource=admin";
-        const string databaseName = "shop";
-
         private readonly UserManager userManager;
 
         public UserManagerTests()
         {
-            MongoDbManager dbManager = new MongoDbManager(connectionString, databaseName);
+            MongoDbManager dbManager = new MongoDbManager(DataManager.ConnectionString(), DataManager.DatabaseName());
             userManager = new UserManager(dbManager.Database);
         }
 

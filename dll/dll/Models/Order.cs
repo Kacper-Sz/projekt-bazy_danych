@@ -12,10 +12,11 @@ namespace dll.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public string? Id { get; set; }
+        public ObjectId Id { get; set; }
 
         [BsonElement("customerId")]
-        public string CustomerId { get; set; } = null!;
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId CustomerId { get; set; }
 
         [BsonElement("items")]
         public List<OrderItem> Items { get; set; } = new();
@@ -39,7 +40,8 @@ namespace dll.Models
     public class OrderItem
     {
         [BsonElement("productId")]
-        public string ProductId { get; set; } = null!;
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId ProductId { get; set; }
 
         [BsonElement("quantity")]
         public int Quantity { get; set; }

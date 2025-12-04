@@ -1,5 +1,6 @@
 ﻿
 using dll.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace dll.Orders
 {
     public class OrderManager
     {
-        private const string COLLECTION_NAME = "Orders";
+        private const string COLLECTION_NAME = "orders";
         
         private readonly IMongoCollection<Order> _orders;
 
@@ -20,37 +21,46 @@ namespace dll.Orders
             _orders = database.GetCollection<Order>(COLLECTION_NAME);
         }
 
-        public async Task CreateOrderAsync(Order order)
+        public async Task<OrderCreationEnum> CreateOrderAsync(Order order)
         {
             if (!ValidateOrderData(order))
-                return;
+                return OrderCreationEnum.INVALID_DATA;
             await _orders.InsertOneAsync(order);
+            return OrderCreationEnum.SUCCESS;
         }
 
         private bool ValidateOrderData(Order order)
-            => !string.IsNullOrEmpty(order.CustomerId)
+            => order.CustomerId != ObjectId.Empty
             && order.Items != null && order.Items.Count > 0
             && !string.IsNullOrEmpty(order.Status)
             && order.CreatedAt != default
-            && order.DeliveryAddress != null 
-            && !string.IsNullOrEmpty(order.DeliveryAddress.City)
-            && !string.IsNullOrEmpty(order.DeliveryAddress.Street)
-            && !string.IsNullOrEmpty(order.DeliveryAddress.PostalCode)
+            && order.DeliveryAddress != null && !string.IsNullOrEmpty(order.DeliveryAddress.City) && !string.IsNullOrEmpty(order.DeliveryAddress.Street) && !string.IsNullOrEmpty(order.DeliveryAddress.PostalCode)
             && !string.IsNullOrEmpty(order.PaymentMethod);
 
         public async Task<Order?> GetOrderByIdAsync(string id)
-            => await _orders.Find(o => o.Id == id).FirstOrDefaultAsync();
+        {
+            ObjectId objectId = new ObjectId(id);
+            var result = await _orders.Find(o => o.Id == objectId).FirstOrDefaultAsync();
+            return result;
+        }
 
         public async Task<List<Order>> GetOrdersByCustomerAsync(string customerId) 
-            => await _orders.Find(o => o.CustomerId == customerId).ToListAsync();
+        {
+            ObjectId objectId = new ObjectId(customerId);
+            return await _orders.Find(o => o.CustomerId == objectId).ToListAsync();
+        }
 
         public async Task UpdateOrderStatusAsync(string id, string newStatu)
         {
             UpdateDefinition<Order> update = Builders<Order>.Update.Set(o => o.Status, newStatu);
-            await _orders.UpdateOneAsync(o => o.Id == id, update);
+            ObjectId objectId = new ObjectId(id);
+            await _orders.UpdateOneAsync(o => o.Id == objectId, update);
         }
 
         public async Task DeleteOrderAsync(string id)
-            => await _orders.DeleteOneAsync(o => o.Id == id);
+        {
+            ObjectId objectId = new ObjectId(id);
+            await _orders.DeleteOneAsync(o => o.Id == objectId);
+        }
     }
 }
