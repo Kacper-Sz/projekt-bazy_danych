@@ -38,8 +38,8 @@ namespace dll.Models
 
     public class OrderItem
     {
-        [BsonElement("productName")]
-        public string ProductName { get; set; } = null!;
+        [BsonElement("productId")]
+        public string ProductId { get; set; } = null!;
 
         [BsonElement("quantity")]
         public int Quantity { get; set; }

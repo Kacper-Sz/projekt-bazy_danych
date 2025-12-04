@@ -1,10 +1,10 @@
 [
   {
     "_id": "6931a4613e1b605c1bce5f7d",
-    "customerId": "jan.kowalski@example.com",
+    "customerId": "6931a62442ebb44d99ce5f79",
     "items": [
-      { "productName": "Dell XPS 13 Laptop", "quantity": 1 },
-      { "productName": "Samsung Galaxy S23", "quantity": 2 }
+      { "productId": "6931a62442ebb44d99ce5f47", "quantity": 1 },
+      { "productId": "6931a62442ebb44d99ce5f48", "quantity": 2 }
     ],
     "status": "processing",
     "createdAt": "2025-11-25T12:00:00Z",
