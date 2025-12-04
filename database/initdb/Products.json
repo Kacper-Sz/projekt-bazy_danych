@@ -6,7 +6,7 @@
     "category": "Laptops",
     "price": 5500,
     "stock": 10,
-    "imageUrl": "https://cdn.sklep.pl/images/dell-xps13.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870324/Dell_XPS_13_Laptop_rdbauq.png",
     "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Intel i7", "Screen": "13.3 in" },
     "description": "Premium ultrabook with an InfinityEdge display and lightweight chassis.",
     "createdAt": "2025-11-20T10:00:00Z"
@@ -18,7 +18,7 @@
     "category": "Smartphones",
     "price": 4200,
     "stock": 15,
-    "imageUrl": "https://cdn.sklep.pl/images/s23.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870460/Samsung_Galaxy_S23_pmtnlw.png",
     "specs": { "RAM": "8GB", "Storage": "256GB", "Screen": "6.1 in" },
     "description": "Flagship smartphone with an AMOLED display.",
     "createdAt": "2025-11-22T15:30:00Z"
@@ -30,7 +30,7 @@
     "category": "Consoles",
     "price": 2900,
     "stock": 5,
-    "imageUrl": "https://cdn.sklep.pl/images/ps5.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870539/10808d3f-bd2e-4e76-a090-c0f2989a61c5.png",
     "specs": { "Storage": "1TB SSD", "GPU": "RDNA 2", "RAM": "16GB GDDR6" },
     "description": "Next-generation console with ray tracing support and fast SSD storage.",
     "createdAt": "2025-11-23T12:00:00Z"
@@ -43,7 +43,7 @@
     "category": "Laptops",
     "price": 6200,
     "stock": 8,
-    "imageUrl": "https://cdn.sklep.pl/images/macbook-air-m2.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870627/macbook_lkeodq.png",
     "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Apple M2" },
     "description": "Lightweight laptop powered by the Apple M2 chip.",
     "createdAt": "2025-10-11T10:00:00Z"
@@ -55,7 +55,7 @@
     "category": "Monitors",
     "price": 1800,
     "stock": 12,
-    "imageUrl": "https://cdn.sklep.pl/images/lg-27gp850.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870696/97e36a42-f32a-45ed-9838-329e47bf0286.png",
     "specs": { "Resolution": "QHD", "RefreshRate": "165Hz", "Panel": "IPS" },
     "description": "Gaming monitor with a fast refresh rate.",
     "createdAt": "2025-08-15T10:00:00Z"
@@ -67,7 +67,7 @@
     "category": "Smartphones",
     "price": 5200,
     "stock": 20,
-    "imageUrl": "https://cdn.sklep.pl/images/iphone15.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870790/ef8e3106-b8dc-4762-8d73-243ad2646435.png",
     "specs": { "RAM": "6GB", "Storage": "256GB", "Screen": "6.1 in OLED" },
     "description": "New iPhone model with an improved camera.",
     "createdAt": "2025-09-20T10:00:00Z"
@@ -80,7 +80,7 @@
     "category": "Monitors",
     "price": 3000,
     "stock": 6,
-    "imageUrl": "https://cdn.sklep.pl/images/odyssey-g7.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870839/cbd4e71c-7bd5-4403-9895-030fbfd213ee.png",
     "specs": { "Resolution": "QHD", "RefreshRate": "240Hz", "Curvature": "1000R" },
     "description": "Advanced gaming monitor with high refresh rate and curved panel.",
     "createdAt": "2025-07-10T10:00:00Z"
@@ -92,7 +92,7 @@
     "category": "Components",
     "price": 3600,
     "stock": 14,
-    "imageUrl": "https://cdn.sklep.pl/images/ryzen7950x.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870887/bbaaeaf9-033b-4ea6-aaae-63309572c250.png",
     "specs": { "Cores": "16", "ClockSpeed": "5.7GHz", "Socket": "AM5" },
     "description": "High-end AMD processor for professional workloads.",
     "createdAt": "2025-06-05T10:00:00Z"
@@ -104,7 +104,7 @@
     "category": "Components",
     "price": 7200,
     "stock": 5,
-    "imageUrl": "https://cdn.sklep.pl/images/rtx4080.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870923/6fc60b10-bdee-4cba-8591-ad07eeb663ca.png",
     "specs": { "VRAM": "16GB GDDR6X", "TDP": "320W" },
     "description": "High-performance next-generation graphics card.",
     "createdAt": "2025-08-01T10:00:00Z"
@@ -116,7 +116,7 @@
     "category": "Tablets",
     "price": 6200,
     "stock": 9,
-    "imageUrl": "https://cdn.sklep.pl/images/ipadpro12.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870957/a4350c2d-3f81-40c7-b4b0-55881a255558.png",
     "specs": { "Screen": "12.9 in MiniLED", "Storage": "512GB", "CPU": "Apple M2" },
     "description": "Professional tablet for creative work.",
     "createdAt": "2025-07-18T10:00:00Z"
@@ -129,7 +129,7 @@
     "category": "Cameras",
     "price": 2100,
     "stock": 10,
-    "imageUrl": "https://cdn.sklep.pl/images/gopro12.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870991/ffa1cf4a-8106-4822-95c4-ea60609b4d63.png",
     "specs": { "Resolution": "5.3K", "Stabilization": "HyperSmooth", "WaterResistance": "10m" },
     "description": "Action camera with advanced stabilization.",
     "createdAt": "2025-07-12T10:00:00Z"
@@ -141,7 +141,7 @@
     "category": "Cameras",
     "price": 5200,
     "stock": 7,
-    "imageUrl": "https://cdn.sklep.pl/images/eosr7.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871034/f6d52df5-b8a4-449e-9304-430e4c6937b5.png",
     "specs": { "Sensor": "APS-C", "Resolution": "32.5MP", "AF": "Dual Pixel CMOS AF II" },
     "description": "Mirrorless camera for photography and video.",
     "createdAt": "2025-06-30T10:00:00Z"
@@ -153,7 +153,7 @@
     "category": "Mice",
     "price": 350,
     "stock": 25,
-    "imageUrl": "https://cdn.sklep.pl/images/g502x.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871061/1c9be449-9054-4a22-b3f9-ea1c94b7db31.png",
     "specs": { "Sensor": "25K DPI", "Weight": "89g", "Type": "Wired" },
     "description": "Popular FPS gaming mouse.",
     "createdAt": "2025-10-01T10:00:00Z"
@@ -165,7 +165,7 @@
     "category": "Laptops",
     "price": 8900,
     "stock": 6,
-    "imageUrl": "https://cdn.sklep.pl/images/legion7.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871097/ae5ac7ab-8158-4f65-8c57-5506310caf1e.png",
     "specs": { "RAM": "32GB", "GPU": "RTX 4080", "CPU": "Ryzen 9" },
     "description": "High-end gaming laptop.",
     "createdAt": "2025-09-12T09:00:00Z"
@@ -177,7 +177,7 @@
     "category": "Components",
     "price": 3300,
     "stock": 12,
-    "imageUrl": "https://cdn.sklep.pl/images/i9-14900k.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871143/83e81026-fc47-43b5-8634-227d2700b495.png",
     "specs": { "Cores": "24", "ClockSpeed": "6.0GHz", "Socket": "LGA1700" },
     "description": "Top-tier Intel processor for gaming.",
     "createdAt": "2025-09-01T11:00:00Z"
@@ -189,7 +189,7 @@
     "category": "Components",
     "price": 2100,
     "stock": 11,
-    "imageUrl": "https://cdn.sklep.pl/images/z790e.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871168/f63f7d95-b648-4784-85ec-c4a73ed409b5.png",
     "specs": { "Socket": "LGA1700", "FormFactor": "ATX", "Memory": "DDR5" },
     "description": "High-quality motherboard for gamers.",
     "createdAt": "2025-05-14T12:00:00Z"
@@ -201,7 +201,7 @@
     "category": "Monitors",
     "price": 2300,
     "stock": 8,
-    "imageUrl": "https://cdn.sklep.pl/images/proart-pa279cv.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871200/d0175bcd-61a3-4d50-8e93-3a4a83b19a82.png",
     "specs": { "Resolution": "4K", "Panel": "IPS", "Calibration": "ΔE < 2" },
     "description": "Monitor for professionals with accurate color calibration.",
     "createdAt": "2025-05-07T10:00:00Z"
@@ -213,7 +213,7 @@
     "category": "Audio",
     "price": 1500,
     "stock": 18,
-    "imageUrl": "https://cdn.sklep.pl/images/xm5.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871238/83dd35be-f347-4d49-bbdc-23b28d5b4b15.png",
     "specs": { "ANC": "Active Noise Cancellation", "Connectivity": "Bluetooth 5.2" },
     "description": "Top-tier headphones with ANC.",
     "createdAt": "2025-11-25T12:00:00Z"
@@ -225,7 +225,7 @@
     "category": "Audio",
     "price": 2800,
     "stock": 7,
-    "imageUrl": "https://cdn.sklep.pl/images/hw-q930c.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871288/d94fef03-d2ed-4ceb-921c-4737bd402e7f.png",
     "specs": { "Channels": "9.1.4", "Dolby": "Atmos" },
     "description": "High-end soundbar with Dolby Atmos.",
     "createdAt": "2025-09-17T14:00:00Z"
@@ -237,7 +237,7 @@
     "category": "Audio",
     "price": 650,
     "stock": 22,
-    "imageUrl": "https://cdn.sklep.pl/images/charge6.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871323/1986b7e3-7b55-454b-9006-4d3b2e1d79c5.png",
     "specs": { "Battery": "30h", "WaterResistance": "IP67" },
     "description": "Portable speaker with strong bass.",
     "createdAt": "2025-08-09T12:30:00Z"
@@ -249,7 +249,7 @@
     "category": "Components",
     "price": 5400,
     "stock": 6,
-    "imageUrl": "https://cdn.sklep.pl/images/7900xtx.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871360/18649c02-cd5d-4abc-920b-975d0ed419bf.png",
     "specs": { "VRAM": "24GB GDDR6", "TDP": "355W" },
     "description": "AMD's most powerful graphics card.",
     "createdAt": "2025-06-21T10:00:00Z"
@@ -261,7 +261,7 @@
     "category": "Components",
     "price": 550,
     "stock": 15,
-    "imageUrl": "https://cdn.sklep.pl/images/rm850x.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871408/886b0345-d75f-486f-832c-cd17b4ac7ef6.png",
     "specs": { "Power": "850W", "Certification": "80+ Gold" },
     "description": "Efficient modular power supply.",
     "createdAt": "2025-08-12T13:00:00Z"
@@ -273,7 +273,7 @@
     "category": "Smartwatches",
     "price": 2200,
     "stock": 14,
-    "imageUrl": "https://cdn.sklep.pl/images/applewatch10.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871452/39630623-fae8-4754-8f2f-edf109075263.png",
     "specs": { "Screen": "Always-On OLED", "GPS": true },
     "description": "New generation Apple Watch.",
     "createdAt": "2025-07-07T09:00:00Z"
@@ -285,7 +285,7 @@
     "category": "Smartwatches",
     "price": 1600,
     "stock": 19,
-    "imageUrl": "https://cdn.sklep.pl/images/galaxywatch7.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871480/63d5cf3d-d8d8-4525-94a0-f476ef44fd1f.png",
     "specs": { "Screen": "AMOLED", "GPS": true },
     "description": "Advanced smartwatch with WearOS.",
     "createdAt": "2025-06-01T12:00:00Z"
@@ -297,7 +297,7 @@
     "category": "Printers",
     "price": 1100,
     "stock": 9,
-    "imageUrl": "https://cdn.sklep.pl/images/m404.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871512/a3ad55b4-f85a-4212-af07-ea346071436c.png",
     "specs": { "Type": "Laser", "Speed": "38 ppm" },
     "description": "Efficient office laser printer.",
     "createdAt": "2025-10-21T10:00:00Z"
@@ -309,7 +309,7 @@
     "category": "Networking",
     "price": 550,
     "stock": 17,
-    "imageUrl": "https://cdn.sklep.pl/images/ax73.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871551/fca7419e-d36a-4245-a193-6b89ad663879.png",
     "specs": { "WiFi": "6", "Throughput": "5400 Mb/s" },
     "description": "Fast home router.",
     "createdAt": "2025-11-02T10:00:00Z"
@@ -321,7 +321,7 @@
     "category": "E-readers",
     "price": 750,
     "stock": 13,
-    "imageUrl": "https://cdn.sklep.pl/images/kindle2025.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871595/8e612009-7b81-4893-af83-04ee47b43169.png",
     "specs": { "Screen": "6.8 in E-Ink", "Storage": "16GB" },
     "description": "Latest e-book reader.",
     "createdAt": "2025-09-10T09:00:00Z"
@@ -333,7 +333,7 @@
     "category": "Cameras",
     "price": 11000,
     "stock": 4,
-    "imageUrl": "https://cdn.sklep.pl/images/sonya7iv.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871631/51dcb958-0315-486d-a511-0f3df224ecdc.png",
     "specs": { "Resolution": "33MP", "4K": "60fps" },
     "description": "Professional camera for video work.",
     "createdAt": "2025-04-20T11:00:00Z"
@@ -345,7 +345,7 @@
     "category": "Cameras",
     "price": 9000,
     "stock": 5,
-    "imageUrl": "https://cdn.sklep.pl/images/z6ii.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871667/7243321b-38fb-4621-a764-fedb2e9e125d.png",
     "specs": { "Sensor": "24MP", "4K": "60fps" },
     "description": "Versatile mirrorless camera.",
     "createdAt": "2025-03-18T10:30:00Z"
@@ -357,7 +357,7 @@
     "category": "Mice",
     "price": 420,
     "stock": 21,
-    "imageUrl": "https://cdn.sklep.pl/images/deathadderv3.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871720/cda5c72a-c940-49df-88b9-86bd2bf1e1a0.png",
     "specs": { "Sensor": "30K DPI", "Type": "Wired" },
     "description": "Iconic gaming mouse.",
     "createdAt": "2025-09-12T12:00:00Z"
@@ -369,7 +369,7 @@
     "category": "Mice",
     "price": 280,
     "stock": 30,
-    "imageUrl": "https://cdn.sklep.pl/images/aerox3.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871760/a0e08823-5905-47ea-aa7d-bca000e7ef55.png",
     "specs": { "Weight": "59g", "Sensor": "TrueMove" },
     "description": "Ultra-lightweight gaming mouse.",
     "createdAt": "2025-09-10T14:00:00Z"
@@ -381,7 +381,7 @@
     "category": "Monitors",
     "price": 3500,
     "stock": 7,
-    "imageUrl": "https://cdn.sklep.pl/images/u2723qe.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871797/0de6304a-460b-4396-8df6-879bb7630409.png",
     "specs": {
       "Resolution": "4K",
       "Panel": "IPS Black",
@@ -397,7 +397,7 @@
     "category": "Laptops",
     "price": 7800,
     "stock": 5,
-    "imageUrl": "https://cdn.sklep.pl/images/omen17.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871839/4cc54aa6-db63-47ec-9ce2-571d48ebfd14.png",
     "specs": { "RAM": "32GB", "GPU": "RTX 4070", "Screen": "17 in 165Hz" },
     "description": "Gaming laptop with a large high-refresh display.",
     "createdAt": "2025-08-22T10:00:00Z"
@@ -409,7 +409,7 @@
     "category": "Consoles",
     "price": 2600,
     "stock": 11,
-    "imageUrl": "https://cdn.sklep.pl/images/xboxseriesx.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871996/f1c21c75-4504-4ca4-b934-9e271ecbabb1.png",
     "specs": { "Storage": "1TB", "4K": "Yes" },
     "description": "Most powerful Xbox console.",
     "createdAt": "2025-07-05T10:00:00Z"
@@ -421,7 +421,7 @@
     "category": "Components",
     "price": 950,
     "stock": 20,
-    "imageUrl": "https://cdn.sklep.pl/images/sandisk1tb.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872057/c5a5b5a4-38ef-4cce-bf9f-9c7860af75cd.png",
     "specs": { "Type": "microSD", "Speed": "160MB/s" },
     "description": "Fast memory card for cameras.",
     "createdAt": "2025-10-02T10:00:00Z"
@@ -433,7 +433,7 @@
     "category": "Audio",
     "price": 1450,
     "stock": 16,
-    "imageUrl": "https://cdn.sklep.pl/images/airpodspro3.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872113/c6e63f90-aae6-45b7-8add-0c9c1d26813f.png",
     "specs": { "ANC": true, "Charging": "MagSafe" },
     "description": "Premium earbuds for iPhone.",
     "createdAt": "2025-10-10T09:00:00Z"
@@ -445,7 +445,7 @@
     "category": "Audio",
     "price": 700,
     "stock": 18,
-    "imageUrl": "https://cdn.sklep.pl/images/xb43.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872164/d75b344f-56e5-4693-b8db-f5a1f2de0740.png",
     "specs": { "Battery": "24h", "WaterResistance": "IP67" },
     "description": "Powerful portable speaker.",
     "createdAt": "2025-04-14T10:00:00Z"
@@ -457,7 +457,7 @@
     "category": "Cameras",
     "price": 10500,
     "stock": 3,
-    "imageUrl": "https://cdn.sklep.pl/images/2470gm2.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872219/7af0d5b4-34d4-4553-b102-beb2cf301714.png",
     "specs": { "Type": "Zoom", "Aperture": "f/2.8" },
     "description": "Professional full-frame zoom lens.",
     "createdAt": "2025-04-08T10:00:00Z"
@@ -469,7 +469,7 @@
     "category": "Cameras",
     "price": 2500,
     "stock": 9,
-    "imageUrl": "https://cdn.sklep.pl/images/osmopocket4.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872256/870cfac8-9151-4186-af62-235291096a43.png",
     "specs": { "Stabilization": "3-axis", "4K": "120fps" },
     "description": "Pocket-sized camera with built-in gimbal.",
     "createdAt": "2025-06-25T12:00:00Z"
@@ -481,7 +481,7 @@
     "category": "Smartphones",
     "price": 3800,
     "stock": 18,
-    "imageUrl": "https://cdn.sklep.pl/images/pixel8.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872311/959b61ac-7409-43a1-bfca-9f4f4f5eb274.png",
     "specs": { "RAM": "8GB", "Storage": "128GB", "Screen": "6.2 in OLED" },
     "description": "Google's latest Pixel with clean Android experience and excellent camera.",
     "createdAt": "2025-10-05T10:00:00Z"
@@ -493,7 +493,7 @@
     "category": "Laptops",
     "price": 7100,
     "stock": 7,
-    "imageUrl": "https://cdn.sklep.pl/images/surface-laptop5.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872352/986c9075-72d1-47a3-8438-597997dfac54.png",
     "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Intel i7" },
     "description": "Thin and light laptop optimized for productivity and battery life.",
     "createdAt": "2025-09-01T09:00:00Z"
@@ -505,7 +505,7 @@
     "category": "Audio",
     "price": 1200,
     "stock": 24,
-    "imageUrl": "https://cdn.sklep.pl/images/bose-qc2.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872403/2879fe24-5823-46fc-89ed-bdf393393a4a.png",
     "specs": { "ANC": true, "Battery": "6h" },
     "description": "Comfortable true wireless earbuds with excellent noise cancellation.",
     "createdAt": "2025-08-15T11:00:00Z"
@@ -517,7 +517,7 @@
     "category": "Accessories",
     "price": 250,
     "stock": 40,
-    "imageUrl": "https://cdn.sklep.pl/images/anker-26800.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872439/82671ac7-de63-4ba6-be2d-ebf582071762.png",
     "specs": { "Capacity": "26800mAh", "Ports": "USB-A, USB-C" },
     "description": "High-capacity power bank for long travel and charging multiple devices.",
     "createdAt": "2025-07-20T10:00:00Z"
@@ -529,7 +529,7 @@
     "category": "Accessories",
     "price": 900,
     "stock": 11,
-    "imageUrl": "https://cdn.sklep.pl/images/wacom-intuos-pro.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872484/c6edbb5e-64ed-4c23-a30a-e76ccddab777.png",
     "specs": { "ActiveArea": "13.2 x 8.5 in", "PressureLevels": 8192 },
     "description": "Professional drawing tablet for digital artists.",
     "createdAt": "2025-05-30T09:30:00Z"
@@ -541,7 +541,7 @@
     "category": "Components",
     "price": 500,
     "stock": 26,
-    "imageUrl": "https://cdn.sklep.pl/images/ironwolf4tb.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872533/ed4ae93d-281b-4d66-bf9e-300a3793ccc9.png",
     "specs": { "Type": "HDD", "RPM": "7200" },
     "description": "Reliable NAS-grade hard drive for home servers and storage arrays.",
     "createdAt": "2025-04-12T10:00:00Z"
@@ -553,7 +553,7 @@
     "category": "Accessories",
     "price": 1300,
     "stock": 9,
-    "imageUrl": "https://cdn.sklep.pl/images/streamdeck-xl.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872575/1b64b66b-110a-4cd4-a98a-9f5e317c29f5.png",
     "specs": { "Buttons": 32, "Connectivity": "USB-C" },
     "description": "Customizable control deck for streamers and content creators.",
     "createdAt": "2025-02-18T10:00:00Z"
@@ -565,7 +565,7 @@
     "category": "SmartHome",
     "price": 800,
     "stock": 14,
-    "imageUrl": "https://cdn.sklep.pl/images/ring-doorbell4.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872614/503a7db3-4da7-4a5e-aec5-8315b22602da.png",
     "specs": { "Resolution": "1536p", "Battery": "Rechargeable" },
     "description": "Smart doorbell with enhanced motion detection and HDR video.",
     "createdAt": "2025-03-22T11:00:00Z"
@@ -577,7 +577,7 @@
     "category": "Components",
     "price": 700,
     "stock": 13,
-    "imageUrl": "https://cdn.sklep.pl/images/toughpower-850.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872670/1e2eb979-d244-40aa-a814-7cac4e966bec.png",
     "specs": { "Power": "850W", "Certification": "80+ Gold" },
     "description": "Reliable full-modular power supply for high-end builds.",
     "createdAt": "2025-01-10T09:00:00Z"
@@ -589,7 +589,7 @@
     "category": "Monitors",
     "price": 4200,
     "stock": 6,
-    "imageUrl": "https://cdn.sklep.pl/images/benq-pd3220u.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872704/f9290737-75ef-4da5-8202-bada4c2a68ce.png",
     "specs": { "Resolution": "4K", "Size": "32 in", "Color": "sRGB/Display P3" },
     "description": "Designer monitor with accurate colors and large workspace.",
     "createdAt": "2025-06-01T08:00:00Z"
@@ -601,7 +601,7 @@
     "category": "Audio",
     "price": 900,
     "stock": 20,
-    "imageUrl": "https://cdn.sklep.pl/images/hyperx-cloud2w.jpg",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872752/e463e139-426d-4930-be77-6f1ad7fd229f.png",
     "specs": { "Battery": "30h", "Connectivity": "Wireless" },
     "description": "Comfortable wireless gaming headset with good microphone quality.",
     "createdAt": "2025-09-30T10:30:00Z"
