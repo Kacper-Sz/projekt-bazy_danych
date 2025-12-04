@@ -1,5 +1,6 @@
 [
   {
+    "_id": "6931a62442ebb44d99ce5f47",
     "name": "Dell XPS 13 Laptop",
     "manufacturer": "Dell",
     "category": "Laptops",
@@ -11,6 +12,7 @@
     "createdAt": "2025-11-20T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f48",
     "name": "Samsung Galaxy S23",
     "manufacturer": "Samsung",
     "category": "Smartphones",
@@ -22,6 +24,7 @@
     "createdAt": "2025-11-22T15:30:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f49",
     "name": "PlayStation 5",
     "manufacturer": "Sony",
     "category": "Consoles",
@@ -33,7 +36,8 @@
     "createdAt": "2025-11-23T12:00:00Z"
   },
 
-  {
+  {    
+    "_id": "6931a62442ebb44d99ce5f4a",
     "name": "MacBook Air M2",
     "manufacturer": "Apple",
     "category": "Laptops",
@@ -45,6 +49,7 @@
     "createdAt": "2025-10-11T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f4b",
     "name": "LG UltraGear 27GP850",
     "manufacturer": "LG",
     "category": "Monitors",
@@ -56,6 +61,7 @@
     "createdAt": "2025-08-15T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f4c",
     "name": "iPhone 15",
     "manufacturer": "Apple",
     "category": "Smartphones",
@@ -68,6 +74,7 @@
   },
 
   {
+    "_id": "6931a62442ebb44d99ce5f4d",
     "name": "Samsung Odyssey G7",
     "manufacturer": "Samsung",
     "category": "Monitors",
@@ -79,6 +86,7 @@
     "createdAt": "2025-07-10T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f4e",
     "name": "AMD Ryzen 9 7950X",
     "manufacturer": "AMD",
     "category": "Components",
@@ -90,6 +98,7 @@
     "createdAt": "2025-06-05T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f4f",
     "name": "NVIDIA RTX 4080",
     "manufacturer": "NVIDIA",
     "category": "Components",
@@ -101,6 +110,7 @@
     "createdAt": "2025-08-01T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f50",
     "name": "iPad Pro 12.9",
     "manufacturer": "Apple",
     "category": "Tablets",
@@ -113,6 +123,7 @@
   },
 
   {
+    "_id": "6931a62442ebb44d99ce5f51",
     "name": "GoPro Hero 12",
     "manufacturer": "GoPro",
     "category": "Cameras",
@@ -124,6 +135,7 @@
     "createdAt": "2025-07-12T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f52",
     "name": "Canon EOS R7",
     "manufacturer": "Canon",
     "category": "Cameras",
@@ -135,6 +147,7 @@
     "createdAt": "2025-06-30T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f53",
     "name": "Logitech G502 X",
     "manufacturer": "Logitech",
     "category": "Mice",
@@ -145,8 +158,8 @@
     "description": "Popular FPS gaming mouse.",
     "createdAt": "2025-10-01T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f54",
     "name": "Lenovo Legion 7",
     "manufacturer": "Lenovo",
     "category": "Laptops",
@@ -158,6 +171,7 @@
     "createdAt": "2025-09-12T09:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f55",
     "name": "Intel Core i9-14900K",
     "manufacturer": "Intel",
     "category": "Components",
@@ -169,6 +183,7 @@
     "createdAt": "2025-09-01T11:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f56",
     "name": "ASUS ROG STRIX Z790-E",
     "manufacturer": "ASUS",
     "category": "Components",
@@ -179,8 +194,8 @@
     "description": "High-quality motherboard for gamers.",
     "createdAt": "2025-05-14T12:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f57",
     "name": "ASUS ProArt PA279CV",
     "manufacturer": "ASUS",
     "category": "Monitors",
@@ -191,8 +206,8 @@
     "description": "Monitor for professionals with accurate color calibration.",
     "createdAt": "2025-05-07T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f58",
     "name": "Sony WH-1000XM5",
     "manufacturer": "Sony",
     "category": "Audio",
@@ -204,6 +219,7 @@
     "createdAt": "2025-11-25T12:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f59",
     "name": "Samsung HW-Q930C",
     "manufacturer": "Samsung",
     "category": "Audio",
@@ -215,6 +231,7 @@
     "createdAt": "2025-09-17T14:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f5a",
     "name": "JBL Charge 6",
     "manufacturer": "JBL",
     "category": "Audio",
@@ -225,8 +242,8 @@
     "description": "Portable speaker with strong bass.",
     "createdAt": "2025-08-09T12:30:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f5b",
     "name": "AMD Radeon RX 7900 XTX",
     "manufacturer": "AMD",
     "category": "Components",
@@ -238,6 +255,7 @@
     "createdAt": "2025-06-21T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f5c",
     "name": "Corsair RM850x",
     "manufacturer": "Corsair",
     "category": "Components",
@@ -248,8 +266,8 @@
     "description": "Efficient modular power supply.",
     "createdAt": "2025-08-12T13:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f5d",
     "name": "Apple Watch Series 10",
     "manufacturer": "Apple",
     "category": "Smartwatches",
@@ -261,6 +279,7 @@
     "createdAt": "2025-07-07T09:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f5e",
     "name": "Samsung Galaxy Watch 7",
     "manufacturer": "Samsung",
     "category": "Smartwatches",
@@ -271,8 +290,8 @@
     "description": "Advanced smartwatch with WearOS.",
     "createdAt": "2025-06-01T12:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f5f",
     "name": "HP LaserJet Pro M404dn",
     "manufacturer": "HP",
     "category": "Printers",
@@ -283,8 +302,8 @@
     "description": "Efficient office laser printer.",
     "createdAt": "2025-10-21T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f60",
     "name": "TP-Link Archer AX73",
     "manufacturer": "TP-Link",
     "category": "Networking",
@@ -295,8 +314,8 @@
     "description": "Fast home router.",
     "createdAt": "2025-11-02T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f61",
     "name": "Kindle Paperwhite 2025",
     "manufacturer": "Amazon",
     "category": "E-readers",
@@ -307,8 +326,8 @@
     "description": "Latest e-book reader.",
     "createdAt": "2025-09-10T09:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f62",
     "name": "Sony A7 IV",
     "manufacturer": "Sony",
     "category": "Cameras",
@@ -319,8 +338,8 @@
     "description": "Professional camera for video work.",
     "createdAt": "2025-04-20T11:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f63",
     "name": "Nikon Z6 II",
     "manufacturer": "Nikon",
     "category": "Cameras",
@@ -331,8 +350,8 @@
     "description": "Versatile mirrorless camera.",
     "createdAt": "2025-03-18T10:30:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f64",
     "name": "Razer DeathAdder V3",
     "manufacturer": "Razer",
     "category": "Mice",
@@ -344,6 +363,7 @@
     "createdAt": "2025-09-12T12:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f65",
     "name": "SteelSeries Aerox 3",
     "manufacturer": "SteelSeries",
     "category": "Mice",
@@ -354,8 +374,8 @@
     "description": "Ultra-lightweight gaming mouse.",
     "createdAt": "2025-09-10T14:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f66",
     "name": "Dell UltraSharp U2723QE",
     "manufacturer": "Dell",
     "category": "Monitors",
@@ -370,8 +390,8 @@
     "description": "Professional 27-inch monitor with IPS Black panel and USB-C hub.",
     "createdAt": "2025-06-15T10:45:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f67",
     "name": "HP Omen 17",
     "manufacturer": "HP",
     "category": "Laptops",
@@ -382,8 +402,8 @@
     "description": "Gaming laptop with a large high-refresh display.",
     "createdAt": "2025-08-22T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f68",
     "name": "Xbox Series X",
     "manufacturer": "Microsoft",
     "category": "Consoles",
@@ -394,8 +414,8 @@
     "description": "Most powerful Xbox console.",
     "createdAt": "2025-07-05T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f69",
     "name": "SanDisk Extreme 1TB",
     "manufacturer": "SanDisk",
     "category": "Components",
@@ -406,8 +426,8 @@
     "description": "Fast memory card for cameras.",
     "createdAt": "2025-10-02T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f6a",
     "name": "Apple AirPods Pro 3",
     "manufacturer": "Apple",
     "category": "Audio",
@@ -418,8 +438,8 @@
     "description": "Premium earbuds for iPhone.",
     "createdAt": "2025-10-10T09:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f6b",
     "name": "Sony SRS-XB43",
     "manufacturer": "Sony",
     "category": "Audio",
@@ -430,8 +450,8 @@
     "description": "Powerful portable speaker.",
     "createdAt": "2025-04-14T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f6c",
     "name": "Sony FE 24-70mm GM II",
     "manufacturer": "Sony",
     "category": "Cameras",
@@ -442,8 +462,8 @@
     "description": "Professional full-frame zoom lens.",
     "createdAt": "2025-04-08T10:00:00Z"
   },
-
   {
+    "_id": "6931a62442ebb44d99ce5f6d",
     "name": "DJI Osmo Pocket 4",
     "manufacturer": "DJI",
     "category": "Cameras",
@@ -453,9 +473,9 @@
     "specs": { "Stabilization": "3-axis", "4K": "120fps" },
     "description": "Pocket-sized camera with built-in gimbal.",
     "createdAt": "2025-06-25T12:00:00Z"
-  }
-,
+  },
   {
+    "_id": "6931a62442ebb44d99ce5f6e",
     "name": "Google Pixel 8",
     "manufacturer": "Google",
     "category": "Smartphones",
@@ -467,6 +487,7 @@
     "createdAt": "2025-10-05T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f6f",
     "name": "Microsoft Surface Laptop 5",
     "manufacturer": "Microsoft",
     "category": "Laptops",
@@ -478,6 +499,7 @@
     "createdAt": "2025-09-01T09:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f70",
     "name": "Bose QuietComfort Earbuds II",
     "manufacturer": "Bose",
     "category": "Audio",
@@ -489,6 +511,7 @@
     "createdAt": "2025-08-15T11:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f71",
     "name": "Anker PowerCore 26800",
     "manufacturer": "Anker",
     "category": "Accessories",
@@ -500,6 +523,7 @@
     "createdAt": "2025-07-20T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f72",
     "name": "Wacom Intuos Pro",
     "manufacturer": "Wacom",
     "category": "Accessories",
@@ -511,6 +535,7 @@
     "createdAt": "2025-05-30T09:30:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f73",
     "name": "Seagate IronWolf 4TB",
     "manufacturer": "Seagate",
     "category": "Components",
@@ -522,6 +547,7 @@
     "createdAt": "2025-04-12T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f74",
     "name": "Elgato Stream Deck XL",
     "manufacturer": "Elgato",
     "category": "Accessories",
@@ -533,6 +559,7 @@
     "createdAt": "2025-02-18T10:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f75",
     "name": "Ring Video Doorbell 4",
     "manufacturer": "Ring",
     "category": "SmartHome",
@@ -544,6 +571,7 @@
     "createdAt": "2025-03-22T11:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f76",
     "name": "Thermaltake Toughpower GF1 850W",
     "manufacturer": "Thermaltake",
     "category": "Components",
@@ -555,6 +583,7 @@
     "createdAt": "2025-01-10T09:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f77",
     "name": "BenQ PD3220U",
     "manufacturer": "BenQ",
     "category": "Monitors",
@@ -566,6 +595,7 @@
     "createdAt": "2025-06-01T08:00:00Z"
   },
   {
+    "_id": "6931a62442ebb44d99ce5f78",
     "name": "HyperX Cloud II Wireless",
     "manufacturer": "HyperX",
     "category": "Audio",

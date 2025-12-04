@@ -1,5 +1,6 @@
 [
   {
+    "_id": "6931a4613e1b605c1bce5f7d",
     "customerId": "jan.kowalski@example.com",
     "items": [
       { "productName": "Dell XPS 13 Laptop", "quantity": 1 },
