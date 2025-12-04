@@ -40,8 +40,7 @@ namespace dll.Orders
         public async Task<Order?> GetOrderByIdAsync(string id)
         {
             ObjectId objectId = new ObjectId(id);
-            var result = await _orders.Find(o => o.Id == objectId).FirstOrDefaultAsync();
-            return result;
+            return await _orders.Find(o => o.Id == objectId).FirstOrDefaultAsync();
         }
 
         public async Task<List<Order>> GetOrdersByCustomerAsync(string customerId) 

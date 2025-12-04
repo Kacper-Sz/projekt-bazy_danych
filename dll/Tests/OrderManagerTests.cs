@@ -233,7 +233,7 @@ namespace Tests
         {
             Order newOrder = new Order()
             {
-                CustomerId = new ObjectId("6931a62442ebb44d99ce5f79"),
+                CustomerId = new ObjectId("6931a62442ebb44d99ce5f7c"),
                 Items = new List<OrderItem>()
                 {
                     new OrderItem() { ProductId = new ObjectId("6931a62442ebb44d99ce5f49"), Quantity = 2 },
@@ -272,6 +272,65 @@ namespace Tests
         {
             Order? order = await orderManager.GetOrderByIdAsync("6931a4613e1b605c1bce5f7d");
             Assert.NotNull(order);
+        }
+        #endregion
+        #endregion
+
+        #region GetOrdersByCustomerAsync
+        #region InvalidCustomerId
+        [Fact]
+        public async Task Test1GetOrdersByCustomerAsync()
+        {
+            List<Order> orders = await orderManager.GetOrdersByCustomerAsync("000000000000000000000001");
+            Assert.Empty(orders);
+        }
+        #endregion
+
+        #region CorrectCustomerIdNoOrders
+        [Fact]
+        public async Task Test2GetOrdersByCustomerAsync()
+        {
+            List<Order> orders = await orderManager.GetOrdersByCustomerAsync("6931a62442ebb44d99ce5f7b");
+            Assert.Empty(orders);
+        }
+        #endregion
+
+        #region CorrectCustomerIdWithOrders
+        [Fact]
+        public async Task Test3GetOrdersByCustomerAsync()
+        {
+            List<Order> orders = await orderManager.GetOrdersByCustomerAsync("6931a62442ebb44d99ce5f79");
+            Assert.NotEmpty(orders);
+            Assert.Equal(2, orders.Count);
+        }
+        #endregion
+        #endregion
+
+        #region UpdateOrderStatusAsync
+        #region CorrectId
+        [Fact]
+        public async Task Test1UpdateOrderStatusAsync()
+        {
+            Order? orderBefore = await orderManager.GetOrderByIdAsync("000000000000000200000000");
+            Assert.NotNull(orderBefore);
+            await orderManager.UpdateOrderStatusAsync("000000000000000200000000", "Shipped");
+            Order? order = await orderManager.GetOrderByIdAsync("000000000000000200000000");
+            Assert.NotNull(order);
+            Assert.Equal("Shipped", order.Status);
+        }
+        #endregion
+        #endregion
+
+        #region DeleteOrderAsync
+        #region CorrectId
+        [Fact]
+        public async Task Test1DeleteOrderAsync()
+        {
+            Order? orderBefore = await orderManager.GetOrderByIdAsync("000000000000000300000000");
+            Assert.NotNull(orderBefore);
+            await orderManager.DeleteOrderAsync("000000000000000300000000");
+            Order? orderAfter = await orderManager.GetOrderByIdAsync("000000000000000300000000");
+            Assert.Null(orderAfter);
         }
         #endregion
         #endregion

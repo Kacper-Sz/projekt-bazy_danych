@@ -15,6 +15,57 @@
       "postalCode": "00-001"
     },
     "paymentMethod": "card"
+  },
+  {
+    "_id": "000000000000000100000000",
+    "customerId": "6931a62442ebb44d99ce5f79",
+    "items": [
+      { "productId": "6931a62442ebb44d99ce5f4b", "quantity": 5 },
+      { "productId": "6931a62442ebb44d99ce5f4d", "quantity": 7 }
+    ],
+    "status": "processing",
+    "createdAt": "2025-11-24T12:00:00Z",
+    "totalAmount": 30000,
+    "deliveryAddress": {
+      "city": "Warsaw",
+      "street": "Marszałkowska 10",
+      "postalCode": "00-001"
+    },
+    "paymentMethod": "card"
+  },
+  {
+    "_id": "000000000000000200000000",
+    "customerId": "6931a62442ebb44d99ce5f7a",
+    "items": [
+      { "productId": "6931a62442ebb44d99ce5f4b", "quantity": 5 },
+      { "productId": "6931a62442ebb44d99ce5f4d", "quantity": 7 }
+    ],
+    "status": "processing",
+    "createdAt": "2025-11-24T12:00:00Z",
+    "totalAmount": 30000,
+    "deliveryAddress": {
+      "city": "Torun",
+      "street": "Marszałkowska 10",
+      "postalCode": "00-001"
+    },
+    "paymentMethod": "card"
+  },  
+  {
+    "_id": "000000000000000300000000",
+    "customerId": "6931a62442ebb44d99ce5f7a",
+    "items": [
+      { "productId": "6931a62442ebb44d99ce5f4b", "quantity": 5 },
+      { "productId": "6931a62442ebb44d99ce5f4d", "quantity": 7 }
+    ],
+    "status": "processing",
+    "createdAt": "2025-11-24T12:00:00Z",
+    "totalAmount": 30000,
+    "deliveryAddress": {
+      "city": "Bydgoszcz",
+      "street": "Marszałkowska 10",
+      "postalCode": "00-001"
+    },
+    "paymentMethod": "card"
   }
 ]
 
