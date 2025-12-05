@@ -24,7 +24,7 @@ namespace Tests
         #region CreateOrderAsync
         #region InvalidData
         [Fact]
-        public async Task Test1CreateOrderAsync()
+        public async Task CreateOrderAsyncTest1()
         {
             Order newOrder = new Order()
             {
@@ -50,7 +50,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test2CreateOrderAsync()
+        public async Task CreateOrderAsyncTest2()
         {
             Order newOrder = new Order()
             {
@@ -72,7 +72,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test3CreateOrderAsync()
+        public async Task CreateOrderAsyncTest3()
         {
             Order newOrder = new Order()
             {
@@ -98,7 +98,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test4CreateOrderAsync()
+        public async Task CreateOrderAsyncTest4()
         {
             Order newOrder = new Order()
             {
@@ -123,7 +123,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test5CreateOrderAsync()
+        public async Task CreateOrderAsyncTest5()
         {
             Order newOrder = new Order()
             {
@@ -149,7 +149,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test6CreateOrderAsync()
+        public async Task CreateOrderAsyncTest6()
         {
             Order newOrder = new Order()
             {
@@ -175,7 +175,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test7CreateOrderAsync()
+        public async Task CreateOrderAsyncTest7()
         {
             Order newOrder = new Order()
             {
@@ -201,7 +201,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test8CreateOrderAsync()
+        public async Task CreateOrderAsyncTest8()
         {
             Order newOrder = new Order()
             {
@@ -229,7 +229,7 @@ namespace Tests
 
         #region Success
         [Fact]
-        public async Task Test9CreateOrderAsync()
+        public async Task CreateOrderAsyncTest9()
         {
             Order newOrder = new Order()
             {
@@ -259,7 +259,7 @@ namespace Tests
         #region GetOrderByIdAsync
         #region InvalidId
         [Fact]
-        public async Task Test1GetOrderByIdAsync()
+        public async Task GetOrderByIdAsyncTest1()
         {
             Order? order = await orderManager.GetOrderByIdAsync("000000000000000000000000");
             Assert.Null(order);
@@ -268,7 +268,7 @@ namespace Tests
 
         #region CorrectId
         [Fact]
-        public async Task Test2GetOrderByIdAsync()
+        public async Task GetOrderByIdAsyncTest2()
         {
             Order? order = await orderManager.GetOrderByIdAsync("6931a4613e1b605c1bce5f7d");
             Assert.NotNull(order);
@@ -279,7 +279,7 @@ namespace Tests
         #region GetOrdersByCustomerAsync
         #region InvalidCustomerId
         [Fact]
-        public async Task Test1GetOrdersByCustomerAsync()
+        public async Task GetOrdersByCustomerAsyncTest1()
         {
             List<Order> orders = await orderManager.GetOrdersByCustomerAsync("000000000000000000000001");
             Assert.Empty(orders);
@@ -288,7 +288,7 @@ namespace Tests
 
         #region CorrectCustomerIdNoOrders
         [Fact]
-        public async Task Test2GetOrdersByCustomerAsync()
+        public async Task GetOrdersByCustomerAsyncTest2()
         {
             List<Order> orders = await orderManager.GetOrdersByCustomerAsync("6931a62442ebb44d99ce5f7b");
             Assert.Empty(orders);
@@ -297,7 +297,7 @@ namespace Tests
 
         #region CorrectCustomerIdWithOrders
         [Fact]
-        public async Task Test3GetOrdersByCustomerAsync()
+        public async Task GetOrdersByCustomerAsyncTest3()
         {
             List<Order> orders = await orderManager.GetOrdersByCustomerAsync("6931a62442ebb44d99ce5f79");
             Assert.NotEmpty(orders);
@@ -309,7 +309,7 @@ namespace Tests
         #region UpdateOrderStatusAsync
         #region CorrectId
         [Fact]
-        public async Task Test1UpdateOrderStatusAsync()
+        public async Task UpdateOrderStatusAsyncTest1()
         {
             Order? orderBefore = await orderManager.GetOrderByIdAsync("000000000000000200000000");
             Assert.NotNull(orderBefore);
@@ -324,7 +324,7 @@ namespace Tests
         #region DeleteOrderAsync
         #region CorrectId
         [Fact]
-        public async Task Test1DeleteOrderAsync()
+        public async Task DeleteOrderAsyncTest1()
         {
             Order? orderBefore = await orderManager.GetOrderByIdAsync("000000000000000300000000");
             Assert.NotNull(orderBefore);

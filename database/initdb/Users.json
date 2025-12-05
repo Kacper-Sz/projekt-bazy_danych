@@ -38,6 +38,16 @@
     "password": "hashed_password_987",
     "phoneNumber": "+48 603 703 803",
     "createdAt": "2025-07-10T11:00:00Z"
+  },  
+  {
+    "_id": "000000000000000000010000",
+    "firstName": "Test",
+    "lastName": "Tester",
+    "email": "tester@totest.com",
+    "role": "admin",
+    "password": "hashed_password_987",
+    "phoneNumber": "+48 123 345 678",
+    "createdAt": "2024-07-10T11:00:00Z"
   }
 ]
 

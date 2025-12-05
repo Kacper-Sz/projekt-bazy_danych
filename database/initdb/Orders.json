@@ -66,6 +66,40 @@
       "postalCode": "00-001"
     },
     "paymentMethod": "card"
+  },
+    {
+    "_id": "000000000000000400000000",
+    "customerId": "000000000000000000010000",
+    "items": [
+      { "productId": "6931a62442ebb44d99ce5f47", "quantity": 1 },
+      { "productId": "6931a62442ebb44d99ce5f48", "quantity": 2 }
+    ],
+    "status": "processing",
+    "createdAt": "2025-11-25T12:00:00Z",
+    "totalAmount": 13900,
+    "deliveryAddress": {
+      "city": "Warsaw",
+      "street": "Marszałkowska 10",
+      "postalCode": "00-001"
+    },
+    "paymentMethod": "card"
+  },
+  {
+    "_id": "000000000000000500000000",
+    "customerId": "000000000000000000010000",
+    "items": [
+      { "productId": "6931a62442ebb44d99ce5f4b", "quantity": 5 },
+      { "productId": "6931a62442ebb44d99ce5f4d", "quantity": 7 }
+    ],
+    "status": "accepted",
+    "createdAt": "2025-11-24T12:00:00Z",
+    "totalAmount": 30000,
+    "deliveryAddress": {
+      "city": "Warsaw",
+      "street": "Marszałkowska 10",
+      "postalCode": "00-001"
+    },
+    "paymentMethod": "card"
   }
 ]
 

@@ -28,6 +28,14 @@ orders.forEach(o => {
     o.customerId = ObjectId(o.customerId);
     o.createdAt = new Date(o.createdAt);
     o.items.forEach(i => i.productId = ObjectId(i.productId));
+        if (o.totalAmount !== undefined && o.totalAmount !== null) {
+        const amountString = 
+            typeof o.totalAmount === "object" && o.totalAmount.$numberDecimal
+                ? o.totalAmount.$numberDecimal
+                : o.totalAmount.toString();
+
+        o.totalAmount = NumberDecimal(amountString);
+    }
 });
 
 db.products.insertMany(products);

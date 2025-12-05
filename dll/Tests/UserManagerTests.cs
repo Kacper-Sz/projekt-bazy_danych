@@ -22,21 +22,21 @@ namespace Tests
         #region TestLoginAsync
         #region IncorrectData
         [Fact]
-        public async Task Test1LoginAsync()
+        public async Task LoginAsyncTest1()
         {
             User? user = await userManager.LoginAsync("incorrect@email.com", "incorrectPassword12345");
             Assert.Null(user);
         }
 
         [Fact]
-        public async Task Test2LoginAsync()
+        public async Task LoginAsyncTest2()
         {
             User? user = await userManager.LoginAsync("jan.kowalski@example.com", "incorrectPassword12345");
             Assert.Null(user);
         }
 
         [Fact]
-        public async Task Test3LoginAsync()
+        public async Task LoginAsyncTest3()
         {
             User? user = await userManager.LoginAsync("incorrect@email.com", "hashed_password_123");
             Assert.Null(user);
@@ -45,7 +45,7 @@ namespace Tests
 
         #region CorrectData
         [Fact]
-        public async Task Test4LoginAsync()
+        public async Task LoginAsyncTest4()
         {
             User? user = await userManager.LoginAsync("jan.kowalski@example.com", "hashed_password_123");
             Assert.NotNull(user);
@@ -56,7 +56,7 @@ namespace Tests
         #region TestRegisterUserAsync
         #region UncompletedData
         [Fact]
-        public async Task Test1RegisterUserAsync()
+        public async Task RegisterUserAsyncTest1()
         {
             User user = new User
             {
@@ -73,7 +73,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test2RegisterUserAsync()
+        public async Task RegisterUserAsyncTest2()
         {
             User user = new User
             {
@@ -90,7 +90,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test3RegisterUserAsync()
+        public async Task RegisterUserAsyncTest3()
         {
             User user = new User
             {
@@ -107,7 +107,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test4RegisterUserAsync()
+        public async Task RegisterUserAsyncTest4()
         {
             User user = new User
             {
@@ -124,7 +124,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test5RegisterUserAsync()
+        public async Task RegisterUserAsyncTest5()
         {
             User user = new User
             {
@@ -141,7 +141,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test6RegisterUserAsync()
+        public async Task RegisterUserAsyncTest6()
         {
             User user = new User
             {
@@ -158,7 +158,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test7RegisterUserAsync()
+        public async Task RegisterUserAsyncTest7()
         {
             User user = new User
             {
@@ -176,7 +176,7 @@ namespace Tests
 
         #region EmailAlreadyExists
         [Fact]
-        public async Task Test8RegisterUserAsync()
+        public async Task RegisterUserAsyncTest8()
         {
             User user = new User
             {
@@ -195,7 +195,7 @@ namespace Tests
 
         #region WeakPassword
         [Fact]
-        public async Task Test9RegisterUserAsync()
+        public async Task RegisterUserAsyncTest9()
         {
             User user = new User
             {
@@ -212,7 +212,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test10RegisterUserAsync()
+        public async Task RegisterUserAsyncTest10()
         {
             User user = new User
             {
@@ -229,7 +229,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test11RegisterUserAsync()
+        public async Task RegisterUserAsyncTest11()
         {
             User user = new User
             {
@@ -246,7 +246,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test12RegisterUserAsync()
+        public async Task RegisterUserAsyncTest12()
         {
             User user = new User
             {
@@ -263,7 +263,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test13RegisterUserAsync()
+        public async Task RegisterUserAsyncTest13()
         {
             User user = new User
             {
@@ -282,7 +282,7 @@ namespace Tests
 
         #region InvalidEmailFormat
         [Fact]
-        public async Task Test14RegisterUserAsync()
+        public async Task RegisterUserAsyncTest14()
         {
             User user = new User
             {
@@ -299,7 +299,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test15RegisterUserAsync()
+        public async Task RegisterUserAsyncTest15()
         {
             User user = new User
             {
@@ -316,7 +316,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test16RegisterUserAsync()
+        public async Task RegisterUserAsyncTest16()
         {
             User user = new User
             {
@@ -333,7 +333,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test17RegisterUserAsync()
+        public async Task RegisterUserAsyncTest17()
         {
             User user = new User
             {
@@ -350,7 +350,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test18RegisterUserAsync()
+        public async Task RegisterUserAsyncTest18()
         {
             User user = new User
             {
@@ -367,7 +367,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test19RegisterUserAsync()
+        public async Task RegisterUserAsyncTest19()
         {
             User user = new User
             {
@@ -384,7 +384,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task Test20RegisterUserAsync()
+        public async Task RegisterUserAsyncTest20()
         {
             User user = new User
             {
@@ -403,7 +403,7 @@ namespace Tests
 
         #region Good
         [Fact]
-        public async Task Test21RegisterUserAsync()
+        public async Task RegisterUserAsyncTest21()
         {
             User user = new User
             {
