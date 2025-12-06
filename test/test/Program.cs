@@ -15,6 +15,10 @@ namespace test
     {
         static async Task Main(string[] args)
         {
+
+            Console.WriteLine($"{Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\kot2.jpg")}");
+
+            /*
             Console.WriteLine("dodaje zdjecie: ");
 
             var url = "C://Users//KacperSz//Desktop//projekt bazy danych//test//kot2.jpg";
@@ -31,6 +35,7 @@ namespace test
             var image = await AddProductAsync(text);
 
             Console.WriteLine("juz");
+            */
         }
 
         public static async Task<string> AddProductAsync(string imagePath)
