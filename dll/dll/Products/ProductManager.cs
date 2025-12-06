@@ -13,13 +13,12 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace dll.Products
 {
-    internal class ProductManager
+    public class ProductManager
     {
 
         private const string COLLECTION_NAME = "products";
 
         private readonly IMongoCollection<Product> _products;
-
 
         private readonly Cloudinary _cloudinary;
         private readonly Account _account;
@@ -27,7 +26,7 @@ namespace dll.Products
         // mozna dodac ale nie wiem czy warto:
         // metode pod edytowanie pol (nazwa opis itd)
 
-        // obecnie dostepni producenci w sklepie - gdybysmy chcieli na tej podstawie wypisywac 
+        // obecnie dostepni producenci w sklepie - po to - gdybysmy chcieli na tej podstawie wypisywac liste np w kategoriach
 
 
         public ProductManager(IMongoDatabase database)
@@ -45,13 +44,14 @@ namespace dll.Products
 
         public async Task AddPhotoProductAsync(Product product, string imagePath)
         {
-            var uploadParams = new ImageUploadParams()
+            ImageUploadParams uploadParams = new ImageUploadParams()
             {
                 File = new FileDescription(imagePath),
                 //Folder = "projekt_bazy_danych"
             };
 
-            var uploadResult = await _cloudinary.UploadAsync(uploadParams);
+            // tutaj w dokumentacji domyslnie jest uzyte wszedzie var
+            ImageUploadResult uploadResult = await _cloudinary.UploadAsync(uploadParams);
 
             if (uploadResult.StatusCode != System.Net.HttpStatusCode.OK)
                 throw new Exception("Error occurred while uploading photo");
@@ -83,15 +83,15 @@ namespace dll.Products
             if (userRole == null)
                 throw new Exception("not admin");
 
-            var item = await GetProductByIdAsync(id);
+            Product? item = await GetProductByIdAsync(id);
             if (item == null)
                 throw new Exception("item null");
 
-            //var publicId = item.ImageUrl.Split('/').Last().Split('.').First().ToString();
-            var publicId = Path.GetFileNameWithoutExtension(item.ImageUrl);
+            //string publicId = item.ImageUrl.Split('/').Last().Split('.').First().ToString();
+            string publicId = Path.GetFileNameWithoutExtension(item.ImageUrl);
 
-            var deletionParams = new DeletionParams(publicId);
-            var deletionResult = await _cloudinary.DestroyAsync(deletionParams);
+            DeletionParams deletionParams = new DeletionParams(publicId);
+            DeletionResult deletionResult = await _cloudinary.DestroyAsync(deletionParams);
 
             if (deletionResult.Result != "ok")
             {
@@ -111,40 +111,41 @@ namespace dll.Products
 
         public async Task<List<string>> GetDistinctManufacturersAsync()
         {
-            var filter = Builders<Product>.Filter.Gte(p => p.Stock, 1);
-            var manufacturers = await _products.Distinct<string>("manufacturer", filter).ToListAsync();
-            return manufacturers;
+            FilterDefinition<Product> filter = Builders<Product>.Filter.Gte(p => p.Stock, 1);
+            return await _products.Distinct<string>("manufacturer", filter).ToListAsync();
         }
 
+        /* 
         public async Task<List<Product>> GetProductsByCategory(string category) =>
             await _products.Find(p => p.Category == category).ToListAsync();
-
+        
         public async Task<List<Product>> GetProductsByManufacturer(string name) =>
             await _products.Find(p => p.Manufacturer == name).ToListAsync();
+        
 
         // mozna zrobic ze jak jest ponizej X to automatycznie doda sie promocja -15% 
         public async Task<List<Product>> GetLowStockProductsAsync(int quantity = 10)
         {
-            var filter = Builders<Product>.Filter.Lte(p => p.Stock, quantity);
+            FilterDefinition<Product> filter = Builders<Product>.Filter.Lte(p => p.Stock, quantity);
             return await _products.Find(filter).ToListAsync();
         }
-
+        
         public async Task<List<Product>> GetProductsByPriceRangeAsync(decimal min, decimal max)
         {
-            var filter = Builders<Product>.Filter.And(
+            FilterDefinition<Product> filter = Builders<Product>.Filter.And(
                 Builders<Product>.Filter.Gte(p => p.Price, min),
                 Builders<Product>.Filter.Lte(p => p.Price, max)
             );
 
             return await _products.Find(filter).ToListAsync();
         }
-
+        
         public async Task<List<Product>> SearchProductsAsync(string searchItem)
         {
             if (string.IsNullOrEmpty(searchItem))
                 throw new ArgumentException("Search cannot be empty");
 
-            var filter = Builders<Product>.Filter.Or(
+            FilterDefinition<Product> filter = Builders<Product>.Filter.Or(
                 // i to flaga do nie zwracania uwagi na wielkosc liter
                 Builders<Product>.Filter.Regex(p => p.Name, new BsonRegularExpression(searchItem, "i")),
                 Builders<Product>.Filter.Regex(p => p.Category, new BsonRegularExpression(searchItem, "i")),
@@ -153,6 +154,7 @@ namespace dll.Products
 
             return await _products.Find(filter).ToListAsync();
         }
+        */
 
         // albo zostawic tutaj userRole
         // albo tu wywalic i w gui zrobic wyswietlanie przycisku zaleznie od flagi
@@ -168,8 +170,8 @@ namespace dll.Products
                 if (newStock <= 0)
                     return ProductUpdateStockResult.ERROR;
 
-                var update = Builders<Product>.Update.Set(p => p.Stock, newStock);
-                var result = await _products.UpdateOneAsync(p => p.Id == productId, update);
+                UpdateDefinition<Product> update = Builders<Product>.Update.Set(p => p.Stock, newStock);
+                UpdateResult result = await _products.UpdateOneAsync(p => p.Id == productId, update);
 
                 if (result.MatchedCount == 0)
                     return ProductUpdateStockResult.NOT_FOUND;

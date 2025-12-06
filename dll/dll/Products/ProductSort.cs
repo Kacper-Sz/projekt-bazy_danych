@@ -14,7 +14,7 @@ namespace dll.Products
             if (products == null || products.Count == 0)
                 return products;
 
-            var sorted = sortBy switch
+            IEnumerable<Product> sorted = sortBy switch
             {
                 ProductSortEnum.NAME => ascending
                     ? products.OrderBy(p => p.Name)
