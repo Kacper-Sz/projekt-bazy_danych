@@ -298,7 +298,7 @@
     "price": 2200,
     "stock": 14,
     "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871452/39630623-fae8-4754-8f2f-edf109075263.png",
-    "specs": { "Screen": "Always-On OLED", "GPS": true },
+    "specs": { "Screen": "Always-On OLED", "GPS": "true" },
     "description": "New generation Apple Watch.",
     "createdAt": "2025-07-07T09:00:00Z"
   },
@@ -310,7 +310,7 @@
     "price": 1600,
     "stock": 19,
     "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764871480/63d5cf3d-d8d8-4525-94a0-f476ef44fd1f.png",
-    "specs": { "Screen": "AMOLED", "GPS": true },
+    "specs": { "Screen": "AMOLED", "GPS": "true" },
     "description": "Advanced smartwatch with WearOS.",
     "createdAt": "2025-06-01T12:00:00Z"
   },
@@ -458,7 +458,7 @@
     "price": 1450,
     "stock": 16,
     "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872113/c6e63f90-aae6-45b7-8add-0c9c1d26813f.png",
-    "specs": { "ANC": true, "Charging": "MagSafe" },
+    "specs": { "ANC": "true", "Charging": "MagSafe" },
     "description": "Premium earbuds for iPhone.",
     "createdAt": "2025-10-10T09:00:00Z"
   },
@@ -530,7 +530,7 @@
     "price": 1200,
     "stock": 24,
     "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872403/2879fe24-5823-46fc-89ed-bdf393393a4a.png",
-    "specs": { "ANC": true, "Battery": "6h" },
+    "specs": { "ANC": "true", "Battery": "6h" },
     "description": "Comfortable true wireless earbuds with excellent noise cancellation.",
     "createdAt": "2025-08-15T11:00:00Z"
   },
