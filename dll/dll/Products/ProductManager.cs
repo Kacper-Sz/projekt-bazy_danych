@@ -80,7 +80,7 @@ namespace dll.Products
         public async Task DeleteProductAsync(string id, string userRole)
         {
             // tutaj tak samo jak nizej trzeba zostawic albo zmienic
-            if (userRole == null)
+            if (userRole != "admin")
                 throw new Exception("not admin");
 
             Product? item = await GetProductByIdAsync(id);
@@ -100,6 +100,7 @@ namespace dll.Products
 
             await _products.DeleteOneAsync(id);
         }
+
         public async Task<Product?> GetProductByIdAsync(string id)
         {
             ObjectId productId = new ObjectId(id);
@@ -162,7 +163,7 @@ namespace dll.Products
         {
             try
             {
-                if (userRole == null)
+                if (userRole != "admin")
                     return ProductUpdateStockResult.UNAUTHORIZED;
 
                 ObjectId productId = new ObjectId(id);
