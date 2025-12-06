@@ -554,7 +554,7 @@
     "price": 900,
     "stock": 11,
     "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872484/c6edbb5e-64ed-4c23-a30a-e76ccddab777.png",
-    "specs": { "ActiveArea": "13.2 x 8.5 in", "PressureLevels": 8192 },
+    "specs": { "ActiveArea": "13.2 x 8.5 in", "PressureLevels": "8192" },
     "description": "Professional drawing tablet for digital artists.",
     "createdAt": "2025-05-30T09:30:00Z"
   },
@@ -578,7 +578,7 @@
     "price": 1300,
     "stock": 9,
     "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764872575/1b64b66b-110a-4cd4-a98a-9f5e317c29f5.png",
-    "specs": { "Buttons": 32, "Connectivity": "USB-C" },
+    "specs": { "Buttons": "32", "Connectivity": "USB-C" },
     "description": "Customizable control deck for streamers and content creators.",
     "createdAt": "2025-02-18T10:00:00Z"
   },

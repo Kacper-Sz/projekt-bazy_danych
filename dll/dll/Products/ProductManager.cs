@@ -98,7 +98,9 @@ namespace dll.Products
                 throw new Exception("Deletion failed");
             }
 
-            await _products.DeleteOneAsync(id);
+            //await _products.DeleteOneAsync(id);
+            await _products.DeleteOneAsync(p => p.Id == new ObjectId(id));
+
         }
 
         public async Task<Product?> GetProductByIdAsync(string id)
