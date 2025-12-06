@@ -6,7 +6,7 @@
     "category": "Tests",
     "price": 500,
     "stock": 15,
-    "imageUrl": "https://test.pl",
+    "imageUrl": "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1765036480/kot2_h8ka4w.webp",
     "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Intel i7", "Screen": "13.3 in" },
     "description": "An object created for the test method",
     "createdAt": "2025-12-06T10:00:00Z"
