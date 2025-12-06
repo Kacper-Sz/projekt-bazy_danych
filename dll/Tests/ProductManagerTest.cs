@@ -243,8 +243,9 @@ namespace Tests
             Assert.Equal("item null", exception.Message);
         }
 
+        
+        // brakuje zdjecia w bazie danych - kiedy jest zdjecie dziala bez problemu
         /*
-        // brakuje linku w bazie danych
         [Fact]
         public async Task DeleteProductAsyncTest4()
         {
@@ -257,6 +258,7 @@ namespace Tests
             Assert.Null(deletedProduct);
         }
         */
+        
         [Fact]
         public async Task DeleteProductAsyncTest5()
         {
