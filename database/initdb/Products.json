@@ -12,6 +12,18 @@
     "createdAt": "2025-12-06T10:00:00Z"
   },
   {
+    "_id": "000000000000000000000001",
+    "name": "Change stock",
+    "manufacturer": "Tester",
+    "category": "Tests",
+    "price": 500,
+    "stock": 5,
+    "imageUrl": "https://test.pl",
+    "specs": { "RAM": "16GB", "SSD": "512GB", "CPU": "Intel i7", "Screen": "13.3 in" },
+    "description": "An object created for the test method",
+    "createdAt": "2025-12-06T10:00:00Z"
+  },
+  {
     "_id": "6931a62442ebb44d99ce5f47",
     "name": "Dell XPS 13 Laptop",
     "manufacturer": "Dell",
