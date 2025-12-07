@@ -416,9 +416,9 @@ namespace Tests
             List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.CREATED_AT, false);
             // od najbardzeij ostatniego
             Assert.NotNull(sortedProducts);
-            Assert.Equal(new DateTime(2025, 12, 1), sortedProducts[2].CreatedAt);
+            Assert.Equal(new DateTime(2025, 12, 1), sortedProducts[0].CreatedAt);
             Assert.Equal(new DateTime(2025, 11, 15), sortedProducts[1].CreatedAt);
-            Assert.Equal(new DateTime(2025, 10, 20), sortedProducts[0].CreatedAt);
+            Assert.Equal(new DateTime(2025, 10, 20), sortedProducts[2].CreatedAt);
         }
 
         #endregion
