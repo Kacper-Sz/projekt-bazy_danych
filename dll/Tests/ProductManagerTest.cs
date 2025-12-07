@@ -1,6 +1,7 @@
 ﻿using dll;
 using dll.Models;
 using dll.Products;
+using Microsoft.VisualStudio.TestPlatform.ObjectModel.InProcDataCollector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,15 @@ namespace Tests
             MongoDbManager dbManager = new MongoDbManager(DataManager.ConnectionString(), DataManager.DatabaseName());
             productManager = new ProductManager(dbManager.Database);
         }
+
+        private readonly List<Product> productsList = new List<Product>
+        {
+            new Product { Name = "Zebra", Category = "Audio", Manufacturer = "Sony", Stock = 10, Price = 2000, CreatedAt = new DateTime(2025, 12, 1) },
+            new Product { Name = "Apple", Category = "Smartphone", Manufacturer = "Apple", Stock = 8, Price = 3849, CreatedAt = new DateTime(2025, 11, 15) },
+            new Product { Name = "Mango", Category = "Monitor", Manufacturer = "Samsung", Stock = 3, Price = 3850, CreatedAt = new DateTime(2025, 10, 20) }
+        };
+
+        #region ProductManager
 
         #region GetProductByIdAsync
 
@@ -285,6 +295,201 @@ namespace Tests
         }
         #endregion
 
+        #endregion
+
+
+        #region ProductSort
+
+        [Fact]
+        public void SortProductsTest1()
+        {
+            List<Product> products = new List<Product>();
+
+            List<Product> sortedProducts = products.SortProducts(ProductSortEnum.NAME, true);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Empty(sortedProducts);
+        }
+
+        [Fact]
+        public void SortProductsTest2()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.NAME, true);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Apple", sortedProducts[0].Name);
+            Assert.Equal("Mango", sortedProducts[1].Name);
+            Assert.Equal("Zebra", sortedProducts[2].Name);
+        }
+
+        [Fact]
+        public void SortProductsTest3()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.NAME, false);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Zebra", sortedProducts[0].Name);
+            Assert.Equal("Mango", sortedProducts[1].Name);
+            Assert.Equal("Apple", sortedProducts[2].Name);
+        }
+
+        [Fact]
+        public void SortProductsTest4()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.CATEGORY, true);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Audio", sortedProducts[0].Category);
+            Assert.Equal("Monitor", sortedProducts[1].Category);
+            Assert.Equal("Smartphone", sortedProducts[2].Category);
+        }
+
+        [Fact]
+        public void SortProductsTest5()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.CATEGORY, false);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Smartphone", sortedProducts[0].Category);
+            Assert.Equal("Monitor", sortedProducts[1].Category);
+            Assert.Equal("Audio", sortedProducts[2].Category);
+        }
+
+        [Fact]
+        public void SortProductsTest6()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.STOCK, true);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal(3, sortedProducts[0].Stock);
+            Assert.Equal(8, sortedProducts[1].Stock);
+            Assert.Equal(10, sortedProducts[2].Stock);
+        }
+
+        [Fact]
+        public void SortProductsTest7()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.STOCK, false);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal(10, sortedProducts[0].Stock);
+            Assert.Equal(8, sortedProducts[1].Stock);
+            Assert.Equal(3, sortedProducts[2].Stock);
+        }
+
+        [Fact]
+        public void SortProductsTest8()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.PRICE, true);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal(2000, sortedProducts[0].Price);
+            Assert.Equal(3849, sortedProducts[1].Price);
+            Assert.Equal(3850, sortedProducts[2].Price);
+        }
         
+        [Fact]
+        public void SortProductsTest9()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.PRICE, false);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal(3850, sortedProducts[0].Price);
+            Assert.Equal(3849, sortedProducts[1].Price);
+            Assert.Equal(2000, sortedProducts[2].Price);
+        }
+        
+        [Fact]
+        public void SortProductsTest10()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.CREATED_AT, true);
+            // od najstarszego
+            Assert.NotNull(sortedProducts); 
+            Assert.Equal(new DateTime(2025, 10, 20), sortedProducts[0].CreatedAt);
+            Assert.Equal(new DateTime(2025, 11, 15), sortedProducts[1].CreatedAt);
+            Assert.Equal(new DateTime(2025, 12, 1), sortedProducts[2].CreatedAt);
+        }
+
+        [Fact]
+        public void SortProductsTest11()
+        {
+            List<Product> sortedProducts = productsList.SortProducts(ProductSortEnum.CREATED_AT, false);
+            // od najbardzeij ostatniego
+            Assert.NotNull(sortedProducts);
+            Assert.Equal(new DateTime(2025, 12, 1), sortedProducts[2].CreatedAt);
+            Assert.Equal(new DateTime(2025, 11, 15), sortedProducts[1].CreatedAt);
+            Assert.Equal(new DateTime(2025, 10, 20), sortedProducts[0].CreatedAt);
+        }
+
+        #endregion
+
+
+        #region ProductFilter
+
+        [Fact]
+        public void FilterProductsTest1()
+        {
+            List<Product> sortedProducts = productsList.FilterByCategory("Monitor");
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Mango", sortedProducts[0].Name);
+            Assert.Equal("Monitor", sortedProducts[0].Category);
+        }
+
+        [Fact]
+        public void FilterProductsTest2()
+        {
+            List<Product> sortedProducts = productsList.FilterByManufacturer("Sony");
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Zebra", sortedProducts[0].Name);
+            Assert.Equal("Audio", sortedProducts[0].Category);
+        }
+
+        [Fact]
+        public void FilterProductsTest3()
+        {
+            List<Product> sortedProducts = productsList.FilterByPriceRange(3500,4000);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Apple", sortedProducts[0].Name);
+            Assert.Equal("Smartphone", sortedProducts[0].Category);
+            Assert.Equal("Mango", sortedProducts[1].Name);
+            Assert.Equal("Monitor", sortedProducts[1].Category);
+        }
+
+        [Fact]
+        public void FilterProductsTest4()
+        {
+            List<Product> sortedProducts = productsList.FilterByStock(10);
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Zebra", sortedProducts[0].Name);
+            Assert.Equal("Audio", sortedProducts[0].Category);
+        }
+
+        [Fact]
+        public void FilterProductsTest5()
+        {
+            List<Product> sortedProducts = productsList.SearchByName("smartphone");
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Apple", sortedProducts[0].Name);
+            Assert.Equal("Smartphone", sortedProducts[0].Category);
+        }
+
+        [Fact]
+        public void FilterProductsTest6()
+        {
+            List<Product> sortedProducts = productsList.FilterByPriceRange(3500, 4000).FilterByManufacturer("Samsung");
+
+            Assert.NotNull(sortedProducts);
+            Assert.Equal("Mango", sortedProducts[0].Name);
+            Assert.Equal("Monitor", sortedProducts[0].Category);
+        }
+
+
+
+        #endregion
     }
 }
