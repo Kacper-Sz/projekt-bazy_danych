@@ -228,7 +228,7 @@ namespace Tests
         [Fact]
         public async Task DeleteProductAsyncTest2()
         {
-            string productId = "9238891"; // zle id
+            string productId = "000030400100000000011111"; // zle id
             string role = "user"; // nie admin
 
             var exception = await Assert.ThrowsAsync<Exception>(async () =>
