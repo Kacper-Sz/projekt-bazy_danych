@@ -21,6 +21,8 @@ users.forEach(u => {
 
 products.forEach(p => {
     p._id = ObjectId(p._id);
+    p.createdAt = new Date(p.createdAt);
+    p.price = NumberDecimal(p.price.toString());
 });
 
 orders.forEach(o => {
