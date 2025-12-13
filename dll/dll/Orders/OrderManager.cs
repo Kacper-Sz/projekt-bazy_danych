@@ -16,9 +16,10 @@ namespace dll.Orders
         
         private readonly IMongoCollection<Order> _orders;
 
-        public OrderManager(IMongoDatabase database)
+        public OrderManager()
         {
-            _orders = database.GetCollection<Order>(COLLECTION_NAME);
+            MongoDbManager mongoDbManager = new MongoDbManager();
+            _orders = mongoDbManager.Database.GetCollection<Order>(COLLECTION_NAME);
         }
 
         public async Task<OrderCreationEnum> CreateOrderAsync(Order order)

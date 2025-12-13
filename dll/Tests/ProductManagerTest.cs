@@ -15,8 +15,7 @@ namespace Tests
         private readonly ProductManager productManager;
         public ProductManagerTest()
         {
-            MongoDbManager dbManager = new MongoDbManager(DataManager.ConnectionString(), DataManager.DatabaseName());
-            productManager = new ProductManager(dbManager.Database);
+            productManager = new ProductManager();
         }
 
         private readonly List<Product> productsList = new List<Product>

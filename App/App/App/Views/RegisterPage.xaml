@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.Views.RegisterPage"
+             Title="RejestrationPage">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#265BF9"
+                  Offset="0.0" />
+            <GradientStop Color="#5847EF"
+                  Offset="0.33" />
+            <GradientStop Color="#7A12D8"
+                  Offset="0.66" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Border Grid.Row="1" BackgroundColor="#eeeeee" Margin="25">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="40" />
+        </Border.StrokeShape>
+
+        <VerticalStackLayout Spacing="15" Padding="15">
+            <Label Text="Zarejestruj się" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" Margin="15"/>
+
+            <Label Text="Imię" FontSize="Medium"/>
+            <Entry Keyboard="Text"/>
+
+            <Label Text="Nazwisko" FontSize="Medium"/>
+            <Entry Keyboard="Text"/>
+
+            <Label Text="Email" FontSize="Medium"/>
+            <Entry Keyboard="Email"/>
+
+            <Label Text="Hasło" FontSize="Medium"/>
+            <Entry Keyboard="Text" IsPassword="True"/>
+
+            <Label Text="Telefon" FontSize="Medium"/>
+            <Entry Keyboard="Telephone"/>
+
+            <Label Text="Podano nie prawidłowe dane" TextColor="red" Margin="5, 0"/>
+
+            <Button Text="Zarejestruj się" BackgroundColor="#265BF9" Margin="10, 0"/>
+        </VerticalStackLayout>
+    </Border>
+
+</ContentPage>

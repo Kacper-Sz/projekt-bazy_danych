@@ -29,9 +29,10 @@ namespace dll.Products
         // obecnie dostepni producenci w sklepie - po to - gdybysmy chcieli na tej podstawie wypisywac liste np w kategoriach
 
 
-        public ProductManager(IMongoDatabase database)
+        public ProductManager()
         {
-            _products = database.GetCollection<Product>(COLLECTION_NAME);
+            MongoDbManager mongoDbManager = new MongoDbManager();
+            _products = mongoDbManager.Database.GetCollection<Product>(COLLECTION_NAME);
 
             _account = new Account(
                 "dv1nk0kbi",

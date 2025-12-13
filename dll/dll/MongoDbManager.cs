@@ -17,6 +17,9 @@ namespace dll
             _database = client.GetDatabase(databaseName);
         }
 
+        public MongoDbManager() 
+            : this(DataManager.ConnectionString(), DataManager.DatabaseName()) { }
+
         public IMongoDatabase Database => _database;
     }
 }

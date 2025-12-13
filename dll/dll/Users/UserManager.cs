@@ -16,9 +16,10 @@ namespace dll.Users
 
         private readonly IMongoCollection<User> _users;
 
-        public UserManager(IMongoDatabase database)
+        public UserManager()
         {
-            _users = database.GetCollection<User>(COLLECTION_NAME);
+            MongoDbManager mongoDbManager = new MongoDbManager();
+            _users = mongoDbManager.Database.GetCollection<User>(COLLECTION_NAME);
         }
 
         public async Task<User?> LoginAsync(string email, string password)

@@ -15,8 +15,7 @@ namespace Tests
 
         public OrderListExtensionTest()
         {
-            MongoDbManager dbManager = new MongoDbManager(DataManager.ConnectionString(), DataManager.DatabaseName());
-            orderManager = new OrderManager(dbManager.Database);
+            orderManager = new OrderManager();
         }
 
         #region SortOrderList
