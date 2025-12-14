@@ -187,5 +187,24 @@ namespace dll.Products
                 return ProductUpdateStockResult.ERROR;
             }
         }
+
+
+        public async Task<bool> UpdateAsync(string productId, int quantity)
+        {
+            if (string.IsNullOrWhiteSpace(productId) || quantity <= 0)
+                return false;
+
+            ObjectId id = new ObjectId(productId);
+
+            FilterDefinition<Product> filter = Builders<Product>.Filter.And(
+                Builders<Product>.Filter.Eq(p => p.Id, id),
+                Builders<Product>.Filter.Gte(p => p.Stock, quantity)
+            );
+
+            UpdateDefinition<Product> update = Builders<Product>.Update.Inc(p => p.Stock, -quantity);
+
+            UpdateResult result = await _products.UpdateOneAsync(filter, update);
+            return result.ModifiedCount == 1;
+        }
     }
 }
