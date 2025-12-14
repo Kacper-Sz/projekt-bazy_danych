@@ -1,4 +1,5 @@
-﻿using dll.Models;
+﻿using App.Sessions;
+using dll.Models;
 using dll.Users;
 using System;
 using System.Collections.Generic;
@@ -71,7 +72,8 @@ namespace App.ViewModels
                 if (user != null)
                 {
                     IncorrectIsVisible = false;
-                    await Shell.Current.GoToAsync("//MainPage");
+                    UserSession.CurrentUser = user;
+                    await Shell.Current.GoToAsync("//MainPage?user");
                 }
                 else
                     IncorrectIsVisible = true;

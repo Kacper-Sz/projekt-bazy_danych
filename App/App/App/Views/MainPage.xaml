@@ -5,6 +5,7 @@
              Title="MainPage">
     <VerticalStackLayout>
         <Label 
+            x:Name="TestLabel"
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
