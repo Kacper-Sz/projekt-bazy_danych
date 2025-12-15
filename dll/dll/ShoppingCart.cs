@@ -50,12 +50,13 @@ namespace dll
                 }
 
             }
+            else
+            {
+                throw new Exception($"nie ma tyle na stanie, max: {product.Stock}");
+            }
 
             totalAmount = products.Sum(p => p.Key.Price * p.Value);
         }
-
-        // troche nie wiem jak obecnie ma wygladac usuwanie 
-        // bo dane beda brane z elementu na ktorego klikniemy czy cos
 
         // zakladam ze jak produkt sie wyswietla w koszyku to w nim istnieje
         // dlatego nie sprawdzam czy jest
@@ -74,7 +75,7 @@ namespace dll
             }
 
             if (newQuantity > product.Stock)
-                throw new Exception("error");
+                throw new Exception($"nie ma tyle na stanie, max: {product.Stock}");
 
             totalAmount -= products[product] * product.Price;
             products[product] = newQuantity;
@@ -86,8 +87,15 @@ namespace dll
 
         public void ClearCart()
         {
-            products.Clear();
-            totalAmount = 0;
+            if (products.Count != 0)
+            {
+                products.Clear();
+                totalAmount = 0;
+            }
+            else
+            {
+                throw new Exception("Cart is empty");
+            }
         }
 
 
