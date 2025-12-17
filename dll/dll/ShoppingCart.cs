@@ -6,6 +6,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace dll
 {
     public sealed class ShoppingCart
     {
-        public ShoppingCart() { }
+        private readonly IMongoCollection<Order> _orders;
 
         // private List<Product> products = new List<Product>();
 
@@ -22,6 +23,11 @@ namespace dll
 
         private decimal totalAmount = 0;
 
+
+        public ShoppingCart(IMongoDatabase database)
+        {
+            _orders = database.GetCollection<Order>("orders");
+        }
 
 
         public decimal TotalAmount => totalAmount;
@@ -101,36 +107,16 @@ namespace dll
 
         // trzeba sprawdzic czy jest zalogowany
         // tu jeszcze zmienic bledy na np enum
-        public async Task<(bool success, string? orderId, string? error)> SubmitAsync(IMongoDatabase database,
-            ProductManager productManager,
+        public async Task<(bool success, string? orderId, Exception? error)> SubmitAsync(ProductManager productManager,
             ObjectId customerId,
             DeliveryAddress address,
             string paymentMethod)
         {
-            if (Products.Count == 0)
-                return (false, null, "koszyk pusty");
 
-            foreach (var prod in Products)
+            (bool success, string? orderId, Exception? error) validationResult = await ValidationAsync(productManager);
+            if (!validationResult.success)
             {
-                Product product = prod.Key;
-                int prodQuantity = prod.Value;
-
-                
-                if (prodQuantity <= 0)
-                    return (false, null, "za malo");
-
-                if (prodQuantity > product.Stock)
-                    return (false, null, "za dzuo");
-            }
-
-            foreach (var prod in Products)
-            {
-                Product product = prod.Key;
-                int prodQuantity = prod.Value;
-
-                var ok = await productManager.UpdateAsync(product.Id.ToString(), prodQuantity);
-                if (!ok)
-                    return (false, null, "nie ma tyle na stanie");
+                return validationResult;
             }
 
             Order order = new Order
@@ -148,12 +134,37 @@ namespace dll
                 PaymentMethod = paymentMethod
             };
 
-            IMongoCollection<Order> orders = database.GetCollection<Order>("orders");
-            await orders.InsertOneAsync(order);
+            await _orders.InsertOneAsync(order);
 
             ClearCart();
 
             return (true, order.Id.ToString(), null);
+        }
+
+        public async Task<(bool success, string? orderId, Exception? error)> ValidationAsync(ProductManager productManager)
+        {
+            if (Products.Count == 0)
+                return (false, null, new Exception("koszyk pusty"));
+
+            foreach (KeyValuePair<Product, int> prod in Products)
+            {
+                Product product = prod.Key;
+                int prodQuantity = prod.Value;
+
+
+                if (prodQuantity <= 0)
+                    return (false, null, new Exception("za malo"));
+
+                if (prodQuantity > product.Stock)
+                    return (false, null, new Exception("za dzuo"));
+
+                bool ok = await productManager.UpdateAsync(product.Id.ToString(), prodQuantity);
+
+                if (!ok)
+                    return (false, null, new Exception("nie ma tyle na stanie"));
+            }
+
+            return (true, null, null);
         }
 
     }
