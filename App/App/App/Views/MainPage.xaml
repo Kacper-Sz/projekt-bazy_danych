@@ -1,13 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:App.ViewModels"
+             xmlns:models="clr-namespace:dll.Models;assembly=dll"
              x:Class="App.Views.MainPage"
              Title="MainPage">
-    <VerticalStackLayout>
-        <Label 
-            x:Name="TestLabel"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <ContentPage.BindingContext>
+        <viewModels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#265BF9"
+                  Offset="0.0" />
+            <GradientStop Color="#5847EF"
+                  Offset="0.33" />
+            <GradientStop Color="#7A12D8"
+                  Offset="0.66" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Grid>
+        <CollectionView ItemsSource="{Binding Products}" 
+                        VerticalScrollBarVisibility="Always">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Product">
+                    <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ProductSelectedCommand}" 
+                                                  CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                        <VerticalStackLayout Spacing="10">
+                            <HorizontalStackLayout Spacing="10">
+                                <Image Source="{Binding ImageUrl}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" />
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Price, StringFormat='Cena: {0:C}'}" FontSize="Medium" TextColor="Green"/>
+                                    <Label Text="{Binding Stock, StringFormat='Dostępność: {0}'}" FontSize="Small"/>
+                                    <Label Text="{Binding Description}" FontSize="Medium"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                            <Button Text="Dodaj do koszyka" 
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.AddToShoppingCartCommand}" 
+                                    CommandParameter="{Binding .}" BackgroundColor="Purple"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
 </ContentPage>

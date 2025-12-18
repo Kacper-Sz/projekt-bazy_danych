@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="App.Views.Popups.ProductPopup">
+
+    <Frame Padding="20" BackgroundColor="White" CornerRadius="15" HasShadow="True">
+        <ScrollView HeightRequest="400" WidthRequest="300">
+            <VerticalStackLayout Spacing="15">
+                <Label Text="{Binding ProductName}" FontSize="Large" FontAttributes="Bold"/>
+                <Image Source="{Binding ProductImageUrl}" WidthRequest="250" HeightRequest="250" Aspect="AspectFill"/>
+                <Label Text="{Binding Manufacturer, StringFormat='Producent: {0}'}" FontSize="Medium"/>
+                <Label Text="{Binding Category, StringFormat='Kategoria: {0}'}" FontSize="Medium"/>
+                <Label Text="{Binding Price, StringFormat='Cena: {0:C}'}" FontSize="Medium" TextColor="Green"/>
+                <Label Text="{Binding Stock, StringFormat='Dostępność: {0}'}" FontSize="Medium"/>
+                <Label Text="Specyfikacja:" FontAttributes="Bold"/>
+                <StackLayout BindableLayout.ItemsSource="{Binding SpecsList}">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding}" FontSize="Small"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                <Label Text="{Binding Description}" FontSize="Small"/>
+
+                <Button Text="Zamknij" Clicked="ClosePopup" BackgroundColor="Purple"/>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Frame>
+
+</toolkit:Popup>
