@@ -13,8 +13,17 @@
         ContentTemplate="{DataTemplate views:LoginPage}"
         Route="LoginPage" />
 
-    <ShellContent 
-        Title="MainPage" 
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage"/>
+    <TabBar Route="MainTabs">
+        <Tab Title="Sklep">
+            <ShellContent Route="MainPage" ContentTemplate="{DataTemplate views:MainPage}"/>
+        </Tab>
+
+        <Tab Title="Koszyk">
+            <ShellContent Route="ShoppingCartPage" ContentTemplate="{DataTemplate views:ShoppingCartPage}"/>
+        </Tab>
+
+        <Tab Title="Konto">
+            <ShellContent Route="AccountPage" ContentTemplate="{DataTemplate views:AccountPage}"/>
+        </Tab>
+    </TabBar>
 </Shell>

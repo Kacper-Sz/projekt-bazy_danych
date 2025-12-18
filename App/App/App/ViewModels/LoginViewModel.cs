@@ -73,7 +73,7 @@ namespace App.ViewModels
                 {
                     IncorrectIsVisible = false;
                     UserSession.CurrentUser = user;
-                    await Shell.Current.GoToAsync("//MainPage?user");
+                    await Shell.Current.GoToAsync("//MainTabs");
                 }
                 else
                     IncorrectIsVisible = true;
