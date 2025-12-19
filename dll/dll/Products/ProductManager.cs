@@ -23,12 +23,6 @@ namespace dll.Products
         private readonly Cloudinary _cloudinary;
         private readonly Account _account;
 
-        // mozna dodac ale nie wiem czy warto:
-        // metode pod edytowanie pol (nazwa opis itd)
-
-        // obecnie dostepni producenci w sklepie - po to - gdybysmy chcieli na tej podstawie wypisywac liste np w kategoriach
-
-
         public ProductManager(IMongoDatabase database)
         {
             _products = database.GetCollection<Product>(COLLECTION_NAME);
@@ -50,7 +44,6 @@ namespace dll.Products
                 //Folder = "projekt_bazy_danych"
             };
 
-            // tutaj w dokumentacji domyslnie jest uzyte wszedzie var
             ImageUploadResult uploadResult = await _cloudinary.UploadAsync(uploadParams);
 
             if (uploadResult.StatusCode != System.Net.HttpStatusCode.OK)
@@ -185,25 +178,6 @@ namespace dll.Products
             {
                 return ProductUpdateStockResult.ERROR;
             }
-        }
-
-
-        public async Task<bool> UpdateAsync(string productId, int quantity)
-        {
-            if (string.IsNullOrWhiteSpace(productId) || quantity <= 0)
-                return false;
-
-            ObjectId id = new ObjectId(productId);
-
-            FilterDefinition<Product> filter = Builders<Product>.Filter.And(
-                Builders<Product>.Filter.Eq(p => p.Id, id),
-                Builders<Product>.Filter.Gte(p => p.Stock, quantity)
-            );
-
-            UpdateDefinition<Product> update = Builders<Product>.Update.Inc(p => p.Stock, -quantity);
-
-            UpdateResult result = await _products.UpdateOneAsync(filter, update);
-            return result.ModifiedCount == 1;
         }
     }
 }

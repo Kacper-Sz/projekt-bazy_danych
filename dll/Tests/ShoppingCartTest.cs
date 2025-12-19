@@ -1,14 +1,17 @@
-﻿using System;
+﻿using CloudinaryDotNet.Actions;
+using dll;
+using dll.Models;
+using dll.Products;
+using Microsoft.VisualStudio.TestPlatform.CommunicationUtilities;
+using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using dll;
-using dll.Products;
-using dll.Models;
-using System.Linq.Expressions;
 using Xunit.Abstractions;
-using System.Runtime.InteropServices;
 
 namespace Tests
 {
@@ -18,8 +21,9 @@ namespace Tests
         private readonly ProductManager productManager;
         public ShoppingCartTest()
         {
-            cart = new ShoppingCart();
-            productManager = new ProductManager();
+            MongoDbManager dbManager = new MongoDbManager(DataManager.ConnectionString(), DataManager.DatabaseName());
+            cart = new ShoppingCart(dbManager.Database);
+            productManager = new ProductManager(dbManager.Database);
         }
 
         #region AddItemTest
@@ -28,7 +32,7 @@ namespace Tests
         public async Task AddItemTest1Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             Assert.NotNull(cart.Products);
@@ -39,11 +43,11 @@ namespace Tests
         public async Task AddItemTest2Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             Assert.NotNull(cart.Products);
@@ -54,15 +58,15 @@ namespace Tests
         public async Task AddItemTest3Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
 
@@ -74,26 +78,23 @@ namespace Tests
         public async Task AddItemTest4Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
-            // productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            // product = await productManager.GetProductByIdAsync(productId);
-
             // dodaje 0 macbookow
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.AddItem(product, 0)
             );
 
-            Assert.Equal("Quantity must be grater than zero", exception.Message);
+            Assert.Equal("Quantity must be greater than zero", exception.Message);
 
             Assert.NotNull(cart.Products);
             Assert.Equal(3, cart.Products.Count);
@@ -103,26 +104,23 @@ namespace Tests
         public async Task AddItemTest5Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
-            // productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            // product = await productManager.GetProductByIdAsync(productId);
-
             // dodaje -3 macbookow
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.AddItem(product, -3)
             );
 
-            Assert.Equal("Quantity must be grater than zero", exception.Message);
+            Assert.Equal("Quantity must be greater than zero", exception.Message);
 
             Assert.NotNull(cart.Products);
             Assert.Equal(3, cart.Products.Count);
@@ -132,23 +130,23 @@ namespace Tests
         public async Task AddItemTest6Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             
 
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.AddItem(product, 16)
             );
 
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
-            Assert.Equal("nie ma tyle na stanie, max: 15", exception.Message);
+            Assert.Equal("Not enough in stock, max: 15", exception.Message);
             Assert.NotNull(cart.Products);
             Assert.Equal(2, cart.Products.Count);
         }
@@ -170,7 +168,7 @@ namespace Tests
         public async Task TotalAmountTest1Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             decimal price = cart.TotalAmount;
@@ -181,11 +179,11 @@ namespace Tests
         public async Task TotalAmountTest2Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             decimal price = cart.TotalAmount;
@@ -196,15 +194,15 @@ namespace Tests
         public async Task TotalAmountTest3Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
             decimal price = cart.TotalAmount;
@@ -215,26 +213,23 @@ namespace Tests
         public async Task TotalAmountTest4Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
-            // productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            // product = await productManager.GetProductByIdAsync(productId);
-
             // dodaje 0 macbookow
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.AddItem(product, 0)
             );
 
-            Assert.Equal("Quantity must be grater than zero", exception.Message);
+            Assert.Equal("Quantity must be greater than zero", exception.Message);
 
             decimal price = cart.TotalAmount;
             Assert.Equal(22000, price);
@@ -244,26 +239,23 @@ namespace Tests
         public async Task TotalAmountTest5Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
-            // productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            // product = await productManager.GetProductByIdAsync(productId);
-
             // dodaje -3 macbookow
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.AddItem(product, -3)
             );
 
-            Assert.Equal("Quantity must be grater than zero", exception.Message);
+            Assert.Equal("Quantity must be greater than zero", exception.Message);
 
             decimal price = cart.TotalAmount;
             Assert.Equal(22000, price);
@@ -285,7 +277,7 @@ namespace Tests
         public async Task ProductsTest1Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             IReadOnlyDictionary<Product, int> items = cart.Products;
@@ -300,11 +292,11 @@ namespace Tests
         public async Task ProductsTest2Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             IReadOnlyDictionary<Product, int> items = cart.Products;
@@ -324,15 +316,15 @@ namespace Tests
         public async Task ProductsTest3Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
 
@@ -357,26 +349,23 @@ namespace Tests
         public async Task ProductsTest4Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
-            // productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            // product = await productManager.GetProductByIdAsync(productId);
-
             // dodaje 0 macbookow
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.AddItem(product, 0)
             );
 
-            Assert.Equal("Quantity must be grater than zero", exception.Message);
+            Assert.Equal("Quantity must be greater than zero", exception.Message);
 
 
             IReadOnlyDictionary<Product, int> items = cart.Products;
@@ -400,26 +389,23 @@ namespace Tests
         public async Task ProductsTest5Async()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
-            // productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            // product = await productManager.GetProductByIdAsync(productId);
-
             // dodaje -3 macbookow
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.AddItem(product, -3)
             );
 
-            Assert.Equal("Quantity must be grater than zero", exception.Message);
+            Assert.Equal("Quantity must be greater than zero", exception.Message);
 
 
             IReadOnlyDictionary<Product, int> items = cart.Products;
@@ -448,15 +434,15 @@ namespace Tests
         public async Task RemoveItemTest1()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? productRm = await productManager.GetProductByIdAsync(productId);
+            Product productRm = await GetRequiredProductAsync(productId);
             cart.AddItem(productRm, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
             cart.RemoveItem(productRm);
@@ -478,15 +464,15 @@ namespace Tests
         public async Task RemoveItemTest2()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            Product? productRm = await productManager.GetProductByIdAsync(productId);
+            Product productRm = await GetRequiredProductAsync(productId);
             cart.AddItem(productRm, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
             cart.RemoveItem(productRm);
@@ -508,15 +494,15 @@ namespace Tests
         public async Task RemoveItemTest3()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            Product? productRm = await productManager.GetProductByIdAsync(productId);
+            Product productRm = await GetRequiredProductAsync(productId);
             cart.AddItem(productRm, 3);
 
             cart.RemoveItem(productRm);
@@ -538,25 +524,25 @@ namespace Tests
         public async Task RemoveItemTest4()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            Product? productRm = await productManager.GetProductByIdAsync(productId);
+            Product productRm = await GetRequiredProductAsync(productId);
             cart.AddItem(productRm, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
             cart.RemoveItem(productRm);
 
             // dodaje -3 macbookow
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.AddItem(product, -3)
             );
 
-            Assert.Equal("Quantity must be grater than zero", exception.Message);
+            Assert.Equal("Quantity must be greater than zero", exception.Message);
 
 
             IReadOnlyDictionary<Product, int> items = cart.Products;
@@ -581,15 +567,15 @@ namespace Tests
         public async Task ChangeQuantityTest1()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
             cart.ChangeQuantity(product, 0);
@@ -606,15 +592,15 @@ namespace Tests
         public async Task ChangeQuantityTest2()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            Product? productChange = await productManager.GetProductByIdAsync(productId);
+            Product productChange = await GetRequiredProductAsync(productId);
             cart.AddItem(productChange, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
             cart.ChangeQuantity(productChange, -2);
@@ -630,15 +616,15 @@ namespace Tests
         public async Task ChangeQuantityTest3()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
             cart.ChangeQuantity(product, 5);
@@ -658,15 +644,15 @@ namespace Tests
         public async Task ChangeQuantityTest4()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            Product? productChange = await productManager.GetProductByIdAsync(productId);
+            Product productChange = await GetRequiredProductAsync(productId);
             cart.AddItem(productChange, 5);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
             cart.ChangeQuantity(productChange, 2);
@@ -686,18 +672,18 @@ namespace Tests
         public async Task ChangeQuantityTest5()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? productChange = await productManager.GetProductByIdAsync(productId);
+            Product productChange = await GetRequiredProductAsync(productId);
             cart.AddItem(productChange, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f4a"; // macbook air m2 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 3);
 
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.ChangeQuantity(productChange, 16)
             );
 
@@ -720,11 +706,11 @@ namespace Tests
         public async Task GetTotalAmountTest()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             decimal price = cart.GetTotalAmount();
@@ -740,11 +726,11 @@ namespace Tests
         public async Task ClearCartTest1()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
+            product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             cart.ClearCart();
@@ -755,9 +741,9 @@ namespace Tests
         }
 
         [Fact]
-        public async Task ClearCartTest2()
+        public void ClearCartTest2()
         {
-            var exception = Assert.Throws<Exception>(() =>
+            Exception exception = Assert.Throws<Exception>(() =>
                 cart.ClearCart()
             );
 
@@ -778,18 +764,54 @@ namespace Tests
         public async Task SubmitAsyncTest1()
         {
             string productId = "000000000000000000011111"; // Test products
-            Product? product = await productManager.GetProductByIdAsync(productId);
+            Product product = await GetRequiredProductAsync(productId);
             cart.AddItem(product, 1);
 
             productId = "6931a62442ebb44d99ce5f49"; // playstation5 
-            product = await productManager.GetProductByIdAsync(productId);
-            cart.AddItem(product, 1);
+            product = await GetRequiredProductAsync(productId);
+            cart.AddItem(product, 2);
 
+            DeliveryAddress address = new DeliveryAddress()
+            {
+                City = "Warsaw",
+                Street = "Main Street 1",
+                PostalCode = "00-001"
+            };
+            ObjectId userId = new ObjectId("000000000000000000010000");
+            (bool success, string? orderId, Exception? error ) result = await cart.SubmitAsync(productManager, userId, address, "card");
 
-            // cart.SubmitAsync();
+            Assert.True(result.success);
+            Assert.NotNull(result.orderId);
+            Assert.Null(result.error);
         }
 
+        [Fact]
+        public async Task SubmitAsyncTest2()
+        {
+            DeliveryAddress address = new DeliveryAddress()
+            {
+                City = "Warsaw",
+                Street = "Main Street 1",
+                PostalCode = "00-001"
+            };
+            ObjectId userId = new ObjectId("000000000000000000010000");
+
+            (bool success, string? orderId, Exception? error) result = await cart.SubmitAsync(productManager, userId, address, "card");
+
+            Assert.False(result.success);
+            Assert.Null(result.orderId);
+            Assert.Equal(new Exception("Empty cart").Message, result.error?.Message);
+        }
 
         #endregion
+
+        
+        private async Task<Product> GetRequiredProductAsync(string id)
+        {
+            Product? product = await productManager.GetProductByIdAsync(id);
+            if (product is null)
+                throw new Exception($"Product with id '{id}' was not found.");
+            return product;
+        }
     }
 }
