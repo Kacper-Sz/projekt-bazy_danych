@@ -21,9 +21,8 @@ namespace Tests
         private readonly ProductManager productManager;
         public ShoppingCartTest()
         {
-            MongoDbManager dbManager = new MongoDbManager(DataManager.ConnectionString(), DataManager.DatabaseName());
-            cart = new ShoppingCart(dbManager.Database);
-            productManager = new ProductManager(dbManager.Database);
+            cart = new ShoppingCart();
+            productManager = new ProductManager();
         }
 
         #region AddItemTest

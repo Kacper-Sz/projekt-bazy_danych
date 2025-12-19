@@ -23,7 +23,7 @@ namespace dll.Products
         private readonly Cloudinary _cloudinary;
         private readonly Account _account;
 
-        public ProductManager(IMongoDatabase database)
+        public ProductManager()
         {
             MongoDbManager mongoDbManager = new MongoDbManager();
             _products = mongoDbManager.Database.GetCollection<Product>(COLLECTION_NAME);

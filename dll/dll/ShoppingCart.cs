@@ -15,6 +15,7 @@ namespace dll
 {
     public sealed class ShoppingCart
     {
+        private const string COLLECTION_NAME = "orders";
         private readonly IMongoCollection<Order> _orders;
 
         private Dictionary<Product, int> products = new Dictionary<Product, int>();
@@ -22,9 +23,11 @@ namespace dll
         private decimal totalAmount = 0;
 
 
-        public ShoppingCart(IMongoDatabase database)
+        public ShoppingCart()
         {
-            _orders = database.GetCollection<Order>("orders");
+            MongoDbManager mongoDbManager = new MongoDbManager();
+            _orders = mongoDbManager.Database.GetCollection<Order>(COLLECTION_NAME);
+
         }
 
 
