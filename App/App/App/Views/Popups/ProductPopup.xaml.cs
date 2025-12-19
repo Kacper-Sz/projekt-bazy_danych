@@ -36,7 +36,5 @@ public partial class ProductPopup : Popup
     }
 
 	private void ClosePopup(object sender, EventArgs e)
-	{
-		Close();
-	}
+		=> Close();
 }

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    x:Class="App.Views.Popups.ProductFilterPopup">
+
+    <Frame Padding="20" CornerRadius="20" BackgroundColor="White" WidthRequest="300" HeightRequest="500">
+        <ScrollView>
+            <VerticalStackLayout Spacing="15">
+
+                <Label Text="Filtry" FontSize="Large" FontAttributes="Bold" TextColor="#333" HorizontalOptions="Center"/>
+
+                <Entry Placeholder="Szukaj..." Text="{Binding SearchTerm}" />
+                <Entry Placeholder="Kategoria" Text="{Binding Category}" />
+                <Entry Placeholder="Producent" Text="{Binding Manufacturer}" />
+                <Entry Placeholder="Cena od" Keyboard="Numeric" Text="{Binding MinPrice}" />
+                <Entry Placeholder="Cena do" Keyboard="Numeric" Text="{Binding MaxPrice}" />
+                <Entry Placeholder="Minimalna ilość" Keyboard="Numeric" Text="{Binding MinStock}" />
+
+                <HorizontalStackLayout Spacing="10">
+                    <Button Text="Anuluj" Clicked="Cancel" BackgroundColor="Transparent" TextColor="#5847EF" FontAttributes="Bold" CornerRadius="15"/>
+                    <Button Text="Filtruj" Clicked="Apply" BackgroundColor="#5847EF" TextColor="White" FontAttributes="Bold" CornerRadius="15"/>
+                </HorizontalStackLayout>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Frame>
+
+
+</toolkit:Popup>

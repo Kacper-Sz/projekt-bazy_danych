@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:App.ViewModels"
              x:Class="App.Views.RegisterPage"
-             Title="RejestrationPage">
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.BindingContext>
         <viewModels:RegisterViewModel />
@@ -20,36 +20,55 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <Border Grid.Row="1" BackgroundColor="#eeeeee" Margin="25">
-        <Border.StrokeShape>
-            <RoundRectangle CornerRadius="40" />
-        </Border.StrokeShape>
+    <ScrollView>
+        <VerticalStackLayout Padding="25" Spacing="25">
 
-        <VerticalStackLayout Spacing="5" Padding="15, 5">
-            <Label Text="Zarejestruj się" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" Margin="15"/>
+            <VerticalStackLayout Padding="25">
+                <Image Source="logo.png" HeightRequest="100"/>
+                <Label Text="EShop" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="LightBlue" FontAttributes="Bold,Italic"/>
+                <Label Text="Utwórz konto, aby kontynuować" FontSize="Medium" TextColor="#eee" HorizontalOptions="Center"/>
+            </VerticalStackLayout>
 
-            <Label Text="Imię" FontSize="Medium"/>
-            <Entry Keyboard="Text" Text="{Binding FirstName}"/>
+            <Frame BackgroundColor="White" CornerRadius="25" Padding="25">
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="Rejestracja" FontSize="Large" FontAttributes="Bold" TextColor="#333"/>
 
-            <Label Text="Nazwisko" FontSize="Medium"/>
-            <Entry Keyboard="Text" Text="{Binding LastName}"/>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Imię" FontSize="Medium" TextColor="#666"/>
+                        <Entry Text="{Binding FirstName}" Placeholder="Jan" Keyboard="Text"/>
+                    </VerticalStackLayout>
 
-            <Label Text="Email" FontSize="Medium"/>
-            <Entry Keyboard="Email" Text="{Binding Email}"/>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Nazwisko" FontSize="Medium" TextColor="#666"/>
+                        <Entry Text="{Binding LastName}" Placeholder="Kowalski" Keyboard="Text"/>
+                    </VerticalStackLayout>
 
-            <Label Text="Hasło" FontSize="Medium"/>
-            <Entry Keyboard="Text" IsPassword="True" Text="{Binding Password1}"/>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Email" FontSize="Medium" TextColor="#666"/>
+                        <Entry Text="{Binding Email}" Placeholder="example@email.com" Keyboard="Email"/>
+                    </VerticalStackLayout>
 
-            <Label Text="Powtórz hasło" FontSize="Medium"/>
-            <Entry Keyboard="Text" IsPassword="True" Text="{Binding Password1}"/>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Hasło" FontSize="Medium" TextColor="#666"/>
+                        <Entry Text="{Binding Password1}" Placeholder="**********" IsPassword="True" Keyboard="Text"/>
+                    </VerticalStackLayout>
 
-            <Label Text="Telefon" FontSize="Medium"/>
-            <Entry Keyboard="Telephone" Text="{Binding PhoneNumber}"/>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Powtórz hasło" FontSize="Medium" TextColor="#666"/>
+                        <Entry Text="{Binding Password2}" Placeholder="**********" IsPassword="True" Keyboard="Text"/>
+                    </VerticalStackLayout>
 
-            <Label Text="{Binding ErrorText}" IsVisible="{Binding ErrorIsVisible}" TextColor="red" Margin="5, 0"/>
+                    <VerticalStackLayout Spacing="5">
+                        <Label Text="Telefon" FontSize="Medium" TextColor="#666"/>
+                        <Entry Text="{Binding PhoneNumber}" Placeholder="+48 123 456 789" Keyboard="Telephone"/>
+                    </VerticalStackLayout>
 
-            <Button Text="Zarejestruj się" BackgroundColor="#265BF9" Margin="10, 0" Command="{Binding RegisterCommand}"/>
+                    <Label Text="{Binding ErrorText}" TextColor="#d32F2F" FontSize="Medium" IsVisible="{Binding ErrorIsVisible}" HorizontalOptions="Center"/>
+
+                    <Button Text="Zarejestruj się" Command="{Binding RegisterCommand}" BackgroundColor="#265BF9" TextColor="White" FontAttributes="Bold"/>
+                </VerticalStackLayout>
+            </Frame>
+
         </VerticalStackLayout>
-    </Border>
-
+    </ScrollView>
 </ContentPage>

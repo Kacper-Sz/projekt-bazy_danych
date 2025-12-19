@@ -67,14 +67,14 @@ namespace App.ViewModels
             set => SetProperty(ref errorIsVisible, value);
         }
 
-        private RelayCommand registerCommand;
-        public RelayCommand RegisterCommand
-        {
-            get => registerCommand;
-            set => SetProperty(ref registerCommand, value);
-        }
+        public RelayCommand RegisterCommand { get; set; }
 
         public RegisterViewModel()
+        {
+            SetInitValues();
+        }
+
+        private void SetInitValues()
         {
             ErrorIsVisible = false;
 

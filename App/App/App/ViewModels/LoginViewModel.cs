@@ -40,21 +40,16 @@ namespace App.ViewModels
             set => SetProperty(ref incorrectIsVisible, value);
         }
 
-        private RelayCommand loginCommand;
-        public RelayCommand LoginCommand
-        {
-            get => loginCommand;
-            set => SetProperty(ref loginCommand, value);
-        }
+        public RelayCommand LoginCommand { get; set; }
 
-        private RelayCommand registerCommand;
-        public RelayCommand RegisterCommand
-        {
-            get => registerCommand;
-            set => SetProperty(ref registerCommand, value);
-        }
+        public RelayCommand RegisterCommand{ get; set; }
 
         public LoginViewModel()
+        {
+            SetInitValues();
+        }
+
+        private void SetInitValues()
         {
             IncorrectIsVisible = false;
 
@@ -72,7 +67,7 @@ namespace App.ViewModels
                 if (user != null)
                 {
                     IncorrectIsVisible = false;
-                    UserSession.CurrentUser = user;
+                    Session.CurrentUser = user;
                     await Shell.Current.GoToAsync("//MainTabs");
                 }
                 else

@@ -1,12 +1,74 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:App.ViewModels"
              x:Class="App.Views.ShoppingCartPage"
-             Title="ShoppingCartPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Shell.NavBarIsVisible="False">
+    
+    <ContentPage.BindingContext>
+        <viewModels:ShoppingCartViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#265BF9"
+                  Offset="0.0" />
+            <GradientStop Color="#5847EF"
+                  Offset="0.33" />
+            <GradientStop Color="#7A12D8"
+                  Offset="0.66" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="15">
+
+            <Frame BackgroundColor="White" CornerRadius="20" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Adres dostawy" FontAttributes="Bold" FontSize="Medium" TextColor="#333"/>
+                    <Entry Placeholder="Miasto" Text="{Binding City}" />
+                    <Entry Placeholder="Ulica" Text="{Binding Street}" />
+                    <Entry Placeholder="Kod pocztowy" Text="{Binding PostalCode}" />
+                </VerticalStackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="White" CornerRadius="20" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Metoda płatności" FontAttributes="Bold" FontSize="Medium" TextColor="#333"/>
+                    <Picker ItemsSource="{Binding PaymentMethods}" SelectedIndex="{Binding SelectedPaymentMethod}" TextColor="#265BF9"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="{Binding IncorrectDataText}" IsVisible="{Binding IncorrentDataIsVisible}" TextColor="Red" FontAttributes="Bold" HorizontalOptions="Center"/>
+
+            <CollectionView ItemsSource="{Binding Items}" VerticalScrollBarVisibility="Always">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" CornerRadius="20" Padding="10" Margin="0, 0, 0, 10">
+                            <VerticalStackLayout Spacing="10">
+                                <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="Medium" TextColor="#333"/>
+
+                                <HorizontalStackLayout Spacing="10" VerticalOptions="Center">
+                                    <Button Text="-" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ShoppingCartViewModel}}, Path=DecreaseCommand}" CommandParameter="{Binding .}" BackgroundColor="#5847EF" TextColor="White" CornerRadius="15" WidthRequest="40" HeightRequest="40"/>
+
+                                    <Label Text="{Binding Quantity}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="Medium"/>
+
+                                    <Button Text="+" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ShoppingCartViewModel}}, Path=IncreaseCommand}" CommandParameter="{Binding .}" BackgroundColor="#5847EF" TextColor="White" CornerRadius="15" WidthRequest="40" HeightRequest="40"/>
+                                </HorizontalStackLayout>
+
+                                <Label Text="{Binding TotalPrice, StringFormat='Razem: {0:C}'}" FontAttributes="Bold" TextColor="#333" HorizontalOptions="End"/>
+
+                                <Button Text="Usuń" BackgroundColor="Transparent" TextColor="Red" Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:ShoppingCartViewModel}}, Path=RemoveItemCommand}" CommandParameter="{Binding .}" />
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="{Binding TotalAmount, StringFormat='Suma: {0:C}'}" FontSize="Large" FontAttributes="Bold" HorizontalOptions="End" TextColor="AliceBlue"/>
+
+            <Button Text="Zamów" BackgroundColor="Green" CornerRadius="20" FontAttributes="Bold" TextColor="White" Command="{Binding OrderCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

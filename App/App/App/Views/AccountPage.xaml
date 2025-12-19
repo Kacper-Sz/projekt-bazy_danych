@@ -1,12 +1,78 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:App.ViewModels"
              x:Class="App.Views.AccountPage"
-             Title="AccountPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Shell.NavBarIsVisible="False">
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#265BF9"
+                  Offset="0.0" />
+            <GradientStop Color="#5847EF"
+                  Offset="0.33" />
+            <GradientStop Color="#7A12D8"
+                  Offset="0.66" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <ContentPage.BindingContext>
+        <viewModels:AccountViewModel/>
+    </ContentPage.BindingContext>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="15" Spacing="20">
+            <Frame BackgroundColor="White" CornerRadius="20" Padding="15">
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Dane użytkownika" FontSize="Large" FontAttributes="Bold" TextColor="#333"/>
+
+                    <Label Text="{Binding CurrentUser.FirstName, StringFormat='Imię: {0}'}" TextColor="#333"/>
+                    <Label Text="{Binding CurrentUser.LastName, StringFormat='Nazwisko: {0}'}" TextColor="#333"/>
+                    <Label Text="{Binding CurrentUser.Email, StringFormat='Email: {0}'}" TextColor="#333"/>
+                    <Label Text="{Binding CurrentUser.PhoneNumber, StringFormat='Telefon: {0}'}" TextColor="#333"/>
+                    <Label Text="{Binding CurrentUser.CreatedAt, StringFormat='Utworzono: {0:dd.MM.yyyy}'}" TextColor="#333"/>
+                    
+                    <Button BackgroundColor="Transparent" TextColor="Red" Text="Wyloguj" FontAttributes="Bold" Command="{Binding LogoutCommand}"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label Text="Moje zamówienia" FontSize="Large" FontAttributes="Bold" TextColor="Black"/>
+
+            <CollectionView ItemsSource="{Binding Orders}" VerticalScrollBarVisibility="Always">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BackgroundColor="White" CornerRadius="20" Padding="15" Margin="0, 0, 0,15">
+                            <VerticalStackLayout Spacing="10">
+
+                                <Label Text="{Binding Id, StringFormat='Zamówienie: {0}'}" FontAttributes="Bold" TextColor="#333"/>
+                                <Label Text="{Binding CreatedAt, StringFormat='Data: {0:dd.MM.yyyy HH:mm}'}" TextColor="#333"/>
+                                <Label Text="{Binding Status, StringFormat='Status: {0}'}" TextColor="#333"/>
+                                <Label Text="{Binding PaymentMethod, StringFormat='Płatność: {0}'}" TextColor="#333"/>
+                                <Label Text="{Binding TotalAmount, StringFormat='Suma: {0:C}'}" TextColor="Green" FontAttributes="Bold"/>
+
+                                <Label Text="Adres dostawy:" FontAttributes="Bold" TextColor="#333"/>
+                                <Label Text="{Binding DeliveryAddress.City}" TextColor="#333"/>
+                                <Label Text="{Binding DeliveryAddress.Street}" TextColor="#333"/>
+                                <Label Text="{Binding DeliveryAddress.PostalCode}" TextColor="#333"/>
+
+                                <Label Text="Produkty:" FontAttributes="Bold" TextColor="#333"/>
+                                <StackLayout BindableLayout.ItemsSource="{Binding Items}" Spacing="5">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate>
+                                            <VerticalStackLayout Spacing="2">
+                                                <Label Text="{Binding ProductName}" TextColor="#333"/>
+                                                <Label Text="{Binding Quantity, StringFormat='Ilość: {0}'}" FontSize="Small" TextColor="Gray"/>
+                                            </VerticalStackLayout>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                </StackLayout>
+
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

@@ -5,26 +5,27 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     x:Class="App.Views.Popups.ProductPopup">
 
-    <Frame Padding="20" BackgroundColor="White" CornerRadius="15" HasShadow="True">
-        <ScrollView HeightRequest="400" WidthRequest="300">
+    <Frame Padding="20" BackgroundColor="White" CornerRadius="20">
+        <ScrollView HeightRequest="450" WidthRequest="300">
             <VerticalStackLayout Spacing="15">
-                <Label Text="{Binding ProductName}" FontSize="Large" FontAttributes="Bold"/>
-                <Image Source="{Binding ProductImageUrl}" WidthRequest="250" HeightRequest="250" Aspect="AspectFill"/>
-                <Label Text="{Binding Manufacturer, StringFormat='Producent: {0}'}" FontSize="Medium"/>
-                <Label Text="{Binding Category, StringFormat='Kategoria: {0}'}" FontSize="Medium"/>
+                <Label Text="{Binding ProductName}" FontSize="Large" FontAttributes="Bold" TextColor="#333" HorizontalOptions="Center"/>
+                <Image Source="{Binding ProductImageUrl}" HeightRequest="250" Aspect="AspectFill" HorizontalOptions="Center"/>
+                <Label Text="{Binding Manufacturer, StringFormat='Producent: {0}'}" FontSize="Medium" TextColor="#333"/>
+                <Label Text="{Binding Category, StringFormat='Kategoria: {0}'}" FontSize="Medium" TextColor="#333"/>
                 <Label Text="{Binding Price, StringFormat='Cena: {0:C}'}" FontSize="Medium" TextColor="Green"/>
-                <Label Text="{Binding Stock, StringFormat='Dostępność: {0}'}" FontSize="Medium"/>
-                <Label Text="Specyfikacja:" FontAttributes="Bold"/>
-                <StackLayout BindableLayout.ItemsSource="{Binding SpecsList}">
+                <Label Text="{Binding Stock, StringFormat='Dostępność: {0}'}" FontSize="Medium" TextColor="#333"/>
+
+                <Label Text="Specyfikacja:" FontAttributes="Bold" TextColor="#333"/>
+                <StackLayout BindableLayout.ItemsSource="{Binding SpecsList}" Spacing="2">
                     <BindableLayout.ItemTemplate>
                         <DataTemplate>
-                            <Label Text="{Binding}" FontSize="Small"/>
+                            <Label Text="{Binding}" FontSize="Small" TextColor="#555"/>
                         </DataTemplate>
                     </BindableLayout.ItemTemplate>
                 </StackLayout>
-                <Label Text="{Binding Description}" FontSize="Small"/>
+                <Label Text="{Binding Description}" FontSize="Small" TextColor="#333"/>
 
-                <Button Text="Zamknij" Clicked="ClosePopup" BackgroundColor="Purple"/>
+                <Button Text="Zamknij" Clicked="ClosePopup" BackgroundColor="#5847EF" TextColor="White" CornerRadius="15"/>
             </VerticalStackLayout>
         </ScrollView>
     </Frame>

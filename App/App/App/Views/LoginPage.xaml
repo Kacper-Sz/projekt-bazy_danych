@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:App.ViewModels"
              x:Class="App.Views.LoginPage"
-             Title="LoginPage"
              Shell.NavBarIsVisible="False">
 
     <ContentPage.BindingContext>
@@ -21,36 +20,37 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <Grid RowDefinitions="2*, 3*" Padding="15">
-        <Grid Grid.Row="0" RowDefinitions="2*, *, *" Margin="15" RowSpacing="10">
-            <Image Grid.Row="0" Source="logo.png"/>
-            <Label Grid.Row="1" Text="Nazwa" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Label Grid.Row="2" Text="Opis" FontSize="Medium" HorizontalOptions="Center" VerticalOptions="Center"/>
-        </Grid>
+    <Grid RowDefinitions="auto, *" Padding="25">
+        
+        <VerticalStackLayout Padding="25">
+            <Image Source="logo.png" HeightRequest="100"/>
+            <Label Text="EShop" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="LightBlue" FontAttributes="Bold,Italic"/>
+        </VerticalStackLayout>
 
-        <Border Grid.Row="1" BackgroundColor="#eeeeee" Margin="5, 15">
-            <Border.StrokeShape>
-                <RoundRectangle CornerRadius="40" />
-            </Border.StrokeShape>
-            <VerticalStackLayout Spacing="15" Padding="15">
-                <Label Text="Zaloguj się" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" Margin="15"/>
+        <Frame Grid.Row="1" BackgroundColor="White" CornerRadius="25" Padding="25">
+            <VerticalStackLayout Spacing="20">
+                <Label Text="Zaloguj się" FontSize="Medium" TextColor="#333" FontAttributes="Bold" HorizontalOptions="Center" Padding="15"/>
 
-                <Label Text="Email" FontSize="Medium"/>
-                <Entry Keyboard="Email" Text="{Binding Email}"/>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Email" FontSize="Medium" TextColor="#666"/>
+                    <Entry Placeholder="example@email.com" Keyboard="Email" Text="{Binding Email}"/>
+                </VerticalStackLayout>
 
-                <Label Text="Hasło" FontSize="Medium"/>
-                <Entry Keyboard="Text" IsPassword="True" Text="{Binding Password}"/>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="Hasło" FontSize="Medium" TextColor="#666"/>
+                    <Entry Placeholder="****************" Keyboard="Text" IsPassword="True" Text="{Binding Password}"/>
+                </VerticalStackLayout>
 
-                <Label Text="{Binding IncorrectText}" TextColor="red" Margin="5, 0" IsVisible="{Binding IncorrectIsVisible}"/>
+                <Label Text="{Binding IncorrectText}" TextColor="#D32F2F" Margin="5, 0" IsVisible="{Binding IncorrectIsVisible}"/>
 
-                <Button Text="Zaloguj się" BackgroundColor="#265BF9" Margin="10, 0" Command="{Binding LoginCommand}"/>
+                <Button Text="Zaloguj się" BackgroundColor="#265BF9" FontAttributes="Bold" CornerRadius="15" Command="{Binding LoginCommand}"/>
 
-                <HorizontalStackLayout HorizontalOptions="Center">
-                    <Label Text="Nie masz konta?" VerticalOptions="Center"/>
-                    <Button Text="Zarejestruj się" BackgroundColor="Transparent" TextColor="#265BF9" Padding="5" Command="{Binding RegisterCommand}"/>
+                <HorizontalStackLayout HorizontalOptions="Center" Spacing="5">
+                    <Label Text="Nie masz konta?" VerticalOptions="Center" TextColor="#555"/>
+                    <Button Text="Zarejestruj się" BackgroundColor="Transparent" TextColor="#265BF9" Padding="0" FontAttributes="Bold" Command="{Binding RegisterCommand}"/>
                 </HorizontalStackLayout>
             </VerticalStackLayout>
-        </Border>
+        </Frame>
 
     </Grid>
 

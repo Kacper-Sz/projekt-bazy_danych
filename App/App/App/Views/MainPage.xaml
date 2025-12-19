@@ -4,7 +4,7 @@
              xmlns:viewModels="clr-namespace:App.ViewModels"
              xmlns:models="clr-namespace:dll.Models;assembly=dll"
              x:Class="App.Views.MainPage"
-             Title="MainPage">
+             Shell.NavBarIsVisible="False">
 
     <ContentPage.BindingContext>
         <viewModels:MainViewModel />
@@ -21,29 +21,31 @@
         </LinearGradientBrush>
     </ContentPage.Background>
 
-    <Grid>
-        <CollectionView ItemsSource="{Binding Products}" 
-                        VerticalScrollBarVisibility="Always">
+    <Grid RowDefinitions="auto, *" RowSpacing="10" Padding="15">
+        <HorizontalStackLayout Spacing="10" VerticalOptions="Start">
+            <Button Text="Filtruj" Command="{Binding OpenFilterCommand}" BackgroundColor="Transparent" BorderColor="LightBlue" TextColor="LightBlue" FontAttributes="Bold" CornerRadius="12" Padding="10,5"/>
+            <Picker ItemsSource="{Binding SortingTypes}" SelectedIndex="{Binding SelectedSorting}" TextColor="LightBlue" FontAttributes="Bold" FontSize="Medium" WidthRequest="200"/>
+        </HorizontalStackLayout>
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding Products}" VerticalScrollBarVisibility="Always" Margin="0,5,0,0">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:Product">
-                    <Frame BorderColor="Gray" CornerRadius="10" Padding="10" Margin="5">
+                    <Frame CornerRadius="15" BackgroundColor="White" Padding="15" Margin="0, 0, 0, 15">
                         <Frame.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ProductSelectedCommand}" 
-                                                  CommandParameter="{Binding .}" />
+                            <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewModels:MainViewModel}}, Path=ProductSelectedCommand}" CommandParameter="{Binding .}" />
                         </Frame.GestureRecognizers>
+                        
                         <VerticalStackLayout Spacing="10">
-                            <HorizontalStackLayout Spacing="10">
-                                <Image Source="{Binding ImageUrl}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" />
-                                <VerticalStackLayout>
-                                    <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold"/>
+                            <HorizontalStackLayout Spacing="15">
+                                <Image Source="{Binding ImageUrl}" WidthRequest="100" HeightRequest="100" Aspect="AspectFill" VerticalOptions="Center"/>
+                                <VerticalStackLayout Spacing="5" VerticalOptions="Center">
+                                    <Label Text="{Binding Name}" FontSize="Large" FontAttributes="Bold" TextColor="#333"/>
                                     <Label Text="{Binding Price, StringFormat='Cena: {0:C}'}" FontSize="Medium" TextColor="Green"/>
-                                    <Label Text="{Binding Stock, StringFormat='Dostępność: {0}'}" FontSize="Small"/>
-                                    <Label Text="{Binding Description}" FontSize="Medium"/>
+                                    <Label Text="{Binding Stock, StringFormat='Dostępność: {0}'}" FontSize="Small" TextColor="#666"/>
+                                    <Label Text="{Binding Description}" FontSize="Medium" TextColor="#555" LineBreakMode="TailTruncation"/>
                                 </VerticalStackLayout>
                             </HorizontalStackLayout>
-                            <Button Text="Dodaj do koszyka" 
-                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.AddToShoppingCartCommand}" 
-                                    CommandParameter="{Binding .}" BackgroundColor="Purple"/>
+                            <Button Text="Dodaj do koszyka" TextColor="White" FontAttributes="Bold" Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.AddToShoppingCartCommand}" CommandParameter="{Binding .}" BackgroundColor="Purple"/>
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>
