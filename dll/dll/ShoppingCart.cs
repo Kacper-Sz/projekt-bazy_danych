@@ -6,6 +6,7 @@ using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,51 +15,38 @@ namespace dll
 {
     public sealed class ShoppingCart
     {
-        public ShoppingCart() { }
-
-        // private List<Product> products = new List<Product>();
+        private readonly IMongoCollection<Order> _orders;
 
         private Dictionary<Product, int> products = new Dictionary<Product, int>();
 
         private decimal totalAmount = 0;
 
 
+        public ShoppingCart(IMongoDatabase database)
+        {
+            _orders = database.GetCollection<Order>("orders");
+        }
+
 
         public decimal TotalAmount => totalAmount;
         public IReadOnlyDictionary<Product, int> Products => products;
 
-        // tez nie wiem w ktorym miejscu najlepiej sprawdzic czy w ogole mozna dodac to do koszyka
-        // (czy jest taka ilosc w magazynie)
-        // na razie dam tutaj
         public void AddItem(Product product, int quantity)
         {
             if (quantity <= 0)
-            {
-                throw new Exception("Quantity must be grater than zero");
-            }
+                throw new Exception("Quantity must be greater than zero");
 
-            if (quantity <= product.Stock)
-            {
+            if (quantity > product.Stock)
+                throw new Exception($"Not enough in stock, max: {product.Stock}");
 
-                if (products.ContainsKey(product))
-                {
-                    products[product] += quantity;
-                }
-                else
-                {
-                    products.Add(product, quantity);
-                }
-
-            }
+            products[product] = products.TryGetValue(product, out int existingQuantity)
+                ? existingQuantity + quantity
+                : quantity;
 
             totalAmount = products.Sum(p => p.Key.Price * p.Value);
         }
 
-        // troche nie wiem jak obecnie ma wygladac usuwanie 
-        // bo dane beda brane z elementu na ktorego klikniemy czy cos
-
-        // zakladam ze jak produkt sie wyswietla w koszyku to w nim istnieje
-        // dlatego nie sprawdzam czy jest
+        // zakladamy ze jak produkt sie wyswietla w koszyku to w nim istnieje
         public void RemoveItem(Product product)
         {
             totalAmount -= products[product] * product.Price;
@@ -74,7 +62,7 @@ namespace dll
             }
 
             if (newQuantity > product.Stock)
-                throw new Exception("error");
+                throw new Exception($"nie ma tyle na stanie, max: {product.Stock}");
 
             totalAmount -= products[product] * product.Price;
             products[product] = newQuantity;
@@ -86,44 +74,26 @@ namespace dll
 
         public void ClearCart()
         {
-            products.Clear();
-            totalAmount = 0;
+            if (products.Count != 0)
+            {
+                products.Clear();
+                totalAmount = 0;
+            }
+            else
+            {
+                throw new Exception("Cart is empty");
+            }
         }
 
 
-        // trzeba sprawdzic czy jest zalogowany
-        // tu jeszcze zmienic bledy na np enum
-        public async Task<(bool success, string? orderId, string? error)> SubmitAsync(IMongoDatabase database,
-            ProductManager productManager,
+        public async Task<(bool success, string? orderId, Exception? error)> SubmitAsync(ProductManager productManager,
             ObjectId customerId,
             DeliveryAddress address,
             string paymentMethod)
         {
+
             if (Products.Count == 0)
-                return (false, null, "koszyk pusty");
-
-            foreach (var prod in Products)
-            {
-                Product product = prod.Key;
-                int prodQuantity = prod.Value;
-
-                
-                if (prodQuantity <= 0)
-                    return (false, null, "za malo");
-
-                if (prodQuantity > product.Stock)
-                    return (false, null, "za dzuo");
-            }
-
-            foreach (var prod in Products)
-            {
-                Product product = prod.Key;
-                int prodQuantity = prod.Value;
-
-                var ok = await productManager.UpdateAsync(product.Id.ToString(), prodQuantity);
-                if (!ok)
-                    return (false, null, "nie ma tyle na stanie");
-            }
+                return (false, null, new Exception("Empty cart"));
 
             Order order = new Order
             {
@@ -140,8 +110,7 @@ namespace dll
                 PaymentMethod = paymentMethod
             };
 
-            IMongoCollection<Order> orders = database.GetCollection<Order>("orders");
-            await orders.InsertOneAsync(order);
+            await _orders.InsertOneAsync(order);
 
             ClearCart();
 

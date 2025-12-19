@@ -148,14 +148,15 @@ namespace Tests
             string? userRole = "admin";
 
             Product? product = await productManager.GetProductByIdAsync(productId);
-            int stockBefore = product.Stock;
+            Assert.NotNull(product);
+            int stockBefore = product!.Stock;
 
             ProductUpdateStockResult result = await productManager.UpdateStockAsync(productId, newStock, userRole);
 
             product = await productManager.GetProductByIdAsync(productId);
-            int stockAfter = product.Stock;
-
             Assert.NotNull(product);
+            int stockAfter = product!.Stock;
+
             Assert.Equal(ProductUpdateStockResult.SUCCESS, result);
             Assert.Equal(newStock, stockAfter);
             Assert.NotEqual(stockBefore, stockAfter);
@@ -200,7 +201,7 @@ namespace Tests
             };
             string imgPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\test\zdj.jpg");
 
-            var exception = await Assert.ThrowsAsync<Exception>(async () => 
+            Exception exception = await Assert.ThrowsAsync<Exception>(async () => 
                 await productManager.AddPhotoProductAsync(product, imgPath)
             );
 
@@ -216,7 +217,7 @@ namespace Tests
             string productId = "000000000000000000011111"; // ok
             string role = "customer"; // nie admin
 
-            var exception = await Assert.ThrowsAsync<Exception>(async () =>
+            Exception exception = await Assert.ThrowsAsync<Exception>(async () =>
             {
                 await productManager.DeleteProductAsync(productId, role);
             });
@@ -230,7 +231,7 @@ namespace Tests
             string productId = "000030400100000000011111"; // zle id
             string role = "user"; // nie admin
 
-            var exception = await Assert.ThrowsAsync<Exception>(async () =>
+            Exception exception = await Assert.ThrowsAsync<Exception>(async () =>
             {
                 await productManager.DeleteProductAsync(productId, role);
             });
@@ -244,7 +245,7 @@ namespace Tests
             string productId = "000030400100000000011111"; // zle id
             string role = "admin"; // ok
 
-            var exception = await Assert.ThrowsAsync<Exception>(async () =>
+            Exception exception = await Assert.ThrowsAsync<Exception>(async () =>
             {
                 await productManager.DeleteProductAsync(productId, role);
             });
