@@ -15,8 +15,7 @@ namespace Tests
 
         public UserManagerTests()
         {
-            MongoDbManager dbManager = new MongoDbManager(DataManager.ConnectionString(), DataManager.DatabaseName());
-            userManager = new UserManager(dbManager.Database);
+            userManager = new UserManager();
         }
 
         #region TestLoginAsync

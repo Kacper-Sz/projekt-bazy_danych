@@ -15,8 +15,7 @@ namespace Tests
         private readonly ProductManager productManager;
         public ProductManagerTest()
         {
-            MongoDbManager dbManager = new MongoDbManager(DataManager.ConnectionString(), DataManager.DatabaseName());
-            productManager = new ProductManager(dbManager.Database);
+            productManager = new ProductManager();
         }
 
         private readonly List<Product> productsList = new List<Product>
@@ -229,7 +228,7 @@ namespace Tests
         [Fact]
         public async Task DeleteProductAsyncTest2()
         {
-            string productId = "9238891"; // zle id
+            string productId = "000030400100000000011111"; // zle id
             string role = "user"; // nie admin
 
             Exception exception = await Assert.ThrowsAsync<Exception>(async () =>

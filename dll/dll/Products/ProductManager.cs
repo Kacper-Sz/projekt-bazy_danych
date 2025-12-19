@@ -25,7 +25,8 @@ namespace dll.Products
 
         public ProductManager(IMongoDatabase database)
         {
-            _products = database.GetCollection<Product>(COLLECTION_NAME);
+            MongoDbManager mongoDbManager = new MongoDbManager();
+            _products = mongoDbManager.Database.GetCollection<Product>(COLLECTION_NAME);
 
             _account = new Account(
                 "dv1nk0kbi",

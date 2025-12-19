@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:App.ViewModels"
+             x:Class="App.Views.RegisterPage"
+             Title="RejestrationPage">
+
+    <ContentPage.BindingContext>
+        <viewModels:RegisterViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#265BF9"
+                  Offset="0.0" />
+            <GradientStop Color="#5847EF"
+                  Offset="0.33" />
+            <GradientStop Color="#7A12D8"
+                  Offset="0.66" />
+        </LinearGradientBrush>
+    </ContentPage.Background>
+
+    <Border Grid.Row="1" BackgroundColor="#eeeeee" Margin="25">
+        <Border.StrokeShape>
+            <RoundRectangle CornerRadius="40" />
+        </Border.StrokeShape>
+
+        <VerticalStackLayout Spacing="5" Padding="15, 5">
+            <Label Text="Zarejestruj się" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" Margin="15"/>
+
+            <Label Text="Imię" FontSize="Medium"/>
+            <Entry Keyboard="Text" Text="{Binding FirstName}"/>
+
+            <Label Text="Nazwisko" FontSize="Medium"/>
+            <Entry Keyboard="Text" Text="{Binding LastName}"/>
+
+            <Label Text="Email" FontSize="Medium"/>
+            <Entry Keyboard="Email" Text="{Binding Email}"/>
+
+            <Label Text="Hasło" FontSize="Medium"/>
+            <Entry Keyboard="Text" IsPassword="True" Text="{Binding Password1}"/>
+
+            <Label Text="Powtórz hasło" FontSize="Medium"/>
+            <Entry Keyboard="Text" IsPassword="True" Text="{Binding Password1}"/>
+
+            <Label Text="Telefon" FontSize="Medium"/>
+            <Entry Keyboard="Telephone" Text="{Binding PhoneNumber}"/>
+
+            <Label Text="{Binding ErrorText}" IsVisible="{Binding ErrorIsVisible}" TextColor="red" Margin="5, 0"/>
+
+            <Button Text="Zarejestruj się" BackgroundColor="#265BF9" Margin="10, 0" Command="{Binding RegisterCommand}"/>
+        </VerticalStackLayout>
+    </Border>
+
+</ContentPage>
