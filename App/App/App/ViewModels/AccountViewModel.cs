@@ -14,6 +14,8 @@ namespace App.ViewModels
 {
     class AccountViewModel : BaseViewModel
     {
+        public User CurrentUser { get; set; }
+
         private ObservableCollection<OrderVM> orders;
         public ObservableCollection<OrderVM> Orders
         {
@@ -30,6 +32,7 @@ namespace App.ViewModels
 
         private void SetInitValues()
         {
+            CurrentUser = Session.CurrentUser;
             Orders = new ObservableCollection<OrderVM>();
             LogoutCommand = new RelayCommand(LogoutAsync);
             LoadOrdersAsync();
@@ -76,6 +79,12 @@ namespace App.ViewModels
 
                 Orders.Add(orderVm);
             }
+        }
+
+        public void OnAppearing()
+        {
+            Orders.Clear();
+            LoadOrdersAsync();
         }
     }
 }

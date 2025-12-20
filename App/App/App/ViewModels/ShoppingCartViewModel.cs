@@ -104,12 +104,37 @@ namespace App.ViewModels
                 PostalCode = PostalCode
             };
 
-            SubmitOrder(address);
+            string paymentMethod = GetPaymentMethod();
+
+            await SubmitOrder(address, paymentMethod);
         }
 
-        private void SubmitOrder(DeliveryAddress address)
+        private string GetPaymentMethod()
         {
-            // ToDo: Implementacja submita
+            string paymentMethod = "";
+            switch (SelectedPaymentMethod)
+            {
+                case 0:
+                    paymentMethod = "Cart";
+                    break;
+                case 1:
+                    paymentMethod = "BLIK";
+                    break;
+                case 2:
+                    paymentMethod = "Cash";
+                    break;
+                default:
+                    paymentMethod = "Other";
+                    break;
+            }
+            return paymentMethod;
+        }
+
+        private async Task SubmitOrder(DeliveryAddress address, string paymentMethod)
+        {
+            ProductManager productManager = new ProductManager();
+            await Session.CurrentShoppingCart.SubmitAsync(productManager, Session.CurrentUser.Id, address, paymentMethod);
+            OnAppearing();
         }
 
         private bool ValidateShoppingCart()
