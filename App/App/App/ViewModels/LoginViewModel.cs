@@ -61,7 +61,7 @@ namespace App.ViewModels
         {
             try
             {
-                IncorrectText = "Podano nie prawidłowe dane";
+                IncorrectText = "Podano nieprawidłowe dane do logowania";
                 UserManager userManager = new UserManager();
                 User? user = await userManager.LoginAsync(Email, Password);
                 if (user != null)
