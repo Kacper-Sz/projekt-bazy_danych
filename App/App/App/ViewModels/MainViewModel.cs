@@ -31,17 +31,17 @@ namespace App.ViewModels
         public ObservableCollection<string> SortingTypes { get; } 
             = new ObservableCollection<string>()
             {
-                "Sortuj: domyślnie",
-                "Sortuj: nazwa (rosnąco)",
-                "Sortuj: nazwa (malejąco)",
-                "Sortuj: kategoria (rosnąco)",
-                "Sortuj: kategoria (malejąco)",
-                "Sortuj: ilość (rosnąco)",
-                "Sortuj: ilość (malejąco)",
-                "Sortuj: cena (rosnąco)",
-                "Sortuj: cena (malejąco)",
-                "Sortuj: data (rosnąco)",
-                "Sortuj: data (malejąco)",
+                "Sortuj domyślnie",
+                "Nazwa (rosnąco)",
+                "Nazwa (malejąco)",
+                "Kategoria (rosnąco)",
+                "Kategoria (malejąco)",
+                "Ilość (rosnąco)",
+                "Ilość (malejąco)",
+                "Cena (rosnąco)",
+                "Cena (malejąco)",
+                "Data (rosnąco)",
+                "Data (malejąco)",
             };
 
         private int selectedSorting;
