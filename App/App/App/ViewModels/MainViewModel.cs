@@ -94,21 +94,29 @@ namespace App.ViewModels
         {
             List<Product> productsToFilter = allProducts.ToList();
             if (_productFilterOptions != null)
-            {
+            {               
                 if (!string.IsNullOrEmpty(_productFilterOptions.Category))
                     productsToFilter = productsToFilter.FilterByCategory(_productFilterOptions.Category);
                 if (!string.IsNullOrWhiteSpace(_productFilterOptions.Manufacturer))
                     productsToFilter = productsToFilter.FilterByManufacturer(_productFilterOptions.Manufacturer);
-                if (_productFilterOptions.MinPrice.HasValue && _productFilterOptions.MaxPrice.HasValue)
-                    productsToFilter = productsToFilter.FilterByPriceRange(_productFilterOptions.MinPrice.Value, _productFilterOptions.MaxPrice.Value);
                 if (_productFilterOptions.MinStock.HasValue)
                     productsToFilter = productsToFilter.FilterByStock(_productFilterOptions.MinStock.Value);
                 if (!string.IsNullOrWhiteSpace(_productFilterOptions.SearchTerm))
                     productsToFilter = productsToFilter.SearchByName(_productFilterOptions.SearchTerm);
+                productsToFilter = FilterByPrice(productsToFilter);
             }
             Products.Clear();
             foreach (Product p in productsToFilter)
                 Products.Add(p);
+        }
+
+        private List<Product> FilterByPrice(List<Product> productsToFilter)
+        {
+            if (!_productFilterOptions.MinPrice.HasValue)
+                _productFilterOptions.MinPrice = 0;
+            if (!_productFilterOptions.MaxPrice.HasValue)
+                _productFilterOptions.MaxPrice = decimal.MaxValue;
+            return productsToFilter.FilterByPriceRange(_productFilterOptions.MinPrice.Value, _productFilterOptions.MaxPrice.Value);
         }
 
         private async Task ShowProductDetails(object? arg)
