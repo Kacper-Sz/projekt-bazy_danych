@@ -32,8 +32,11 @@ namespace dll.Users
             User existingUser = await _users.Find(u => u.Email == user.Email).FirstOrDefaultAsync();
             if (existingUser != null)
                 return UserRejestrationEnum.EMAIL_ALREADY_EXISTS;
-            if (!ValidatePassword(user.Password))
-                return UserRejestrationEnum.WEAK_PASSWORD;
+            
+            var passwordValidationResult = ValidatePasswordDetailed(user.Password);
+            if (passwordValidationResult != UserRejestrationEnum.GOOD)
+                return passwordValidationResult;
+            
             if (!ValidateEmailFormat(user.Email))
                 return UserRejestrationEnum.INVALID_EMAIL_FORMAT;
             await _users.InsertOneAsync(user);
@@ -55,6 +58,26 @@ namespace dll.Users
                 && password.Any(char.IsLower) 
                 && password.Any(char.IsDigit) 
                 && password.Any(ch => !char.IsLetterOrDigit(ch));
+
+        private UserRejestrationEnum ValidatePasswordDetailed(string password)
+        {
+            if (password.Length < MIN_PASSWORD_LENGTH)
+                return UserRejestrationEnum.PASSWORD_TOO_SHORT;
+            
+            if (!password.Any(char.IsUpper))
+                return UserRejestrationEnum.PASSWORD_MISSING_UPPERCASE;
+            
+            if (!password.Any(char.IsLower))
+                return UserRejestrationEnum.PASSWORD_MISSING_LOWERCASE;
+            
+            if (!password.Any(char.IsDigit))
+                return UserRejestrationEnum.PASSWORD_MISSING_DIGIT;
+            
+            if (!password.Any(ch => !char.IsLetterOrDigit(ch)))
+                return UserRejestrationEnum.PASSWORD_MISSING_SPECIAL_CHAR;
+            
+            return UserRejestrationEnum.GOOD;
+        }
 
         private bool ValidateEmailFormat(string email)
         {
