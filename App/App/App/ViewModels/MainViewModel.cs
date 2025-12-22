@@ -44,6 +44,10 @@ namespace App.ViewModels
                 "Data (malejąco)",
             };
 
+        // NOWE: źródła dla Pickerów
+        public ObservableCollection<string> Categories { get; } = new();
+        public ObservableCollection<string> Manufacturers { get; } = new();
+
         private int selectedSorting;
         public int SelectedSorting
         {
@@ -81,7 +85,8 @@ namespace App.ViewModels
 
         private async Task OpenFilter(object? _)
         {
-            ProductFilterPopup popup = new ProductFilterPopup();
+            // Przekazujemy listy kategorii i producentów do popupu
+            ProductFilterPopup popup = new ProductFilterPopup(Categories.ToList(), Manufacturers.ToList());
             object? filterOptions = await App.Current.MainPage.ShowPopupAsync(popup);
             if (filterOptions is ProductFilterOptions filters)
                 _productFilterOptions = filters;
@@ -148,6 +153,10 @@ namespace App.ViewModels
         {
             ProductManager productManager = new ProductManager();
             allProducts = await productManager.GetAllProductsAsync();
+
+            // NOWE: odśwież listy do pickerów (unikalne, posortowane)
+            RefreshPickersSources();
+
             switch (SelectedSorting)
             {
                 case 1:
@@ -181,6 +190,18 @@ namespace App.ViewModels
                     allProducts = allProducts.SortProducts(ProductSortEnum.CREATED_AT, false);
                     break;
             }
+        }
+
+        private void RefreshPickersSources()
+        {
+            Categories.Clear();
+            Manufacturers.Clear();
+
+            foreach (var c in allProducts.Select(p => p.Category).Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().OrderBy(s => s))
+                Categories.Add(c);
+
+            foreach (var m in allProducts.Select(p => p.Manufacturer).Where(s => !string.IsNullOrWhiteSpace(s)).Distinct().OrderBy(s => s))
+                Manufacturers.Add(m);
         }
     }
 }

@@ -125,6 +125,26 @@ namespace App.ViewModels
                     ErrorText = "Hasło jest za słabe";
                     ErrorIsVisible = true;
                     break;
+                case UserRejestrationEnum.PASSWORD_TOO_SHORT:
+                    ErrorText = "Hasło jest za krótkie (minimum 8 znaków)";
+                    ErrorIsVisible = true;
+                    break;
+                case UserRejestrationEnum.PASSWORD_MISSING_UPPERCASE:
+                    ErrorText = "Hasło musi zawierać wielką literę";
+                    ErrorIsVisible = true;
+                    break;
+                case UserRejestrationEnum.PASSWORD_MISSING_LOWERCASE:
+                    ErrorText = "Hasło musi zawierać małą literę";
+                    ErrorIsVisible = true;
+                    break;
+                case UserRejestrationEnum.PASSWORD_MISSING_DIGIT:
+                    ErrorText = "Hasło musi zawierać cyfrę";
+                    ErrorIsVisible = true;
+                    break;
+                case UserRejestrationEnum.PASSWORD_MISSING_SPECIAL_CHAR:
+                    ErrorText = "Hasło musi zawierać znak specjalny";
+                    ErrorIsVisible = true;
+                    break;
                 case UserRejestrationEnum.INVALID_EMAIL_FORMAT:
                     ErrorText = "Niepoprawny format email";
                     ErrorIsVisible = true;

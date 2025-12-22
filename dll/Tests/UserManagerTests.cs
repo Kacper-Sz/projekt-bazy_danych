@@ -63,7 +63,7 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "Customer",
-                Password = "Password12345",
+                Password = "$Password12345",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
@@ -80,7 +80,7 @@ namespace Tests
                 LastName = "",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "Customer",
-                Password = "Password12345",
+                Password = "$Password12345",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
@@ -97,7 +97,7 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "",
                 Role = "Customer",
-                Password = "Password12345",
+                Password = "$Password12345",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
@@ -114,7 +114,7 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "",
-                Password = "Password12345",
+                Password = "$Password12345",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
@@ -148,7 +148,7 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "Customer",
-                Password = "Password12345",
+                Password = "$Password12345",
                 PhoneNumber = "",
                 CreatedAt = DateTime.UtcNow,
             };
@@ -165,7 +165,7 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "Customer",
-                Password = "Password12345",
+                Password = "$Password12345",
                 PhoneNumber = "+48123456789",
             };
             var result = await userManager.RegisterUserAsync(user);
@@ -183,7 +183,7 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "jan.kowalski@example.com",
                 Role = "Customer",
-                Password = "Password12345",
+                Password = "$Password12345",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
@@ -194,7 +194,7 @@ namespace Tests
 
         #region WeakPassword
         [Fact]
-        public async Task RegisterUserAsyncTest9()
+        public async Task RegisterUserAsyncTest9_PasswordTooShort()
         {
             User user = new User
             {
@@ -202,16 +202,16 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "Customer",
-                Password = "Pa123",
+                Password = "Pa123$",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
             var result = await userManager.RegisterUserAsync(user);
-            Assert.Equal(UserRejestrationEnum.WEAK_PASSWORD, result);
+            Assert.Equal(UserRejestrationEnum.PASSWORD_TOO_SHORT, result);
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest10()
+        public async Task RegisterUserAsyncTest10_MissingUppercase()
         {
             User user = new User
             {
@@ -219,16 +219,16 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "Customer",
-                Password = "password12345",
+                Password = "password12345$",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
             var result = await userManager.RegisterUserAsync(user);
-            Assert.Equal(UserRejestrationEnum.WEAK_PASSWORD, result);
+            Assert.Equal(UserRejestrationEnum.PASSWORD_MISSING_UPPERCASE, result);
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest11()
+        public async Task RegisterUserAsyncTest11_MissingLowercase()
         {
             User user = new User
             {
@@ -236,16 +236,16 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "Customer",
-                Password = "PASSWORD12345",
+                Password = "PASSWORD12345$",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
             var result = await userManager.RegisterUserAsync(user);
-            Assert.Equal(UserRejestrationEnum.WEAK_PASSWORD, result);
+            Assert.Equal(UserRejestrationEnum.PASSWORD_MISSING_LOWERCASE, result);
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest12()
+        public async Task RegisterUserAsyncTest12_MissingDigit()
         {
             User user = new User
             {
@@ -253,16 +253,33 @@ namespace Tests
                 LastName = "Kwiatkowski",
                 Email = "Roman.Kwiatkowski@example.com",
                 Role = "Customer",
-                Password = "Password",
+                Password = "Password$$$",
                 PhoneNumber = "+48123456789",
                 CreatedAt = DateTime.UtcNow,
             };
             var result = await userManager.RegisterUserAsync(user);
-            Assert.Equal(UserRejestrationEnum.WEAK_PASSWORD, result);
+            Assert.Equal(UserRejestrationEnum.PASSWORD_MISSING_DIGIT, result);
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest13()
+        public async Task RegisterUserAsyncTest13_MissingSpecialChar()
+        {
+            User user = new User
+            {
+                FirstName = "Roman",
+                LastName = "Kwiatkowski",
+                Email = "Roman.Kwiatkowski@example.com",
+                Role = "Customer",
+                Password = "Password1234",
+                PhoneNumber = "+48123456789",
+                CreatedAt = DateTime.UtcNow,
+            };
+            var result = await userManager.RegisterUserAsync(user);
+            Assert.Equal(UserRejestrationEnum.PASSWORD_MISSING_SPECIAL_CHAR, result);
+        }
+        
+        [Fact]
+        public async Task RegisterUserAsyncTest14_OnlyDigits()
         {
             User user = new User
             {
@@ -275,13 +292,13 @@ namespace Tests
                 CreatedAt = DateTime.UtcNow,
             };
             var result = await userManager.RegisterUserAsync(user);
-            Assert.Equal(UserRejestrationEnum.WEAK_PASSWORD, result);
+            Assert.Equal(UserRejestrationEnum.PASSWORD_MISSING_UPPERCASE, result);
         }
         #endregion
 
         #region InvalidEmailFormat
         [Fact]
-        public async Task RegisterUserAsyncTest14()
+        public async Task RegisterUserAsyncTest15()
         {
             User user = new User
             {
@@ -298,7 +315,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest15()
+        public async Task RegisterUserAsyncTest16()
         {
             User user = new User
             {
@@ -315,7 +332,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest16()
+        public async Task RegisterUserAsyncTest17()
         {
             User user = new User
             {
@@ -332,7 +349,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest17()
+        public async Task RegisterUserAsyncTest18()
         {
             User user = new User
             {
@@ -349,7 +366,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest18()
+        public async Task RegisterUserAsyncTest19()
         {
             User user = new User
             {
@@ -366,7 +383,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest19()
+        public async Task RegisterUserAsyncTest20()
         {
             User user = new User
             {
@@ -383,7 +400,7 @@ namespace Tests
         }
 
         [Fact]
-        public async Task RegisterUserAsyncTest20()
+        public async Task RegisterUserAsyncTest21()
         {
             User user = new User
             {
@@ -402,7 +419,7 @@ namespace Tests
 
         #region Good
         [Fact]
-        public async Task RegisterUserAsyncTest21()
+        public async Task RegisterUserAsyncTest22()
         {
             User user = new User
             {
