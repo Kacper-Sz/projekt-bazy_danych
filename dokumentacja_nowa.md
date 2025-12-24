@@ -62,11 +62,7 @@ Aplikacja ma umożliwić:
 
 ### 2.5 Testowanie
 - **xUnit** - framework do testów jednostkowych
-- **Moq** (opcjonalnie) - mockowanie zależności
 
-### 2.6 Infrastruktura
-- **Docker Compose** - orkiestracja kontenerów
-- **Git** - system kontroli wersji
 
 ---
 
@@ -82,7 +78,7 @@ Projekt został podzielony na trzy niezależne moduły zgodnie z zasadą separac
 │  - Views (XAML)                     │
 │  - Wrappers                         │
 └──────────────┬──────────────────────┘
-               │ (referencja)
+               │ 
                ▼
 ┌─────────────────────────────────────┐
 │   DLL - Warstwa Logiki Biznesowej   │
@@ -91,7 +87,7 @@ Projekt został podzielony na trzy niezależne moduły zgodnie z zasadą separac
 │  - Filtry i Sortowanie              │
 │  - Komunikacja z MongoDB            │
 └──────────────┬──────────────────────┘
-               │ (połączenie)
+               │ 
                ▼
 ┌─────────────────────────────────────┐
 │        MongoDB w Dockerze           │
@@ -113,7 +109,7 @@ Moduł stanowiący rdzeń aplikacji, zawiera:
 - **MongoDbManager** - inicjalizacja połączenia z bazą danych
 - **ShoppingCart** - logika koszyka zakupowego
 - **Managers:**
-  - `ProductManager` - operacje CRUD na produktach
+  - `ProductManager` - operacje na produktach
   - `UserManager` - rejestracja i logowanie
   - `OrderManager` - tworzenie i zarządzanie zamówieniami
 - **Models:** definicje struktur danych (Product, User, Order)
@@ -123,7 +119,7 @@ Moduł stanowiący rdzeń aplikacji, zawiera:
 **Lokalizacja:** `dll/Tests/`
 
 Kompleksowe testy jednostkowe wszystkich metod z biblioteki DLL:
-- `ProductManagerTest.cs` - 496 linii testów produktów
+- `ProductManagerTest.cs` - testy produktów
 - `OrderManagerTests.cs` - testy zarządzania zamówieniami
 - `UserManagerTests.cs` - testy uwierzytelniania
 - `ShoppingCartTest.cs` - testy koszyka
@@ -134,7 +130,7 @@ Kompleksowe testy jednostkowe wszystkich metod z biblioteki DLL:
 Wieloplatformowa aplikacja GUI w architekturze MVVM:
 - **ViewModels** - logika prezentacji
 - **Views** - interfejs użytkownika (XAML)
-- **Wrappers** - adaptory dla modeli DLL
+- **Wrappers** - adaptory dla modeli DLL - TO JAKOS DZIWNIE SIE NAZYWA SPRAWDZIC CZY NA PEWNO
 - **Sessions** - zarządzanie sesją użytkownika
 
 ---
@@ -360,8 +356,6 @@ public class MongoDbManager
 }
 ```
 
-Singleton pattern zapewniający jedno połączenie do bazy danych.
-
 ### 5.3 ProductManager
 
 **Główne metody:**
@@ -489,7 +483,7 @@ public static class ProductFilter
 ```
 
 **Zalety Extension Methods:**
-- Możliwość łączenia filtrów (fluent API)
+- Możliwość łączenia filtrów
 - Czytelny kod: `products.FilterByCategory("GPU").FilterByPriceRange(1000, 5000)`
 - Łatwość testowania
 
@@ -675,7 +669,7 @@ private async Task<bool> UpdateProductStock(Product product, int quantity)
 Wykorzystano **xUnit** do kompleksowego testowania wszystkich metod biblioteki DLL.
 
 **Statystyki testów:**
-- `ProductManagerTest.cs` - 496 linii
+- `ProductManagerTest.cs`
 - `OrderManagerTests.cs`
 - `UserManagerTests.cs`
 - `ShoppingCartTest.cs`
@@ -752,7 +746,7 @@ private readonly List<Product> productsList = new List<Product>
 
 ### 6.4 Pokrycie Testami
 Testy zapewniają:
-- Weryfikację poprawności operacji CRUD
+- Weryfikację poprawności operacji
 - Testowanie przypadków brzegowych
 - Walidację danych wejściowych
 - Sprawdzanie obsługi błędów
@@ -762,14 +756,7 @@ Testy zapewniają:
 
 ## 7. Aplikacja MAUI - Interfejs Użytkownika
 
-### 7.1 Architektura MVVM
-Aplikacja wykorzystuje wzorzec **Model-View-ViewModel**:
-
-```
-Views (XAML) ←→ ViewModels ←→ DLL (Models + Managers)
-```
-
-### 7.2 Kluczowe ViewModels
+### 7.1 Kluczowe ViewModels
 
 **LoginViewModel:**
 - Logowanie użytkowników
@@ -793,7 +780,7 @@ class AccountViewModel : BaseViewModel
 }
 ```
 
-### 7.3 BaseViewModel
+### 7.2 BaseViewModel
 ```csharp
 class BaseViewModel : INotifyPropertyChanged
 {
@@ -808,10 +795,10 @@ class BaseViewModel : INotifyPropertyChanged
 
 Implementacja **INotifyPropertyChanged** zapewnia automatyczne odświeżanie interfejsu przy zmianie danych.
 
-### 7.4 Session Management
+### 7.3 Session Management
 **Session.cs** - zarządzanie zalogowanym użytkownikiem:
 - Przechowywanie danych użytkownika
-- Sprawdzanie uprawnień (customer/admin)
+- Sprawdzanie uprawnień (customer/admin) TUTAJ NIE PAMIETAM CZY MAMY SPRAWDZANIE ADMINA GDZIEKOLIWEK
 - Wylogowywanie
 
 ---
@@ -978,6 +965,8 @@ volumes:
   mongo-data:
 ```
 
+TE PARAMETRY TEZX DOKALDNIE ZOBACZYC CZY NIE MA TU WYPISANYCH NIZEJ JAKICHS GLUPOT
+
 **Parametry:**
 - **Port 1500** - niestandardowy port (zamiast domyślnego 27017) unika konfliktów
 - **Wolumen persistent** - dane zachowywane między restartami kontenera
@@ -1040,31 +1029,11 @@ db.orders.insertMany(orders);
 print("Database seeded successfully!");
 ```
 
-### 9.3 Uruchomienie Systemu
+TU TEZ WARTO PRZEANALIZOWAC DOKALDNIE SKRYPT I KROTKO GO OPISAC CO JA KSIE DZIEDZE I PO CO
 
-**Krok 1 - Start bazy danych:**
-```bash
-cd database
-docker-compose up -d
-```
 
-**Krok 2 - Weryfikacja:**
-```bash
-docker ps
-# Powinien być widoczny kontener "projectShop"
 
-docker logs projectShop
-# Powinno być: "Database seeded successfully!"
-```
-
-**Krok 3 - Uruchomienie aplikacji:**
-```bash
-cd App
-dotnet build
-dotnet run
-```
-
-### 9.4 Zalety Automatyzacji
+### 9.3 Zalety Automatyzacji
 
  **Reprodukowalność** - każdy developer może uruchomić identyczne środowisko  
  **Szybkość** - baza gotowa w kilkadziesiąt sekund  
@@ -1073,6 +1042,10 @@ dotnet run
  **Łatwość resetowania** - `docker-compose down -v && docker-compose up -d`
 
 ---
+
+TUTAJ W OGOLE CHYBA TEN PUNKT 10 ALBO BYM CALKOWICIE ZMIENIL ALBO USUNAL BO TROCHE DZIWIENIE TAK NA SILE TO OPISYWAC
+TO MI COPILOT PODPOWIEDZIAL Z TYMI PROBLEMAMI I ROZWIAZANIAMI
+JA OSOBOBISCIE BYM TEGO W OGÓLE NIE DAWAL WIEC(CALEGO PKT 10) ~KACPER
 
 ## 10. Problemy i Rozwiązania
 
@@ -1203,9 +1176,14 @@ Wykorzystanie **Cloudinary** dla multimediów okazało się właściwą decyzją
 
 ## Załączniki
 
-# TUTAJ NIE WIEM CZY JEST TO POTRZEBNE JAK COS TO WUSUNAC
+TUTAJ NIE WIEM CZY JEST TO POTRZEBNE JAK COS TO WUSUNAC
+MOZNA TEORETYCZNIE DAC LINKI DO DOKUMENTACJI MONGODB C# DRIVERA I CLOUDINARY
+JA CHYBA TYLKO TO UZYWALEM
 
 ### A. Wymagania Systemowe
+
+TUTAJ TEZ NIE WIEM CZY PISAC TE YMAGANIA SYSTEMOWE
+BO TO JUZ TAKIE "BRANIE ARMATY NA WROBLA" JAK DLA MNIE
 
 **Do uruchomienia:**
 - Docker Desktop
@@ -1215,6 +1193,7 @@ Wykorzystanie **Cloudinary** dla multimediów okazało się właściwą decyzją
 **Połączenie:**
 - MongoDB: `localhost:1500`
 - Credentials: `root/password`
+
 
 ### B. Instrukcja Instalacji
 
@@ -1267,5 +1246,4 @@ DataManager.SetConnectionString(link);
 ---
 
 **Data utworzenia dokumentacji:** Grudzień 2025  
-**Wersja projektu:** 1.0  
 **Autorzy:** [Kacper Szulc oraz Michał Gołaszewski]
