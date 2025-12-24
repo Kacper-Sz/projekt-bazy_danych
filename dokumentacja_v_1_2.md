@@ -170,7 +170,7 @@ public class Product
 ```
 
 **Przykładowy dokument w bazie:**
-```json
+```js
 {
     _id: ObjectId('6931a62442ebb44d99ce5f49'),
     name: "PlayStation 5",
