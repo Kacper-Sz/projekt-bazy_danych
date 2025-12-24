@@ -15,7 +15,8 @@ namespace App
 
         private void ChangeConnectionString()
         {
-            DataManager.SetConnectionString("mongodb://root:password@192.168.1.15:1500/?authSource=admin");
+            string ip = "192.168.1.73";
+            DataManager.SetConnectionString($"mongodb://root:password@{ip}:1500/?authSource=admin");
         }
     }
 }
