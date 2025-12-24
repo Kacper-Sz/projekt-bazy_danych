@@ -186,7 +186,7 @@ public class Product
 ```
 
 **Decyzje projektowe:**
-- **imageUrl zamiast BLOB** - przechowywanie URL zamiast binarnych danych zdjęć znacząco optymalizuje wydajność bazy i zmniejsza rozmiar dokumentów
+- **użycie imageUrl** - przechowywanie URL zamiast binarnych danych zdjęć znacząco optymalizuje wydajność bazy i zmniejsza rozmiar dokumentów
 - **Dictionary<string, string> Specs** - elastyczna struktura pozwalająca na różne specyfikacje dla różnych kategorii produktów (np. CPU ma inne parametry niż monitor)
 
 ### 4.3 Kolekcja Users
@@ -500,7 +500,7 @@ orders.forEach(o => {
     }
 });
 
-// Inserting
+// Wstawienie danych do kolekcji
 db.products.insertMany(products);
 db.users.insertMany(users);
 db.orders.insertMany(orders);
@@ -541,11 +541,11 @@ print("Database seeded successfully!");
 
 ## Wnioski
 
-Projekt wykazał, że **MongoDB** jest doskonałym wyborem dla systemów e-commerce z elastycznym katalogiem produktów. Dokumentowa natura bazy pozwala na przechowywanie produktów o różnych specyfikacjach bez konieczności modyfikacji schematu.
+Projekt pokazuje, że **MongoDB** jest dobrym wyborem dla systemów e-commerce z elastycznym katalogiem produktów. Dokumentowa natura bazy pozwala na przechowywanie produktów o różnych specyfikacjach bez konieczności modyfikacji schematu.
 
 **Docker** znacząco upraszcza deployment i zapewnia spójność środowisk developerskich, co było kluczowe dla zespołowego developmentu.
 
-Wykorzystanie **Cloudinary** dla multimediów okazało się właściwą decyzją - odciążyło bazę danych i przyspieszyło ładowanie aplikacji.
+Wykorzystanie **Cloudinary** dla multimediów - odciąża bazę danych i przyspieszyła ładowanie aplikacji.
 
 **Architektura warstwowa** (DLL/Tests/App) zapewniła separację odpowiedzialności i ułatwiła testowanie oraz dalszy rozwój aplikacji.
 
