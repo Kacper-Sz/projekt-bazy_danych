@@ -173,14 +173,14 @@ public class Product
 ```json
 {
     _id: ObjectId('6931a62442ebb44d99ce5f49'),
-    name: 'PlayStation 5',
-    manufacturer: 'Sony',
-    category: 'Consoles',
+    name: "PlayStation 5",
+    manufacturer: "Sony",
+    category: "Consoles",
     price: Decimal128('2900'),
     stock: 5,
-    imageUrl: 'https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870539/10808d3f-bd2e-4e76-a090-c0f2989a61c5.png',
-    specs: { Storage: '1TB SSD', GPU: 'RDNA 2', RAM: '16GB GDDR6' },
-    description: 'Next-generation console with ray tracing support and fast SSD storage.',
+    imageUrl: "https://res.cloudinary.com/dv1nk0kbi/image/upload/v1764870539/10808d3f-bd2e-4e76-a090-c0f2989a61c5.png",
+    specs: { Storage: "1TB SSD", GPU: "RDNA 2", RAM: "16GB GDDR6" },
+    description: "Next-generation console with ray tracing support and fast SSD storage.",
     createdAt: ISODate('2025-11-23T12:00:00.000Z')
   }
 ```
