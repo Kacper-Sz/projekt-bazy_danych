@@ -3,7 +3,6 @@ Imię i nazwisko:	tu chyba kazdy tylko swoje
 Numer indeksu:		--,,--
 Temat projektu:		"Aplikacja sklepu internetowego specjalizującego się w artykułach elektronicznych"
 
-
 Wstawiamy:
 - App
 - database
