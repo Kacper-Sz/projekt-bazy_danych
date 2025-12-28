@@ -42,7 +42,6 @@ namespace dll.Products
             ImageUploadParams uploadParams = new ImageUploadParams()
             {
                 File = new FileDescription(imagePath),
-                //Folder = "projekt_bazy_danych"
             };
 
             ImageUploadResult uploadResult = await _cloudinary.UploadAsync(uploadParams);
@@ -66,14 +65,13 @@ namespace dll.Products
             && !string.IsNullOrEmpty(product.Category)
             && product.Price > 0
             && product.Price >= 0
-            && !string.IsNullOrEmpty(product.ImageUrl) // tutaj nie wiem czy nie zostawic zdj jako opcjonalne
+            && !string.IsNullOrEmpty(product.ImageUrl)
             && product.Specs != null && product.Specs.All(spec => !string.IsNullOrWhiteSpace(spec.Key) && !string.IsNullOrWhiteSpace(spec.Value))
             && !string.IsNullOrEmpty(product.Description)
             && product.CreatedAt != default;
 
         public async Task DeleteProductAsync(string id, string userRole)
         {
-            // tutaj tak samo jak nizej trzeba zostawic albo zmienic
             if (userRole != "admin")
                 throw new Exception("not admin");
 
@@ -81,7 +79,6 @@ namespace dll.Products
             if (item == null)
                 throw new Exception("item null");
 
-            //string publicId = item.ImageUrl.Split('/').Last().Split('.').First().ToString();
             string publicId = Path.GetFileNameWithoutExtension(item.ImageUrl);
 
             DeletionParams deletionParams = new DeletionParams(publicId);
@@ -92,7 +89,6 @@ namespace dll.Products
                 throw new Exception("Deletion failed");
             }
 
-            //await _products.DeleteOneAsync(id);
             await _products.DeleteOneAsync(p => p.Id == new ObjectId(id));
 
         }
@@ -112,49 +108,6 @@ namespace dll.Products
             return await _products.Distinct<string>("manufacturer", filter).ToListAsync();
         }
 
-        /* 
-        public async Task<List<Product>> GetProductsByCategory(string category) =>
-            await _products.Find(p => p.Category == category).ToListAsync();
-        
-        public async Task<List<Product>> GetProductsByManufacturer(string name) =>
-            await _products.Find(p => p.Manufacturer == name).ToListAsync();
-        
-
-        // mozna zrobic ze jak jest ponizej X to automatycznie doda sie promocja -15% 
-        public async Task<List<Product>> GetLowStockProductsAsync(int quantity = 10)
-        {
-            FilterDefinition<Product> filter = Builders<Product>.Filter.Lte(p => p.Stock, quantity);
-            return await _products.Find(filter).ToListAsync();
-        }
-        
-        public async Task<List<Product>> GetProductsByPriceRangeAsync(decimal min, decimal max)
-        {
-            FilterDefinition<Product> filter = Builders<Product>.Filter.And(
-                Builders<Product>.Filter.Gte(p => p.Price, min),
-                Builders<Product>.Filter.Lte(p => p.Price, max)
-            );
-
-            return await _products.Find(filter).ToListAsync();
-        }
-        
-        public async Task<List<Product>> SearchProductsAsync(string searchItem)
-        {
-            if (string.IsNullOrEmpty(searchItem))
-                throw new ArgumentException("Search cannot be empty");
-
-            FilterDefinition<Product> filter = Builders<Product>.Filter.Or(
-                // i to flaga do nie zwracania uwagi na wielkosc liter
-                Builders<Product>.Filter.Regex(p => p.Name, new BsonRegularExpression(searchItem, "i")),
-                Builders<Product>.Filter.Regex(p => p.Category, new BsonRegularExpression(searchItem, "i")),
-                Builders<Product>.Filter.Regex(p => p.Description, new BsonRegularExpression(searchItem, "i"))
-            );
-
-            return await _products.Find(filter).ToListAsync();
-        }
-        */
-
-        // albo zostawic tutaj userRole
-        // albo tu wywalic i w gui zrobic wyswietlanie przycisku zaleznie od flagi
         public async Task<ProductUpdateStockResult> UpdateStockAsync(string id, int newStock, string userRole)
         {
             try

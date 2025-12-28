@@ -40,13 +40,13 @@ namespace App.Views.Popups
             var result = new ProductFilterOptions();
 
 
-            if (CategoryPicker.SelectedIndex > 0) // 0 to "-- Wszystkie --"
+            if (CategoryPicker.SelectedIndex > 0) 
             {
                 result.Category = CategoryPicker.SelectedItem as string;
             }
 
 
-            if (ManufacturerPicker.SelectedIndex > 0) // 0 to "-- Wszyscy --"
+            if (ManufacturerPicker.SelectedIndex > 0)
             {
                 result.Manufacturer = ManufacturerPicker.SelectedItem as string;
             }

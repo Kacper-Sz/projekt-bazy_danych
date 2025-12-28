@@ -44,7 +44,6 @@ namespace App.ViewModels
                 "Data (malejąco)",
             };
 
-        // NOWE: źródła dla Pickerów
         public ObservableCollection<string> Categories { get; } = new();
         public ObservableCollection<string> Manufacturers { get; } = new();
 
@@ -85,7 +84,6 @@ namespace App.ViewModels
 
         private async Task OpenFilter(object? _)
         {
-            // Przekazujemy listy kategorii i producentów do popupu
             ProductFilterPopup popup = new ProductFilterPopup(Categories.ToList(), Manufacturers.ToList());
             object? filterOptions = await App.Current.MainPage.ShowPopupAsync(popup);
             if (filterOptions is ProductFilterOptions filters)
@@ -154,7 +152,6 @@ namespace App.ViewModels
             ProductManager productManager = new ProductManager();
             allProducts = await productManager.GetAllProductsAsync();
 
-            // NOWE: odśwież listy do pickerów (unikalne, posortowane)
             RefreshPickersSources();
 
             switch (SelectedSorting)

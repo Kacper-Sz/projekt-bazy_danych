@@ -16,7 +16,10 @@
 ## 1. Wprowadzenie
 
 ### 1.1 Przedmiot Projektu
-Projekt stanowi w pełni funkcjonalny sklep internetowy specjalizujący się w sprzedaży części komputerowych. System został zaprojektowany z myślą o elastycznym zarządzaniu produktami o zróżnicowanych specyfikacjach technicznych, kompleksowej obsłudze kont użytkowników oraz efektywnym procesowaniu zamówień.
+Tematyką projektu jest sklep internetowy specjalizujący się w sprzedaży
+artykułów elektronicznych. System został zaprojektowany z myślą
+o elastycznym zarządzaniu produktami o zróżnicowanych specyfikacjach
+technicznych, obsłudze kont użytkowników oraz procesowaniu zamówień. 
 
 ### 1.2 Cel Biznesowy
 Aplikacja ma umożliwić:
@@ -232,6 +235,9 @@ public class User
 - Wymagany znak specjalny
 
 **Walidacja emaila:** Regex: `^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$`
+Wyrażenie regularne sprawdza, czy adres e-mail ma poprawny format: 
+- część przed @ składa się z liter, cyfr, kropek i myślników
+- część po @ składa się z nazwy domeny kończącej się rozszerzeniemtypu .pl lub.com
 
 ### 4.4 Kolekcja Orders
 
@@ -551,15 +557,6 @@ Wykorzystanie **Cloudinary** dla multimediów - odciąża bazę danych i przyspi
 
 ---
 
-## Załączniki
-
-* https://learn.microsoft.com/en-us/dotnet/csharp/
-* https://learn.microsoft.com/en-us/dotnet/maui/
-* https://www.mongodb.com/docs/
-* https://www.mongodb.com/docs/drivers/csharp/current/
-* https://cloudinary.com/documentation/dotnet_quickstart
-* https://xunit.net/docs/getting-started/v2/getting-started
-
 ### A. Instrukcja instalacji
 
 ```bash
@@ -609,6 +606,15 @@ private void ChangeConnectionString()
 - Microsoft.Extensions.Logging.Debug
 
 ---
+
+## Załączniki
+
+* https://learn.microsoft.com/en-us/dotnet/csharp/
+* https://learn.microsoft.com/en-us/dotnet/maui/
+* https://www.mongodb.com/docs/
+* https://www.mongodb.com/docs/drivers/csharp/current/
+* https://cloudinary.com/documentation/dotnet_quickstart
+* https://xunit.net/docs/getting-started/v2/getting-started
 
 **Data utworzenia dokumentacji:** Grudzień 2025  
 **Autorzy:** [Kacper Szulc oraz Michał Gołaszewski]
