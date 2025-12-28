@@ -618,3 +618,5 @@ private void ChangeConnectionString()
 
 **Data utworzenia dokumentacji:** Grudzień 2025  
 **Autorzy:** [Kacper Szulc oraz Michał Gołaszewski]
+
+
